@@ -26,7 +26,7 @@
 <body class="text-center">
     <form id="opt" class="form-signin form-group" method="post" action="/exec">
         <label for="pwd">Let's go play party Games!!!</label>
-        <input placeholder="Futuramente vai virar um filtro de jogos" class="form-control" name="search" id="search"><br><br>
+        <input placeholder="Futuramente vai virar um filtro de jogos" class="form-control" name="q" id="q"><br><br>
         <button type="submit" name="arg" value="help.html" class="w-100 btn btn-lg btn-primary form-floating">Help</button><br><br>
         <button type="submit" name="arg" value="whoSpy.html" class="w-100 btn btn-lg btn-primary form-floating">Who is Spy?</button><br><br>
     </form>
@@ -36,7 +36,7 @@
 <script>
     function visibleButton(){
 	for (const iterator of $("#opt > button")) {
-		(iterator.innerHTML.indexOf($("search").value()) != -1) ? iterator.style.display='hide' : iterator.style.display='block';
+		(iterator.innerHTML.indexOf($("#q").value()) != -1) ? iterator.style.display='hide' : iterator.style.display='block';
 	}
     }
 	
@@ -46,8 +46,8 @@
 	
 	
 	
-    var previousValue = $("#search").val();
-    $("#search").keyup(function(e) {
+    var previousValue = $("#q").val();
+    $("#q").keyup(function(e) {
 	    var currentValue = $(this).val();
 	    if(currentValue != previousValue) {
 		    previousValue = currentValue;
