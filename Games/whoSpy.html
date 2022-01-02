@@ -41,64 +41,41 @@
 
     <script>
         // Opções possíveis
-        function result(){
+        function result(shift=0,key){
             let locate = ["Escola","Hospital","Farmácia","Faculdade","Cruzeiro","Cinema","Zoológico","Padaria","Supermercado","Praia","Casamento","Museu","Teatro","Dentista","Clube","Hospício"]
-            return locate
+            let vet = locale.slice(shift, locale.length+1).concat(locale.slice(0, shift))
+            return vet[key%vet.length]
         }
 
         // Cria uma nova Chave
-        function newKey(cod, maxInt){
+        function newKey(cod, maxPlayer){
             // Divide a chave em duas partes
             let key1str = ""
             let key2str = ""
             for (let index = 0; index < cod.length; index++) {
-                (index % 2 == true) ? key1str += cod[index] : key2str += cod[index] 
+                (index % 2 ) ? key1str += cod[index] : key2str += cod[index] 
             }
             // Transforma cada parte da chave em um inteiro
-            let key1int = strSum(key1str) 
-            let key2int = strSum(key2str)
-            // Faz um hash e cria 2 novas chaves 
-            let key1 = (((key1int*31)>>3))%(maxInt)
-            console.log([key2int*31,GLOBAL_VAR['max'], ((key2int*   31))%(GLOBAL_VAR['max']) , ((key2int*31))%(GLOBAL_VAR['max'])+1])
-            let key2 = (((key2int*31))%(GLOBAL_VAR['max']))+1
+            let key1 = strSum(key1str) // local
+            let key2 = strSum(key2str) // espião
+            //Delimitando chaves
             return [key1, key2]
         }
 
         // Faz um sumAcc da string
         function strSum(string){
             let sum = 0
-            for (let i = 0; i < string.length; i++) {
-                sum += string.charCodeAt(i)
+            let vet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","4","5","6","7","8","9"]
+            for (let i = string.length-1; i >= 0; i--) {
+                let base = vet.indexOf(string[i])
+                if(base == -1){base=0}
+                let pot = (vet.length)**((string.length-1)-i)
+                sum += (base**pot);
             }
             return sum
         }
 
-        // retorna uma lista Embaralhada
-        function shuffle(key){
-            // Função de Embaralhamento
-            let _shuffle = (x, y) => {
-                // Função de Comparação
-                let compare = (x,y)=>{
-                    if (x<y) {return -1;}
-                    if (x>y) {return 1;}
-                    return 0;
-                }
-                let _hash = (x)=>{return ((((strSum(x))*2)>>2)^key)%2}
-                let newKey = strSum(""+key)
-                x = _hash(x[0][0])
-                y = _hash(y[0][0])
-                return compare(x,y)
-            }
-            let specification = result() // um vetor com todas as opçoes possíveis
-            let nIteracoes = strSum( "" +  key[0] + key[1] )%31 // Define o numero de iterações de [0~31] iterações
-            for(let i = 0; i < nIteracoes ; i++) { // Faz n iterações
-                specification.sort(_shuffle)
-            }
-            return specification
-        }
-
     function isSpy(key){
-        
         number = GLOBAL_VAR['id']
         max = GLOBAL_VAR['max']
         return ((key % max)+1) == number
@@ -106,13 +83,11 @@
         
     function init(){
         let cod = document.getElementById("cod").value.toLowerCase() // Pega o Codigo em lowerCase
-        let key = newKey(cod, result().length) // Gera uma chave
-        console.log(key)
+        let key = newKey(cod) // Gera duas chaves
         if( isSpy(key[1])){
             escreve("Você é O Espião")
         }else {
-            let locales = shuffle(key) // Embaralha as opçoes
-            escreve("Você esta no(a) "+locales[key[0]])
+            escreve("Você esta no(a) "+result(GLOBAL_VAR['max'],key[0]))
         }
         
     }
