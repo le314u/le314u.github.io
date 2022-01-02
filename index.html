@@ -36,8 +36,9 @@
 <script>
     $("#opt").submit((e)=>{
         e.preventDefault();
-        console.log(e)
-        //window.location.pathname = "Games"+e.value;
-    });
+        window.location.pathname = "Games"+e.originalEvent.submitter.attributes.value.value;
+    }
+                     
+    // Filtro
 </script>
 </html>
