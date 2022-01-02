@@ -34,22 +34,31 @@
 
 </body>
 <script>
+    function visibleButton(){
+	for (const iterator of $("#opt > button")) {
+		(iterator.innerHTML.indexOf($(q).html().innerHTML) != -1) ? iterator.style.display='hide' : iterator.style.display='block';
+	}
+    }
+	
+    function goTo(subPath){
+	window.location.pathname = "Games"+subPath
+    }
+	
+	
+	
     var previousValue = $("#q").val();
     $("#q").keyup(function(e) {
 	    var currentValue = $(this).val();
 	    if(currentValue != previousValue) {
 		    previousValue = currentValue;
-		    for (const iterator of $("#opt > button")) {
-		    	(iterator.innerHTML.indexOf($(q).html().innerHTML) != -1) ? iterator.style.display='hide' : iterator.style.display='block';
-		    }
+		    visibleButton()
 	    }
     });
 
     $("#opt").submit((e)=>{
         e.preventDefault();
-        window.location.pathname = "Games"+e.originalEvent.submitter.attributes.value.value;
+        goTo(e.originalEvent.submitter.attributes.value.value)
     }
-                     
-    // Filtro
+             
 </script>
 </html>
