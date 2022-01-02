@@ -26,7 +26,8 @@
 <body class="text-center">
     <form id="opt" class="form-signin form-group" method="post" action="/exec">
         <label for="pwd">Let's go play party Games!!!</label>
-        <input placehold="Futuramente vai virar um filtro de jogos" class="form-control" name="pwd" id="pwd"><br><br>
+        <input placeholder="Futuramente vai virar um filtro de jogos" class="form-control" name="pwd" id="pwd"><br><br>
+        <button type="submit" name="arg" value="help.html" class="w-100 btn btn-lg btn-primary form-floating">Help</button><br><br>
         <button type="submit" name="arg" value="whoSpy.html" class="w-100 btn btn-lg btn-primary form-floating">Who is Spy?</button><br><br>
     </form>
     <div id="resp"></div>
@@ -36,7 +37,7 @@
     $("#opt").submit((e)=>{
         e.preventDefault();
         console.log(e)
-        window.location.pathname = "Games"+e.value;
+        //window.location.pathname = "Games"+e.value;
     });
 </script>
 </html>
