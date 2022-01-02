@@ -40,7 +40,7 @@
 	    if(currentValue != previousValue) {
 		    previousValue = currentValue;
 		    for (const iterator of $("#opt > button")) {
-		    	(iterator.innerHTML.indexOf($(q).html().innerHTML) != -1) ? iterator.css("display","hide") : iterator.css("display","none")
+		    	(iterator.innerHTML.indexOf($(q).html().innerHTML) != -1) ? iterator.style.display='hide' : iterator.style.display='block';
 		    }
 	    }
     });
