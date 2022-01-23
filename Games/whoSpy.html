@@ -43,7 +43,7 @@
         // Opções possíveis
         function result(shift=0,key){
             let locate = ["Escola","Hospital","Farmácia","Faculdade","Cruzeiro","Cinema","Zoológico","Padaria","Supermercado","Praia","Casamento","Museu","Teatro","Dentista","Clube","Hospício"]
-            let vet = locale.slice(shift, locale.length+1).concat(locale.slice(0, shift))
+            let vet = locate.slice(shift, locate.length+1).concat(locate.slice(0, shift))
             return vet[key%vet.length]
         }
 
