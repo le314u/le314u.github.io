@@ -64,10 +64,6 @@ function local(key){
 
 
 
-
-
-
-
 const key = document.getElementById('key');
 const oldKey = document.getElementById('oldKey');
 
@@ -96,6 +92,7 @@ key.addEventListener('input',(event)=>{
 
 
 let toggleable = true;
+let time = 5000; // 5000 milissegundos = 5 segundos
 function toggleElements() {
     const editable = document.getElementById('editable');
     const result = document.getElementById('result');
@@ -110,7 +107,7 @@ function toggleElements() {
             editable.classList.toggle('collapse');
             result.classList.toggle('collapse');
             toggleable = true;
-        }, 5000); // 5000 milissegundos = 5 segundos
+        }, time);
     }
 
     
