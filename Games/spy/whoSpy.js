@@ -81,7 +81,6 @@ function toggleElements() {
             toggleable = true;
         }, time);
     }
-   
 }
 
 
