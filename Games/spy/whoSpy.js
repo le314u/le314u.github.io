@@ -89,8 +89,30 @@ function replace(event) {
 key.addEventListener('input',(event)=>{
     replace(event);
     const key = document.getElementById('key').value.toString()
-    document.getElementById("oldKey").innerHTML="Key:"+key+" -> "+hash(key) +" -| "+createKey(key)
+    document.getElementById("oldKey").innerHTML="Key:"+key+" -> "+hash(key)
     result( createKey(key) )
 
 })
 
+
+let toggleable = true;
+function toggleElements() {
+    const editable = document.getElementById('editable');
+    const result = document.getElementById('result');
+    if(toggleable){
+        // Alternar as classes para mostrar ou ocultar os elementos
+        editable.classList.toggle('collapse');
+        result.classList.toggle('collapse');
+
+    
+        toggleable=false;
+        setTimeout(function() {
+            editable.classList.toggle('collapse');
+            result.classList.toggle('collapse');
+            toggleable = true;
+        }, 5000); // 5000 milissegundos = 5 segundos
+    }
+
+    
+   
+}
