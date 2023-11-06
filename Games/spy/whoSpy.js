@@ -24,7 +24,6 @@ function hash(string) {
     return sum;
 }
 
-
 // Cria uma nova Chave
 function createKey(cod){
     // Divide a chave em duas partes
@@ -36,7 +35,6 @@ function createKey(cod){
     let [keyHash_1, keyHash_2] = [hash(key_1), hash(key_2)] 
     return [keyHash_1, keyHash_2]
 }
-
 
 //Mostra na Tela
 function result(keys){
@@ -60,8 +58,31 @@ function local(key){
     let array = shiftedArray(locate,key)
     return array[0]
 }
+/////////////////////////////////
+//MANIPULAÇÃO PAGINA
+/////////////////////////////////
 
 
+let toggleable = true;
+let time = 5000; // 5000 milissegundos = 5 segundos
+function toggleElements() {
+    const editable = document.getElementById('editable');
+    const result = document.getElementById('result');
+    if(toggleable){
+        // Alternar as classes para mostrar ou ocultar os elementos
+        editable.classList.toggle('collapse');
+        result.classList.toggle('collapse');
+
+    
+        toggleable=false;
+        setTimeout(function() {
+            editable.classList.toggle('collapse');
+            result.classList.toggle('collapse');
+            toggleable = true;
+        }, time);
+    }
+   
+}
 
 
 const key = document.getElementById('key');
@@ -91,25 +112,3 @@ key.addEventListener('input',(event)=>{
 })
 
 
-let toggleable = true;
-let time = 5000; // 5000 milissegundos = 5 segundos
-function toggleElements() {
-    const editable = document.getElementById('editable');
-    const result = document.getElementById('result');
-    if(toggleable){
-        // Alternar as classes para mostrar ou ocultar os elementos
-        editable.classList.toggle('collapse');
-        result.classList.toggle('collapse');
-
-    
-        toggleable=false;
-        setTimeout(function() {
-            editable.classList.toggle('collapse');
-            result.classList.toggle('collapse');
-            toggleable = true;
-        }, time);
-    }
-
-    
-   
-}
