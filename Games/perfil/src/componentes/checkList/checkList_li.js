@@ -8,8 +8,8 @@ function CheckList_li(props){
   };
 
   return (
-    <li 
-      className={"list-group-item" + (isChecked ? ' active' : '')}
+    <li
+      className={"pt-3 list-group-item" + (isChecked ? ' active' : '')}
       onClick={toggleCheckbox}
       data-bs-toggle="list"
       role="button"

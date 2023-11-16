@@ -19,18 +19,23 @@ class Tabuleiro{
     currentPlayer(){
         return this.players[this.playerID]
     }
-
+    //Retorna o numero de dicas disponiveis
+    getNumberTips(){
+        return this.qtdPerguntas
+    }
     //Passa para a proxima Dica
     nextDica(){
         this.qtdPerguntas = this.qtdPerguntas+1;
-        if(this.qtdPerguntas > 5){
-            this.qtdPerguntas = 1;
-        }
     }
 
     //Le a pergunta atual da carta
     readCard(){
         return this.card.getPergunta(this.qtdPerguntas)
+    }
+
+    //Retorna a carta
+    getCard(){
+        return this.card
     }
 
     //Define a Quantidade Maxima de Pontos
@@ -44,11 +49,12 @@ class Tabuleiro{
     }
 
     //Pega a proxima carta
-    proximaCarta(){
+    nextCard(){
+        console.log(this.qtdPerguntas)
         this.deck_mont.removeCard(this.card.getId())
         this.deck_discard.addCard(this.card)
         this.card = this.deck_mont.getCard()
-        this.qtdPergunta = 1
+        this.qtdPerguntas = 1
     }
 
     //Possivel pontuação
@@ -58,10 +64,10 @@ class Tabuleiro{
 
     //Procedimento caso tenha acertado a pergunta
     acertou(){
-        let player = currentPlayer()
+        let player = this.currentPlayer()
         player.addPontos( this.currentpoints() )
         this.nextPlayer()
-        this.proximaCarta()
+        this.nextCard()
     }
 
     //Procedimento caso tenha errado a pergunta
@@ -70,7 +76,7 @@ class Tabuleiro{
         this.nextDica()
         if(this.qtdPerguntas > 5 ){
             this.qtdPerguntas = 1
-            this.proximaCarta()
+            this.nextCard()
         }
     }
 }

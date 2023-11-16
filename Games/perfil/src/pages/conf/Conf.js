@@ -63,7 +63,7 @@ function Conf() {
  
 
   return (
-      <div className="container-sm" role="document">
+      <div  className="container d-flex align-items-center justify-content-center vh-100" role="document">
         <div className="container-fluid d-flex justify-content-center align-items-center">
           <div className="modal-content rounded-4 shadow">
 
@@ -77,9 +77,7 @@ function Conf() {
 
       
             <div className="p-5 pt-0">
-            
               <div id="names" ref={names}>
-
                 {/*Primeiro Nome*/}
                 <div className="row align-items-center">
                   <div className="col">
@@ -99,7 +97,6 @@ function Conf() {
               </div>
                     
               <InputFiltered id="maxPoints" onChange={handleChange} placeholder="100" label="maxPoints" arrayFilter="0123456789" maxLength="4"/>
-                
               <CheckList.ul>
                 <CheckList.li> Tema : 1 </CheckList.li> 
                 <CheckList.li> Tema : 2 </CheckList.li> 
@@ -108,9 +105,10 @@ function Conf() {
 
             </div>
 
-
-            <div className="p-5 form-floating mb-3">
-              <input id="start" type="button" className="btn btn-primary form-control rounded-3  " value="Start" / >
+            <div className="p-2 form-floating mb-3">
+              <Link to="/play">
+                <button id="start" type="button" className="btn btn-primary form-control rounded-3 p-3" data-bs-dismiss="modal" aria-label="Start">Play</button>
+              </Link>
             </div>
 
           </div>
