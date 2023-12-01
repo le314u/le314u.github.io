@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://le314u.github.io/Games/perfil/dist/",
+  "homepage": "https://le314u.github.io/Games/perfil/dist",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

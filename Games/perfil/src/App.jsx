@@ -8,7 +8,7 @@ import Play from './pages/play/Play';
 const App = () => {
   return (
     <Routes>
-        <Route index  element={<Home/>} />
+        <Route path="/"  element={<Home/>} />
         <Route path="/conf" element={<Conf/>} />
         <Route path="/play" element={<Play/>} />
     </Routes>
