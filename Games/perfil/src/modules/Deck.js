@@ -1,4 +1,4 @@
-const Card = require('./Card.js'); // Importa o arquivo exemplo.js
+import Card from './Card.js';
 
 class Deck{
     constructor(cards){

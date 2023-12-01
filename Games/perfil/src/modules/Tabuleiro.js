@@ -1,8 +1,7 @@
-const Card = require('./Card.js'); 
-const Deck = require('./Deck.js'); 
-const Player = require('./Player.js'); 
-const Ranking = require('./Ranking.js'); 
-
+import Card from'./Card.js';
+import Deck from'./Deck.js';
+import Player from'./Player.js';
+import Ranking from'./Ranking.js';
 
 class Tabuleiro{
     constructor(players,deck){
