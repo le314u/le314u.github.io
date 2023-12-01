@@ -81,4 +81,4 @@ class Tabuleiro{
     }
 }
 
-export default Tabuleiro
+module.exports = Tabuleiro

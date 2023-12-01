@@ -22,4 +22,4 @@ class Ranking{
 
 }
 
-export default Ranking;
+module.exports = Ranking;

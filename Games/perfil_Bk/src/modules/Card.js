@@ -36,4 +36,4 @@ class Card{
 
 }
 
-export default Card;
+module.exports = Card;
