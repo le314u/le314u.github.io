@@ -49,7 +49,6 @@ class Tabuleiro{
 
     //Pega a proxima carta
     nextCard(){
-        console.log(this.qtdPerguntas)
         this.deck_mont.removeCard(this.card.getId())
         this.deck_discard.addCard(this.card)
         this.card = this.deck_mont.getCard()

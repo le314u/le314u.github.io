@@ -67,7 +67,6 @@ function handleAcertou(setCard,setQtd){
 function handleErrou(setCard,setQtd){
     return ()=>{
         tabuleiro.errou()
-        console.log(tabuleiro.getCard())
         setQtd(tabuleiro.getNumberTips())
         setCard(tabuleiro.getCard())
     }
