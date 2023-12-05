@@ -1,5 +1,6 @@
 import React, { useRef, useState,useEffect } from 'react';
 import Card from '../../componentes/card/card.jsx'
+import Button from '../../componentes/button/button.jsx'
 import InputFiltered from '../../componentes/input/input.jsx'
 import {PlusIcon,DashIcon,CheckIcon,XIcon } from '@primer/octicons-react';
 import GAME from './hook.jsx'
@@ -10,13 +11,6 @@ const vh_80={
   height:" 80vh"
 }
 
-const R = {
-  backgroundColor: '#F00', // Substitua '#aabbcc' pelo seu código de cor HEX desejado
-};
-
-const G = {
-  backgroundColor: '#0F0', // Substitua '#aabbcc' pelo seu código de cor HEX desejado
-};
 
 const estiloCustomizado = {
   maxWidth: '600px', // Defina o valor desejado para a largura máxima
@@ -61,8 +55,8 @@ function Play() {
         
         
         <div id='play_controller vh-75' className='container d-flex align-items-center justify-content-evenly' style={estiloCustomizado}>
-          <div ref={wrong} onClick={ ()=>{cardRef.current.wrong();game.errou()} } role='button' className="d-flex p-4 rounded-3" style={R}><XIcon size={24}/>Errou </div>
-          <div ref={correct} onClick={ ()=>{cardRef.current.correct();game.acertou()}} role='button' className="d-flex p-4 rounded-3" style={G}><CheckIcon size={24}/>Acertou</div> 
+          <Button buttonColor="345deg" ref={wrong} onClick={ ()=>{cardRef.current.wrong();game.errou()}} ><XIcon size={24}/>Errou </Button>
+          <Button buttonColor="145deg" ref={correct} onClick={ ()=>{cardRef.current.correct();game.acertou()}}  ><CheckIcon size={24}/>Acertou</Button> 
         </div>
       </div>
   );
