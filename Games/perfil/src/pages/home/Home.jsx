@@ -14,6 +14,11 @@ const vh_75 = {
   height: "100vh",
 };
 
+if(sessionStorage.getItem("name_0") == null){
+  sessionStorage.setItem("name_0","guest")
+}
+
+
 const Home = () => {
   return (
     <>
