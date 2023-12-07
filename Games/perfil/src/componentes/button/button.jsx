@@ -9,7 +9,7 @@ function Button(props){
     
     return (
         <div onClick={props.onClick} style={buttonStyle}>
-            <button className="button-pushable" role="button">
+            <button style={props.minWidth ? { minWidth: '500px' } : {}} className="button-pushable" role="button">
             <span className="button-shadow"></span>
             <span className="button-edge"></span>
             <span className="button-front text">

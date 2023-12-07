@@ -1,17 +1,36 @@
 // PopupPage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../../componentes/button/button.jsx'
+
+
+const vh_75 = {
+  width: "100vw",
+  margin: "0",
+  display: "flex",
+  flexDirection: "column", // Alterado para exibir os elementos em coluna
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100vh",
+};
 
 const Home = () => {
   return (
-    <div >      
-      <Link to="/conf">
-        <button id="start" type="button" className="btn btn-primary form-control rounded-3 p-3 my-5" data-bs-dismiss="modal" aria-label="Start">Start</button>
-        <button id="conf" type="button" className="btn btn-primary form-control rounded-3 p-3 my-5" data-bs-dismiss="modal" aria-label="Configurar">Configurar</button>
-      </Link>
-    </div>
+    <>
+      <div style={vh_75} >      
+        <Link to="/play">
+            <Button minWidth="300px" id="start" className="p-3 my-3"  buttonColor="345deg" >Start </Button>
+        </Link>
+        <div style={{ margin: '10px' }} ></div>
+        <Link to="/conf">
+            <Button minWidth="300px" id="conf"  className="p-3 my-3" buttonColor="345deg" >Configurar </Button>
+        </Link>
+      </div>
+    </>
   );
 };
+
+
 
 export default Home;
 
