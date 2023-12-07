@@ -1,84 +1,74 @@
-'use strict';
+import Modal from 'react-modal';
+import React, { useRef, useState,useEffect } from 'react';
+import {ListOrderedIcon,CheckIcon,XIcon } from '@primer/octicons-react';
+
+const PopupComponent = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const modalStyles = {
+    content: {
+      maxWidth: "800px",  // Defina o tamanho máximo desejado
+      margin: "auto",     // Centralize o modal horizontalmente
+    },
+  };
 
 
-    class LikeButton extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = { liked: false };
-      }
-
-      render() {
-
-        return React.createElement(
-          <div>              
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"></div>
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasExampleLabel">Ranking</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-
-            <div class="offcanvas-body">
-              <ul id="ranking" class="list-group">
-                <li class="list-group-item active" data-bs-toggle="list" role="button">An item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A second item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A third item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A fourth item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">And a fifth one</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">An item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A second item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A third item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A fourth item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">And a fifth one</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">An item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A second item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A third item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A fourth item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">And a fifth one</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">An item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A second item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A third item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A fourth item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">And a fifth one</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">An item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A second item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A third item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A fourth item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">And a fifth one</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">An item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A second item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A third item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A fourth item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">And a fifth one</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">An item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A second item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A third item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">A fourth item</li>
-                <li class="list-group-item" data-bs-toggle="list" role="button">And a fifth one</li>
-              </ul>
-            </div>
-          </div>
-        );
-      }
+  let list = []
+  let keys = Object.keys(sessionStorage)
+  keys.forEach((key, index, array) => {
+    if(key.startsWith("name_")){
+      let name = sessionStorage.getItem(key)
+      console.log(name)
+      let point = 0
+      list.push( <li  key={name} className="list-group-item" data-bs-toggle="list" role="button">{point} - {name}</li> )
     }
+  })
+  
+  const content = (
+      <div>         
+        <div className="offcanvas-body">
+          <ul id="ranking" className="list-group">
+            {list}
+          </ul>
+        </div>
+      </div>
+    )
 
 
+  const button = (
+    <div role="button" onClick={openModal} >
+      <ListOrderedIcon size={32} ></ListOrderedIcon>
+    </div>
+  )
 
+  return (
+    <>
+      {button}
+      <Modal style={modalStyles}
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel={content}
+      >
+        
+        <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"></div>
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasExampleLabel">Ranking</h5>
+          <button onClick={closeModal}  type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
 
+        {content}
+      </Modal>
+    </>
+  )
+}
 
-
-
-
-
-
-
-
-
-  const e = React.createElement;
-  const domContainer = document.querySelector('#like_button_container');
-  const root = ReactDOM.createRoot(domContainer);
-  root.render(e(LikeButton));
-
-
-
-
+export default  PopupComponent;
 

@@ -9,10 +9,10 @@ function Button(props){
     
     return (
         <div onClick={props.onClick} style={buttonStyle}>
-            <button class="button-pushable" role="button">
-            <span class="button-shadow"></span>
-            <span class="button-edge"></span>
-            <span class="button-front text">
+            <button className="button-pushable" role="button">
+            <span className="button-shadow"></span>
+            <span className="button-edge"></span>
+            <span className="button-front text">
                 {props.children}
             </span>
             </button>

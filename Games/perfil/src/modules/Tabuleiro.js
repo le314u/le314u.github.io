@@ -4,8 +4,8 @@ import Player from'./Player.js';
 import Ranking from'./Ranking.js';
 
 class Tabuleiro{
-    constructor(players,deck){
-        this.maxPontos = 100;
+    constructor(players,deck,maxPontos){
+        this.maxPontos = maxPontos;
         this.qtdPerguntas = 1;
         this.players = players;
         this.playerID = 0;

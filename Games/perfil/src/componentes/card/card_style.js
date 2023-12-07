@@ -31,7 +31,7 @@ function correct({myIcon,myBox}){
     myIcon.current.animate([
       { transform: ' translateX(0) scale(0.3) rotate(-45deg)'},
       { transform: ' translateX(56px) scale(1) rotate(0deg)'},
-      { filter: 'dropShadow(106px 106px 200px red)'},
+      { filter: 'drop-shadow(16px 16px 50px black)'},
       { transform: ' translateX(56px) scale(1) rotate(0deg)'},
       { transform: ' translateX(0px) scale(0.3) rotate(-45deg)'},
     ], {

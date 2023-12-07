@@ -36,4 +36,18 @@ class Card{
 
 }
 
-export default Card;
+class buildCard{
+
+    constructor(){
+        this.id = 0;
+    }
+
+    build( resposta, p1, p2, p3, p4, p5){
+        this.id = this.id + 1
+        const card = new Card(this.id, resposta, p1, p2, p3, p4, p5)
+        return card
+    }
+
+}
+
+export default buildCard;
