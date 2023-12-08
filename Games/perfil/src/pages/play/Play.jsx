@@ -27,17 +27,19 @@ function Play() {
 
 
   useEffect(()=>{
+    console.log("Chama")
     setCard(game.getCard())
   },[])
 
-  let namePlayer = game.player().getName()
-  let colorPlayer = game.player().getColor()
 
+  let players = game.tabuleiro.players
+  let namePlayer = game.player().getNome()
+  let colorPlayer = game.player().getCor()
 
   return (
     
       <div className="vh-100" role="document">
-        <div className="modal-header p-5 pb-4 border-bottom-0"><div></div><PopupComponent></PopupComponent></div>
+        <div className="modal-header p-5 pb-4 border-bottom-0"><div></div><PopupComponent players={players} ></PopupComponent></div>
         <div  className="container d-flex align-items-center justify-content-center" style={vh_75} >
           {card ?(
           <Card ref={cardRef}

@@ -93,7 +93,7 @@ function handleErrou(setCard,setQtd,tabuleiro){
 
 
 
-function getPlayer(){
+function getPlayers(){
     let players = []
     let nameKeys = Object.keys(sessionStorage)
     nameKeys.forEach((key, index, array) => {
@@ -114,7 +114,9 @@ function getDeck(){
 
 
 const GAME = (setCard,setQtd)=>{
-    let tabuleiro = new Tabuleiro( getPlayer(), getDeck(), sessionStorage.getItem("maxPoints"))
+    let players = getPlayers();
+    let deck =  getDeck()
+    let tabuleiro = new Tabuleiro(players, deck, sessionStorage.getItem("maxPoints"))
 
     return {
         acertou: handleAcertou(setCard,setQtd,tabuleiro),
@@ -123,7 +125,8 @@ const GAME = (setCard,setQtd)=>{
         next: tabuleiro.nextDica.bind(tabuleiro),
         getCard: tabuleiro.getCard.bind(tabuleiro),
         readCard: tabuleiro.readCard.bind(tabuleiro),
-        enabledTips: tabuleiro.getNumberTips.bind(tabuleiro)
+        enabledTips: tabuleiro.getNumberTips.bind(tabuleiro),
+        tabuleiro:tabuleiro
     }
 
 }

@@ -33,8 +33,8 @@ function Conf() {
 
   function delName(key){
     return ()=>{
-      const config = nameFields.filter(item=>item.key !== key)
-      setNameFields(config)
+      const otherNames = nameFields.filter(item=>item.key !== key)
+      setNameFields(otherNames)
     }
   }
 
@@ -56,9 +56,6 @@ function Conf() {
     alterarValor(e.id, e.value)
   };
 
-  useEffect(() => {
-  },nameFields)
- 
 
   return (
       <div  className="container d-flex align-items-center justify-content-center vh-100" role="document">
@@ -89,7 +86,7 @@ function Conf() {
                 {/*Nomes adicionados dinamicamente*/}
                 {
                   nameFields.map((e, _) => {
-                    return <>{createInput(e.key,e.data)}</>
+                    return <div key={e.key}>{createInput(e.key,e.data)}</div>
                   })
                 }
               </div>

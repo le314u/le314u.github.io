@@ -2,8 +2,16 @@ import Modal from 'react-modal';
 import React, { useRef, useState,useEffect } from 'react';
 import {ListOrderedIcon,CheckIcon,XIcon } from '@primer/octicons-react';
 
-const PopupComponent = () => {
+function  playersOrdenados(players){
+  let ordenedPlayers = [...players]
+  ordenedPlayers.sort((a, b) => b.getPontos() - a.getPontos());
+  return ordenedPlayers
+}
+
+const PopupComponent = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [players,setPlayers] = useState(props.players);
+  
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -22,21 +30,19 @@ const PopupComponent = () => {
 
 
   let list = []
-  let keys = Object.keys(sessionStorage)
-  keys.forEach((key, index, array) => {
-    if(key.startsWith("name_")){
-      let name = sessionStorage.getItem(key)
-      console.log(name)
-      let point = 0
-      list.push( <li  key={name} className="list-group-item" data-bs-toggle="list" role="button">{point} - {name}</li> )
-    }
+  playersOrdenados(players).forEach((player, index, array) => {
+    let name = player.getNome()
+    let point = player.getPontos()
+    list.push( <li  key={name} className="list-group-item" data-bs-toggle="list" role="button">{point} - {name}</li> )
   })
   
-  const content = (
+  let content = (
       <div>         
         <div className="offcanvas-body">
           <ul id="ranking" className="list-group">
-            {list}
+          {list.map((element, index) => (
+            element
+          ))}
           </ul>
         </div>
       </div>
@@ -55,7 +61,7 @@ const PopupComponent = () => {
       <Modal style={modalStyles}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        contentLabel={content}
+        ariaHideApp={false}
       >
         
         <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"></div>

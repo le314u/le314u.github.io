@@ -5,4 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/Games/perfil/dist', // ou '/Games/perfil/dist/' se necessário
   plugins: [react()],
+  build: {
+    minify: 'terser', // Use 'esbuild' para esbuild minifier
+  },
 })

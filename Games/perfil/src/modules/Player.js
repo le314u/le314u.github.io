@@ -6,11 +6,11 @@ class Player{
         this.color = randomRGB()
     }
     
-    getColor(){
+    getCor(){
         return this.color;
     }
     
-    getName(){
+    getNome(){
         return this.nome;
     }
 
