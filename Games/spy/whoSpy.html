@@ -8,7 +8,28 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </head>
+    <style>
+    .button-like {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 2px solid #3498db; /* Cor da borda do botão */
+        color: #3498db; /* Cor do texto do botão */
+        border-radius: 5px; /* Borda arredondada */
+        transition: background-color 0.3s ease;
+    }
+
+    .button-like:hover {
+        background-color: #3498db; /* Mudar a cor de fundo ao passar o mouse */
+        color: #fff; /* Mudar a cor do texto ao passar o mouse */
+    }
+
+    </style>
+</head>
 
 <body>
     <div class="container-sm" role="document">
@@ -16,9 +37,8 @@
 
             <div class="modal-content rounded-4 shadow">
                 <div class="modal-header p-5 pb-4 border-bottom-0">
-                    <h1 class="fw-bold mb-0 fs-2" role="button" onclick="toggleElements()">Who is Spy?</h1>
+                    <h1 class="fw-bold mb-0 fs-2 button-like" role="button" onclick="toggleElements()">Who is Spy?</h1>
                 </div>
-
                 <div class="modal-body p-5 pt-0">
                     <div id="editable" class="form-floating mb-3">
                         <input id="key" class="form-control text-center rounded-6" value="">
