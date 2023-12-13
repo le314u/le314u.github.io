@@ -68,17 +68,26 @@ let time = 5000; // 5000 milissegundos = 5 segundos
 function toggleElements() {
     const editable = document.getElementById('editable');
     const result = document.getElementById('result');
+    const body = document.getElementById('body');
+    const header = document.getElementById('header').getElementsByClassName('modal-header')[0]
     if(toggleable){
         // Alternar as classes para mostrar ou ocultar os elementos
         editable.classList.toggle('collapse');
         result.classList.toggle('collapse');
-
-    
-        toggleable=false;
+        body.classList.toggle('collapse');
+        header.classList.toggle('d-flex');
+        header.classList.toggle('justify-content-center');
+        header.classList.toggle('align-items-center');
+        
+                toggleable=false;
         setTimeout(function() {
             editable.classList.toggle('collapse');
             result.classList.toggle('collapse');
-            toggleable = true;
+            body.classList.toggle('collapse');
+            header.classList.toggle('d-flex');
+            header.classList.toggle('justify-content-center');
+            header.classList.toggle('align-items-center');
+                        toggleable = true;
         }, time);
     }
 }
