@@ -1,42 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f0f0;
-    }
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">
+    <title>Qualidade 404%</title>
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <style type="text/css" media="screen">
+       .container {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background-color: #f0f0f0;
+      }
 
-    .masked-svg {
-      width: 300px;
-      position: relative;
-    }
+      .overlay-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Isso mantém a proporção da imagem */
+        z-index: 1;
+      }
+      body {
+        background-color: #f1f1f1;
+        margin: 0;
+        font-family: Helvetica, Arial, sans-serif;
+      }
 
-    .masked-svg #content {
-      mask: url(#mask);
-    }
-  </style>
-</head>
-<body>
-  <div class="masked-svg">
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="content">
-      <!-- Seu conteúdo SVG aqui -->
-      <circle cx="50" cy="50" r="40" fill="black" />
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-      <defs>
-        <mask id="mask" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
-          <!-- O caminho (path) define a máscara -->
-          <path d="M0,0 L1,0 L1,1 L0,1 Z M0.5,0.5 L0.7,0.2 L0.7,0.8 Z" fill="white" />
-        </mask>
-      </defs>
-    </svg>
-  </div>
-</body>
+      p{
+        font-family: 'Reenie Beanie', cursive;
+      }
+
+      .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
+
+      a { color: #4183c4; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      h1 { width: 800px; position:relative; left: -100px; letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px 0 50px 0; text-shadow: 0 1px 0 #fff; }
+      p { color: rgba(0, 0, 0, 0.5); margin: 20px 0; line-height: 1.6; }
+
+      ul { list-style: none; margin: 25px 0; padding: 0; }
+      li { display: table-cell; font-weight: bold; width: 1%; }
+
+      .logo { display: inline-block; margin-top: 35px; }
+      .logo-img-2x { display: none; }
+      @media
+      only screen and (-webkit-min-device-pixel-ratio: 2),
+      only screen and (   min--moz-device-pixel-ratio: 2),
+      only screen and (     -o-min-device-pixel-ratio: 2/1),
+      only screen and (        min-device-pixel-ratio: 2),
+      only screen and (                min-resolution: 192dpi),
+      only screen and (                min-resolution: 2dppx) {
+        .logo-img-1x { display: none; }
+        .logo-img-2x { display: inline-block; }
+      }
+
+      #suggestions {
+        margin-top: 35px;
+        color: #ccc;
+      }
+      #suggestions a {
+        color: #666666;
+        font-weight: 200;
+        font-size: 14px;
+        margin: 0 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <img src="assets/quality.png" alt="Selo de qualidade" height="100" width="100" >
+
+    <div class="container">
+      <h1>404</h1>
+      <p><strong>Arquivo não encontrado</strong></p>
+
+      <p>
+        Ops! Parece que a página falhou com sucesso. Parabéns, você encontrou a página onde até mesmo os erros são realizados com maestria. Continue explorando nossas 'façanhas' digitais enquanto trabalhamos arduamente nos bastidores para melhorar essa experiência. 😄
+      </p>
+
+      <p>
+        O site configurado neste endereço não contém o arquivo solicitado.
+        </p>
+ 
+    </div>
+
+  </body>
 </html>
