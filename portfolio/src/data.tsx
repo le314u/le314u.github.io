@@ -30,35 +30,35 @@ const cards = {
 }
 
 const contents = [{
-    imageUrl:"/public/img/projetos/tcc.gif",
     title:"TCC",
-    href:"https://github.com/le314u/TCC",
     text:"Ferramenta de visão computacional para a análise do movimento de barra fixa voltada para testes de aptidão física",
-    imageAlt:"Imagem falha"
+    imageAlt:"Gif Tcc",
+    imageUrl:"/public/img/projetos/tcc.gif",
+    href:"https://github.com/le314u/TCC",
 },{
-    imageUrl:"/public/img/projetos/proxy.gif",
     title:"proxyCardMTG",
-    href:"https://github.com/le314u/proxyCardMTG",
     text:"Cria um pdf para impressão de proxys apartir da url de um deck postado no site 'ligamagic'",
-    imageAlt:"Imagem falha"
+    imageAlt:"Gif Scraping",
+    imageUrl:"/public/img/projetos/proxy.gif",
+    href:"https://github.com/le314u/proxyCardMTG",
 },{
-    imageUrl:"/public/img/projetos/layout.gif",
     title:'layoutImg',
-    href:"https://github.com/le314u/layoutImg",
     text:"Junta duas Imagens em uma unica imagem, otimo para criação de fotos padronizadas e emissão de certificado em png",
-    imageAlt:"Imagem falha"
+    imageAlt:"Gif layout",
+    href:"https://github.com/le314u/layoutImg",
+    imageUrl:"/public/img/projetos/layout.gif",
 },{
-    imageUrl:"/public/img/projetos/juros.gif",
     title:"Financial-Transaction-Manager",
-    href:"https://github.com/le314u/financialTransactionManager",
     text:"Facilitar o cadastramento de movimentação de cheques em eventos no google agenda",
-    imageAlt:"Imagem falha"
+    imageAlt:"Gif calculo juros",
+    imageUrl:"/public/img/projetos/juros.gif",
+    href:"https://github.com/le314u/financialTransactionManager",
 },{
-    imageUrl:"/public/img/projetos/academico.png",
     title:"Meus trabalhos academicos",
-    href:"https://github.com/le314u/Academico/tree/master/IFMG",
     text:"Trabalhos realizados durante a graduação em Ciencia da Computação pelo IFMG - Campus Formiga",
-    imageAlt:"Imagem falha"
+    imageAlt:"Trabalhos Academico",
+    imageUrl:"/public/img/projetos/academico.png",
+    href:"https://github.com/le314u/Academico/tree/master/IFMG",
 },]
 
 
