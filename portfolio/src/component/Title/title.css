@@ -5,6 +5,8 @@
     --color3: #ffffd2;
     --color4: #ffffe8;
     --color5: #ffffff;
+    --color6: #BBBB63;
+    --color7: #888863;
 }
 
 .group-title{
@@ -16,6 +18,7 @@
     background-color: var(--color4);    
     color:black;
 }
+
 .title{
     display: block;
     font-size: 2rem;
@@ -23,4 +26,20 @@
 .subtitle{
     display: block;
     font-size: 1rem;
+}
+
+
+/* Estilo para um link normal */
+.subtitle a {
+    color: var(--color6); /* Cor padrão para links (por exemplo, azul) */
+}
+
+/* Estilo para um link quando estiver sendo hover (quando o mouse passa sobre ele) */
+.subtitle a:hover {
+    color: var(--color7); /* Cor padrão para links (por exemplo, azul) */
+}
+
+/* Estilo para um link visitado */
+.subtitle a:visited {
+    color: var(--color7); /* Cor padrão para links (por exemplo, azul) */
 }

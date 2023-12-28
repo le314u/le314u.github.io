@@ -8,28 +8,21 @@ import {Content,InverseContent} from './component/Content/content'
 import './App.css'
 import data from './data.tsx'
 
-
-
-
-const banner = {
-  title:"Le314u",
-  text:"Olá! Meu nome é Lucas Mateus vulgarmente conhecido como piu"
-}
+console.log(data.cards['games'])
 
 function App() {
   return (
     <>
       <NavBar/>
-      <Banner {...data.banner}/>
-      <CustomCarousel {...data.cards}/>
-      <Content id="projeto_1"{...data.content} />
-      <InverseContent id="projeto_2" {...data.content}/>
+      <Banner id="home" {...data.banners[0]}/>
       <Title {...data.title}/>
-      <Content id="projeto_3" {...data.content}/>
-      <InverseContent id="projeto_4" {...data.content}/>
-      <Banner {...banner}/>
-      <Content id="projeto_5" {...data.content}/>
-      <InverseContent id="projeto_6" {...data.content} />
+      <CustomCarousel id="games" {...data.cards['games']}/>
+      <Content id="projetos" {...data.contents[0]} />
+      <InverseContent  {...data.contents[1]}/>
+      <Content  {...data.contents[2]}/>
+      <InverseContent  {...data.contents[3]}/>
+      <Content  {...data.contents[4]}/>
+      <Banner {...data.banners[1]}/>
       <Footer/>
     </>
   )

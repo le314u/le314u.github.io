@@ -1,48 +1,72 @@
-const cards ={
-    cards:[
-        {
-            title:"Lucas",
-            subtitle:"Mateus",
-            href:"#projeto_1"
-        },{
-            title:"Judas",
-            subtitle:"Escariotes",
-            href:"#projeto_2"
-        },{
-            title:"Marcia",
-            subtitle:"Bandida",
-            href:"#projeto_3"
-        },{
-            title:"Bibi",
-            subtitle:"Perigosa",
-            href:"#projeto_4"
-        }
-    ]
-}
-    
-const banner = {
+const banners = [{
     title:"Le314u",
     text:"Olá! Meu nome é Lucas Mateus vulgarmente conhecido como piu, uma pessoa com uma paixão diversificada por conhecimento e experiências. Formado em Licenciatura em Educação Física e Bacharel em Ciências da Computação e uma paixão por Jiujitsu, Magic e Jogos no geral, minha jornada tem sido marcada por uma mistura única de disciplinas."
+},{
+    title:"Thanks",
+    text:"Quero expressar minha gratidão por ter dedicado um tempo para visitar o meu perfil. Fiquei muito contente em saber do seu interesse. Se houver qualquer informação adicional que você gostaria de obter ou se tiver alguma pergunta, sinta-se à vontade para entrar em contato. lucas314u@gmail.com   "
+}]
+
+let games = {cards:[
+    {
+        title:"Telma",
+        subtitle:"Jogo de memoria",
+        href:"games/telma"
+    },{
+        title:"Who is Spy",
+        subtitle:"Jogo de Blefe",
+        href:"games/spy"
+    },{
+        title:"Perfil",
+        subtitle:"Jogo de Flash cards",
+        href:"games/perfil"
+    },{
+        title:"Card game",
+        subtitle:"Jogo baseado em couple",
+        href:"https://github.com/le314u/CardGame"
+    }
+]}
+const cards = {
+    games:games,
 }
+
+const contents = [{
+    imageUrl:"./public/img/ok.png",
+    title:"TCC",
+    text:"Ferramenta de visão computacional para a análise do movimento de barra fixa voltada para testes de aptidão física",
+    imageAlt:"Imagem falha"
+},{
+    imageUrl:"./public/img/ok.png",
+    title:"proxyCardMTG",
+    text:"Cria um pdf para impressão de proxys apartir da url de um deck postado no site 'ligamagic'",
+    imageAlt:"Imagem falha"
+},{
+    imageUrl:"./public/img/ok.png",
+    title:'layoutImg',
+    text:"Junta duas Imagens em uma unica imagem, otimo para criação de fotos padronizadas e emissão de certificado em png",
+    imageAlt:"Imagem falha"
+},{
+    imageUrl:"./public/img/ok.png",
+    title:"Financial-Transaction-Manager",
+    text:"Facilitar o cadastramento de movimentação de cheques em eventos no google agenda",
+    imageAlt:"Imagem falha"
+},{
+    imageUrl:"./public/img/ok.png",
+    title:"Meus trabalhos academicos",
+    text:"Trabalhos realizados durante a graduação em Ciencia da Computação pelo IFMG - Campus Formiga",
+    imageAlt:"Imagem falha"
+},]
+
 
 const title = {
-    title:"Nome",
-    subtitle:"sobrenome"
+    title:"GitHub",
+    subtitle:(<a href='https://github.com/le314u?tab=repositories'>https://github.com/le314u?tab=repositories</a>)
 }
-
-
-const content = {
-    imageUrl:"./public/img/ok.png",
-    text:"Textão de 2 mil linhas",
-    imageAlt:"Imagem falha"
-}
-
 
 const data = {
     cards:cards,
-    banner:banner,
+    banners:banners,
     title:title,
-    content:content,
+    contents:contents,
 }
 
   export default data
