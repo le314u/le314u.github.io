@@ -5,10 +5,22 @@
     <link rel="icon" type="image/svg+xml" href="/portfolio/dist/piu.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Le314u</title>
-    <script type="module" crossorigin src="/portfolio/dist/assets/index-9Upl0q92.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/dist/assets/index-O3L6KHr0.css">
+    <script type="module" crossorigin src="/portfolio/dist/assets/index-q_b6thfm.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/dist/assets/index-AKZfPb-F.css">
   </head>
   <body>
     <div id="root"></div>
   </body>
+    <script>
+    function changeUrl(){
+        let check = '/dist/index.html'
+        // Verifica se a URL contém a parte desejada
+        if (window.location.href.indexOf(check) !== -1) {
+            // Altera a URL sem recarregar a página
+            const novaURL = window.location.href.replace(check, '');
+            window.history.replaceState({}, document.title, novaURL);
+        }
+    }
+    changeUrl()
+  </script>
 </html>

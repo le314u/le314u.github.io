@@ -18,10 +18,10 @@ function App() {
       <Title {...data.title}/>
       <CustomCarousel id="games" {...data.cards['games']}/>
       <Content id="projetos" {...data.contents[0]} />
-      <InverseContent  {...data.contents[1]}/>
-      <Content  {...data.contents[2]}/>
-      <InverseContent  {...data.contents[3]}/>
-      <Content  {...data.contents[4]}/>
+      <InverseContent id="" {...data.contents[1]}/>
+      <Content  id="" {...data.contents[2]}/>
+      <InverseContent  id="" {...data.contents[3]}/>
+      <Content  id="" {...data.contents[4]}/>
       <Banner {...data.banners[1]}/>
       <Footer/>
     </>
