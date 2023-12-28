@@ -32,7 +32,7 @@ const title = {
 
 
 const content = {
-    imageUrl:"/ok.png",
+    imageUrl:"./ok.png",
     text:"Textão de 2 mil linhas",
     imageAlt:"Imagem falha"
 }
