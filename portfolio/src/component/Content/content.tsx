@@ -17,8 +17,8 @@ const Content : React.FC<ContentProps> = ({ text, title, imageUrl, imageAlt,id }
     <div id={id} className="component">
       <div className="content"style={{ display: 'flex', alignItems: 'center' }}>
         <div className="txt" style={{ flex: '1', marginRight: '20px' }}>
-          <p>{title}</p>
-          <p>{text}</p>
+          <p className='title'>{title}</p>
+          <p className='text'>{text}</p>
         </div>
         <div className="img"  style={{ flex: '1' }}>
           <img src={imageUrl} alt={imageAlt} style={{ width: '100%', height: 'auto' }} />
@@ -37,8 +37,8 @@ const InverseContent : React.FC<ContentProps>  = ({ text, title, imageUrl, image
           <img src={imageUrl} alt={imageAlt} style={{ width: '100%', height: 'auto' }} />
         </div>
         <div className="txt" style={{ flex: '1', marginRight: '20px' }}>
-          <p>{title}</p>
-          <p>{text}</p>
+          <p className='title'>{title}</p>
+          <p className='text'>{text}</p>
         </div>
       </div>
     </div>

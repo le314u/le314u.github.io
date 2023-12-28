@@ -40,3 +40,9 @@ div .img img{
     max-height: 400px;
     max-width: 300px;
 }
+div.txt > p.title {
+    font-size: 18px;
+}
+div.txt > p.text {
+    font-size: 15px;
+}
