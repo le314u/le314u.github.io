@@ -33,9 +33,9 @@ function Footer(props:any) {
         </ul></div>
         <div className="footerBar-column"><ul>
           <a href="/games"><li>Game</li></a>
-          <a href="/games/telma"><li>Telma</li></a>
-          <a href="/games/perfil"><li>Perfil</li></a>
-          <a href="/games/spy"><li>Who is Spy?</li></a>
+          <a href="/games/telma/dist"><li>Telma</li></a>
+          <a href="/games/perfil/dist"><li>Perfil</li></a>
+          <a href="/games/spy/dist"><li>Who is Spy?</li></a>
         </ul></div>
         <div className="footerBar-column"><ul>
           <li>cEDH</li>
