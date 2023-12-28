@@ -11,4 +11,16 @@
   <body>
     <div id="root"></div>
   </body>
+  <script>
+    function changeUrl(){
+        let check = '/dist/index.html'
+        // Verifica se a URL contém a parte desejada
+        if (window.location.href.indexOf(check) !== -1) {
+            // Altera a URL sem recarregar a página
+            const novaURL = window.location.href.replace(check, '');
+            window.history.replaceState({}, document.title, novaURL);
+        }
+    }
+    changeUrl()
+  </script>
 </html>
