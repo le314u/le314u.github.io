@@ -5,20 +5,20 @@ const banners = [{
     title:"Thanks",
     text:"Quero expressar minha gratidão por ter dedicado um tempo para visitar o meu perfil. Fiquei muito contente em saber do seu interesse. Se houver qualquer informação adicional que você gostaria de obter ou se tiver alguma pergunta, sinta-se à vontade para entrar em contato. lucas314u@gmail.com   "
 }]
-
+https://le314u.github.io/games/telma/dist/index.html
 let games = {cards:[
     {
         title:"Telma",
         subtitle:"Jogo de memoria",
-        href:"games/telma"
+        href:"games/telma/dist/index.html"
     },{
         title:"Who is Spy",
         subtitle:"Jogo de Blefe",
-        href:"games/spy"
+        href:"games/spy/dist/index.html"
     },{
         title:"Perfil",
         subtitle:"Jogo de Flash cards",
-        href:"games/perfil"
+        href:"games/perfil/dist/index.html"
     },{
         title:"Card game",
         subtitle:"Jogo baseado em couple",
