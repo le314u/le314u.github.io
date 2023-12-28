@@ -56,3 +56,15 @@ div.txt > p.text {
     color:black;
     font-size: 15px;
 }
+
+/* Estilos para telas pequenas (inferiores a 768px) */
+@media only screen and (max-width: 600px) {
+        
+    div.content > div.img{ 
+        clip-path: circle(50% at 50% 50%);
+    }
+
+    div.inversecontent > div.img{ 
+        clip-path: circle(50% at 50% 50%);
+    }
+}
