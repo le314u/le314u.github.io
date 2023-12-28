@@ -1,10 +1,10 @@
 import './footer.css'
 
 
-function Footer() {
+function Footer(props:any) {
 
   return (
-    <footer className="footerBar">
+    <footer id={props.id} className="footerBar">
 
       <i className="icon"/>
       <div className="footerBar-column"><ul>

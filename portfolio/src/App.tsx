@@ -14,16 +14,22 @@ function App() {
   return (
     <>
       <NavBar/>
+
       <Banner id="home" {...data.banners[0]}/>
+
       <Title {...data.title}/>
+
       <Content id="projetos" {...data.contents[0]} />
       <InverseContent id="" {...data.contents[1]}/>
       <Content  id="" {...data.contents[2]}/>
       <InverseContent  id="" {...data.contents[3]}/>
       <Content  id="" {...data.contents[4]}/>
+      
       <CustomCarousel id="games" {...data.cards['games']}/>
+      
       <Banner {...data.banners[1]}/>
-      <Footer/>
+      
+      <Footer id="news"/>
     </>
   )
 }

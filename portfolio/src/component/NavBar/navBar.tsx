@@ -3,11 +3,10 @@ import './navBar.css'
 
 
 function NavBar() {
-  const [activePage, setActivePage] = useState('pagina 1');
+  const [activePage, setActivePage] = useState('home');
   
   const handlePageClick = (page:string) => {
     setActivePage(page);
-    console.log("SALVOU",page)
   };
 
   function Button_Nav(props:any){
