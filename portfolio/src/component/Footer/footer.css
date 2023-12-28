@@ -7,20 +7,20 @@
     --color5: #ffffff;
   }
   
-  footer.footerBar {
+  footer.footerBar > div {
     background-color: #242424;
     justify-content: center;
     color:gray;
     display:flex;
   }
   
-  footer.footerBar > div.footerBar-column {
+  footer.footerBar > div > div.footerBar-column {
     width: 200px;
     justify-content: center;
     color:white;
   }
 
-  footer.footerBar > i.icon {
+  footer.footerBar > div > i.icon {
     display:block;
     padding: 30px;
     width: 50px;
@@ -32,4 +32,7 @@
     background-image: url('/piu.svg');
     background-size: cover; /* ou contain, dependendo do comportamento desejado */
     filter: invert(80%); /* Inverte as cores (preto para branco, branco para preto) */
+  }
+  div.logos img{
+    margin: 7px;
   }
