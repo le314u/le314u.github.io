@@ -1,0 +1,26 @@
+:root {
+    --color0: #ffff60;
+    --color1: #ffffa5;
+    --color2: #ffffbb;
+    --color3: #ffffd2;
+    --color4: #ffffe8;
+    --color5: #ffffff;
+}
+
+.group-title{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color4);    
+    color:black;
+}
+.title{
+    display: block;
+    font-size: 2rem;
+}
+.subtitle{
+    display: block;
+    font-size: 1rem;
+}
