@@ -2,39 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  <title>Document</title>
-    <script src="index.js"></script>
-    <title>Le314-u</title>
-    <style>
-        .form-signin {
-            width: 100%;
-            max-width: 330px;
-            padding: 15px;
-            margin: auto;
-        }
-        *, ::after, ::before {
-            box-sizing: border-box;
-        }
-        .form {
-            display: block;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Redirect</title>
 </head>
-
-<body class="text-center">
-    <div id="opt" class="form-signin form-group" >
-        <label for="pwd">Let's go play party Games!!!</label>
-        <input placeholder="Filtrar pelo Nome" class="form-control" name="q" id="q"><br><br>
-        <button type="submit" name="arg" value="help.html" class="w-100 btn btn-lg btn-primary form-floating">Help</button><br><br>
-        <a href="Games/spy/login.html" name="arg" value="whoSpy" class="w-100 btn btn-lg btn-primary form-floating">Who is Spy?</button></a><br><br>
-        <a href="Games/perfil/dist/index.html" name="arg" value="perfil" class="w-100 btn btn-lg btn-primary form-floating">Perfil</button></a><br><br>
-        <a href="Games/telma/dist/index.html" name="arg" value="telma" class="w-100 btn btn-lg btn-primary form-floating">Telma</button></a><br><br>
+<style>
+    .loading {
+        margin: 0;
+        height: 100vh; /* 100% da altura da viewport */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .loading div{
+        text-align: center;
+        padding: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="loading">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
     </div>
-    <div id="resp"></div>
-
 </body>
+<script>
+    function carregarPagina(path) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementsByTagName("body")[0].innerHTML = this.responseText;
+                // Execute qualquer script adicional se necessário
+                executarScriptInicial();
+            }
+        };
+        xhttp.open("GET", path, true);
+        xhttp.send();
+    }
+
+    function executarScriptInicial() {
+        // Coloque aqui o código para executar o script inicial
+        console.log("Script inicial executado!");
+    }
+    carregarPagina("games/index.html")
+
+</script>
 </html>
