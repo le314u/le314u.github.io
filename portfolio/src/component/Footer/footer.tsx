@@ -29,6 +29,22 @@ function Footer(props:any) {
         <li>UWx</li>
         <li>HighTide</li>
       </ul></div>
+      <div>
+      <div style={{display:'block'}}>
+        <img alt='js' loading="lazy"  width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/>
+        <img alt='react' loading="lazy"  width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+        <img alt='electron' loading="lazy"  width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg" />
+        <img alt='html' loading="lazy"  width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+        <img alt='css' loading="lazy"  width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" />
+        <img alt='python3' loading="lazy"  width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+        <img alt='openCv' loading="lazy"  width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" />   
+        <img alt='git' loading="lazy"  width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/>
+        <img alt='markdown' loading="lazy"  width="40" height="40"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg" />
+        <img alt='latex' loading="lazy"  width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" />
+        <img alt='vsCode' loading="lazy"  width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
+        <img alt='linux' loading="lazy"  width="40" height="40"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" /> 
+      </div>
+      </div>
     </footer>
   )
 }
