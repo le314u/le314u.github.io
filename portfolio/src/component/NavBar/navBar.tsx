@@ -27,7 +27,7 @@ function NavBar() {
       <ul>        
         <Button_Nav page="Home" anchor="#home" />
         <Button_Nav page="Projetos" anchor="#projetos" />
-        <Button_Nav page="Games" anchor="#games" />
+        <Button_Nav page="Games" anchor="/games" />
         <Button_Nav page="News" anchor="#news" />
       </ul>
     </nav>
