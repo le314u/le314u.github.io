@@ -33,7 +33,7 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementsByTagName("body")[0].innerHTML = this.responseText;
+                document.getElementsByTagName("html")[0].innerHTML = this.responseText;
                 // Execute qualquer script adicional se necessário
                 executarScriptInicial();
             }
@@ -46,6 +46,7 @@
         // Coloque aqui o código para executar o script inicial
         console.log("Script inicial executado!");
     }
+
     carregarPagina("games/index.html")
 
 </script>
