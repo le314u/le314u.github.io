@@ -1,0 +1,27 @@
+@keyframes slideIn {
+    from {
+      transform:  translateX(-100%) scale(1) rotate(0deg);
+    }
+    to {
+      transform: translateX(0) scale(0.3) rotate(-45deg);
+    }
+  }
+
+  div.estilo-customizado {
+    max-width: 600px;
+    padding: 10px;
+    position: relative;
+}
+
+
+.title_card.text-center > svg.icon {
+    user-select: none;
+    transform: scale(0.3) rotate(-45deg);
+    position: absolute;
+    top: -50px;
+    left: -50px;
+
+    animation-name: slideIn;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
