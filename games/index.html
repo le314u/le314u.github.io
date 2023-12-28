@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  <title>Document</title>
-    <script src="index.js"></script>
     <title>Le314-u</title>
     <style>
         .form-signin {
@@ -22,14 +21,15 @@
         .form {
             display: block;
         }
+        #opt > label {
+            margin: 30px;
+        }
     </style>
 </head>
 
 <body class="text-center">
     <div id="opt" class="form-signin form-group" >
         <label for="pwd">Let's go play party Games!!!</label>
-        <input placeholder="Filtrar pelo Nome" class="form-control" name="q" id="q"><br><br>
-        <button type="submit" name="arg" value="help.html" class="w-100 btn btn-lg btn-primary form-floating">Help</button><br><br>
         <a onclick='carregarPagina("games/spy/dist/index.html")' name="arg" value="whoSpy" class="w-100 btn btn-lg btn-primary form-floating">Who is Spy?</button></a><br><br>
         <a onclick='carregarPagina("games/perfil/dist/index.html")' name="arg" value="perfil" class="w-100 btn btn-lg btn-primary form-floating">Perfil</button></a><br><br>
         <a onclick='carregarPagina("games/telma/dist/index.html")' name="arg" value="telma" class="w-100 btn btn-lg btn-primary form-floating">Telma</button></a><br><br>
