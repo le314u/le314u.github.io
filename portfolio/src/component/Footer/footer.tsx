@@ -29,7 +29,7 @@ function Footer(props:any) {
           <li></li>
           <li>Jiu-Jitsu</li>
           <li>Capoeira</li>
-          <li>Musculação</li>
+          <a href="/public/pages/troll.html"><li>Onlyfans</li></a>
         </ul></div>
         <div className="footerBar-column"><ul>
           <a href="/games"><li>Game</li></a>
@@ -38,9 +38,9 @@ function Footer(props:any) {
           <a href="/games/spy/dist"><li>Who is Spy?</li></a>
         </ul></div>
         <div className="footerBar-column"><ul>
-          <li>cEDH</li>
-          <li>Orvar</li>
-          <li>Urza</li>
+          <a href="/primer/cEDH"><li>Orvar</li></a>
+          <a href="/primer/orvar"><li>Orvar</li></a>
+          <a href="/primer/urza"><li>Urza</li></a>
         </ul></div>
         <div className="footerBar-column"><ul>
           <li>Legacy</li>
