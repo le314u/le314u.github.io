@@ -1,19 +1,17 @@
+
+import { useRef } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import NavBar from './components/navBar/NavBar.js'
 import Header from './components/header/Header.js'
 import  Block from './components/block/Block.js'
 import {List} from './components/list/List.js'
 import Explanish from './components/explanish/Explanish.js'
 import SetCards from './components/setCards/SetCards.js'
-import ComboBox from './components/combobOX/ComboBox.js';
+import ComboBox from './components/comboBox/ComboBox.js';
 import DATA from './data.js'
+import './App.css';
 
 
-function teste(e){
-  console.log("TRIGUER")
-  console.log(e)
-}
 
 
 
@@ -23,8 +21,26 @@ let Lista = ({ children, dataArray })=>(<Block><List label={children} array={dat
 let Card = ({src, children})=>(<Block><Explanish type='center' src={src} > {children}</Explanish></Block >);
 let CardL = ({src, children})=>(<Block><Explanish type='left' src={src} > {children}</Explanish></Block >);
 let CardR = ({src, children})=>(<Block><Explanish type='right' src={src} > {children}</Explanish></Block >);
+function  card(name){  return "/primer/orvar/build/cards/"+name}
+
+function goTo(id){
+  const tag =  document.getElementById(id)
+  tag.scrollIntoView({ behavior: 'smooth' });
+}
+
+
+
+
 
 function App() {
+  const tag = useRef();
+
+  function teste(e){
+    console.log("TRIGUER")
+    tag.current.style.display = 'none'
+    console.log(e)
+  }
+  
   return (
     <div className="App">
       <NavBar/>
@@ -34,14 +50,26 @@ function App() {
         {/* <Block><List label="Custo" array={["{3}{U}"]}/></Block> */}
         {/* <Block><List label="Tipo" array={["Criatura Lendária — Metamorfo",]}/></Block> */}
         {/* <Block><List label="Poder " array={["3/3"]}/></Block> */}
+        <div ref={tag}>
+          <ComboBox triguer={teste} name="Win" array={
 
-
-        
+            [{
+              value:"value1",
+              text:"text1"
+            },{
+              value:"value2",
+              text:"text2"
+            },{
+              value:"value3",
+              text:"text3"
+            }]
+          }/>
+        </div>
         <Box>{DATA.howPlay}</Box>
         <Box>Notas sobre Orvar das Formas Infindáveis</Box>
-        <Card src="/primer/orvar/build/cards/Orvar_das_Formas_Infindaveis.jpg">{DATA.intro} {DATA.shell}</Card>
-        <CardL src="/primer/orvar/build/cards/Orvar_das_Formas_Infindaveis.jpg">{DATA.intro} {DATA.shell}</CardL>
-        <CardR src="/primer/orvar/build/cards/Orvar_das_Formas_Infindaveis.jpg">{DATA.intro} {DATA.shell}</CardR>
+        <Card src={card("Orvar_das_Formas_Infindaveis.jpg")}>{DATA.intro} {DATA.shell}</Card>
+        <CardL src={card("Orvar_das_Formas_Infindaveis.jpg")}>{DATA.intro} {DATA.shell}</CardL>
+        <CardR src={card("Orvar_das_Formas_Infindaveis.jpg")}>{DATA.intro} {DATA.shell}</CardR>
         <Lista dataArray={DATA.habilidades}>Habilidades</Lista>
         <Rule>{DATA.rule_1}</Rule>
         <Rule>{DATA.rule_2}</Rule>
@@ -68,13 +96,9 @@ function App() {
         <Block><List label="Porque NÃO jogar:" array={DATA.contra}/></Block>
         
 
-        <SetCards id="set3" array_src={ [
-          "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg", "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg",
-          "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg", "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/card.png"]}>
+        <SetCards id="set3" array_src={ [card("card.png"),card("copy.jpg"),card("card.png"),card("copy.jpg"),card("card.png"),card("copy.jpg"),card("card.png"),card("copy.jpg"),card("card.png"),card("copy.jpg")]}>
             Conjunto de Cartas do versos
         </SetCards>  
-
-
 
 
 

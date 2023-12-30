@@ -8,7 +8,7 @@ function List({label, array}){
             <h2>{label}</h2>
             <ul>
             {array.map((element, index) => (
-                <li key={index}><span>{index}</span>{element}</li>
+                <li key={index+1}><span>{index}</span>{element}</li>
             ))}     
             </ul>
         </div>

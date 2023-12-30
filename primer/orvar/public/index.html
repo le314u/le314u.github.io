@@ -42,8 +42,7 @@
   </body>
   <script>
     //Altera a URL sem alterar a pagina
-    array_check = ['/build/index.html', '/build/', '/build']
-    function changeUrl(array_check){
+    function changeUrl(check){
         // Verifica se a URL contém a parte desejada
         if (window.location.href.indexOf(check) !== -1) {
             // Altera a URL sem recarregar a página
@@ -51,9 +50,7 @@
             window.history.replaceState({}, document.title, novaURL);
         }
     }
-    array_check.forEach((check, index, array) => {
-
-    changeUrl(check)
-    })
+    array_check = ['/build/index.html', '/build/', '/build']
+    array_check.forEach((check, index, array) => {      changeUrl(check)    })
   </script>
 </html>

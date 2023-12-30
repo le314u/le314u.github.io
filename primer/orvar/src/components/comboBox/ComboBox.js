@@ -16,9 +16,9 @@ import './ComboBox.css'
 //     });
     
 //   });
-function ComboBox({triguer}) {
+function ComboBox({triguer,name,array}) {
     const [isActive, setIsActive] = useState(false);
-    const [selectedItem, setSelectedItem] = useState('Inicial');
+    const [selectedItem, setSelectedItem] = useState(name);
     const dropdown = useRef();
     const dropdownList = useRef();
     const selLabel = useRef();
@@ -29,19 +29,15 @@ function ComboBox({triguer}) {
   
     function handleLiSelect(i) {
         return ()=>{
-            setIsActive(!isActive)
-            let tag = dropdownList.current.getElementsByTagName('li')[i]
-            let text = tag.innerText
-            let opt = tag.dataset.value
-            setSelectedItem(text)
-            triguer(text)
-            goTo(opt)
+          let tag = dropdownList.current.getElementsByTagName('li')[i]
+          setIsActive(!isActive)
+          setSelectedItem(tag.innerText)
+          triguer(tag.dataset.value)
         }
     }
 
-    function goTo(id){
-        const tag =  document.getElementById(id)
-        tag.scrollIntoView({ behavior: 'smooth' });
+    function Li({index,value,children}) {
+      return (<li onClick={handleLiSelect(index)} data-value={value}><span>{children}</span></li>)
     }
   
     return (
@@ -51,10 +47,16 @@ function ComboBox({triguer}) {
           <input type="hidden" name="cd-dropdown" />
           
           <ul  ref={dropdownList} className="dropdown-list">
+            {
+              array.map((data, index, array) => {
+                return (<Li key={index} index={index} value={data.value}>{data.text}</Li>)
+              })
+            }
+{/*             
             <li onClick={handleLiSelect(0)} data-value="Topico1">    <span>Topico 1</span>      </li>
             <li onClick={handleLiSelect(1)} data-value="Topico2">    <span>Topico 2</span>      </li>
             <li onClick={handleLiSelect(2)} data-value="Topico3">    <span>Topico 3</span>      </li>
-            <li onClick={handleLiSelect(3)} data-value="Topico4">    <span>Topico 4</span>      </li>
+            <li onClick={handleLiSelect(3)} data-value="Topico4">    <span>Topico 4</span>      </li> */}
           </ul>
         </div>
       </div>
