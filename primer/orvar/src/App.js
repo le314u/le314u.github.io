@@ -40,13 +40,12 @@ function App() {
     tag.current.style.display = 'none'
     console.log(e)
   }
-  
+
   return (
     <div className="App">
       <NavBar/>
-      <Header src="/banner.webp"/>
+      <Header src="/primer/orvar/build/banner.webp"/>
       <div className="App-Body">
-
         {/* <Block><List label="Custo" array={["{3}{U}"]}/></Block> */}
         {/* <Block><List label="Tipo" array={["Criatura Lendária — Metamorfo",]}/></Block> */}
         {/* <Block><List label="Poder " array={["3/3"]}/></Block> */}
