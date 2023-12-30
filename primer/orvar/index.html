@@ -39,23 +39,6 @@
       window.location.href = '/primer/orvar/build';
     }
 
-
-
-
-    //Altera a URL sem alterar a pagina
-    array_check = ['/build/index.html', '/build/', '/build']
-    function changeUrl(array_check){
-        // Verifica se a URL contém a parte desejada
-        if (window.location.href.indexOf(check) !== -1) {
-            // Altera a URL sem recarregar a página
-            const novaURL = window.location.href.replace(check, '');
-            window.history.replaceState({}, document.title, novaURL);
-        }
-    }
-    array_check.forEach((check, index, array) => {
-
-    changeUrl(check)
-    })
   </script>
 </html>
 

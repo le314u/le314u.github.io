@@ -39,9 +39,9 @@ function App() {
         
         <Box>{DATA.howPlay}</Box>
         <Box>Notas sobre Orvar das Formas Infindáveis</Box>
-        <Card src="/primer/orvar/build/public/Orvar_das_Formas_Infindaveis.jpg">{DATA.intro} {DATA.shell}</Card>
-        <CardL src="/primer/orvar/build/public/Orvar_das_Formas_Infindaveis.jpg">{DATA.intro} {DATA.shell}</CardL>
-        <CardR src="/primer/orvar/build/public/Orvar_das_Formas_Infindaveis.jpg">{DATA.intro} {DATA.shell}</CardR>
+        <Card src="/primer/orvar/build/cards/Orvar_das_Formas_Infindaveis.jpg">{DATA.intro} {DATA.shell}</Card>
+        <CardL src="/primer/orvar/build/cards/Orvar_das_Formas_Infindaveis.jpg">{DATA.intro} {DATA.shell}</CardL>
+        <CardR src="/primer/orvar/build/cards/Orvar_das_Formas_Infindaveis.jpg">{DATA.intro} {DATA.shell}</CardR>
         <Lista dataArray={DATA.habilidades}>Habilidades</Lista>
         <Rule>{DATA.rule_1}</Rule>
         <Rule>{DATA.rule_2}</Rule>
@@ -69,8 +69,8 @@ function App() {
         
 
         <SetCards id="set3" array_src={ [
-          "/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg","/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg", "/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg","/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg",
-          "/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg","/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg", "/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg","/primer/orvar/build/public/card.png","/primer/orvar/build/public/card.png"]}>
+          "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg", "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg",
+          "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg", "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/card.png"]}>
             Conjunto de Cartas do versos
         </SetCards>  
 
@@ -99,7 +99,7 @@ function App() {
 
 
         <Block ><Block>Orvar das Formas Infindáveis</Block></Block>
-        <Block ><Explanish type='center' src="/primer/orvar/build/public/Orvar_das_Formas_Infindaveis.jpg"> {intro} {shell}</Explanish> </Block >
+        <Block ><Explanish type='center' src="/primer/orvar/build/cards/Orvar_das_Formas_Infindaveis.jpg"> {intro} {shell}</Explanish> </Block >
 
         
         <Block ><Block>{shell}</Block></Block>
@@ -111,7 +111,7 @@ function App() {
         <Block id="Topico1"><Block>Teste Titulo 1</Block></Block>
         <Block ><Block>{why_orvar}</Block></Block>
         <SetCards id="set1" array_src={ [
-          "/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg","/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg"]}>
+          "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg"]}>
             Conjunto de Cartas do versos
         </SetCards>  
         <Block><List label="Permite brincar com as regras e mecanicas:" array={array_ul}/></Block>
@@ -122,7 +122,7 @@ function App() {
         <Block id="Topico2" emphasis={true} ><Block>Teste Titulo 1</Block></Block>
         <Block ><Block>{why_orvar}</Block></Block>
         <SetCards id="set2" array_src={ [
-          "/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg","/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg"]}>
+          "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg"]}>
             Conjunto de Cartas do versos
         </SetCards>  
         <Block><List label="Permite brincar com as regras e mecanicas:" array={array_ul}/></Block>
@@ -142,14 +142,14 @@ function App() {
 
 
 
-        <Explanish id="Topico4" type='left' src="/primer/orvar/build/public/card.png"> 3Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus </Explanish>
-        <Explanish type='right' src="/primer/orvar/build/public/card.png"> 3Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus </Explanish>
+        <Explanish id="Topico4" type='left' src="/primer/orvar/build/cards/card.png"> 3Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus </Explanish>
+        <Explanish type='right' src="/primer/orvar/build/cards/card.png"> 3Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus </Explanish>
         <Block>{why_orvar}</Block>
-        <Explanish type='left' src="/primer/orvar/build/public/card.png"> 3Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus </Explanish>
-        <Explanish type='right' src="/primer/orvar/build/public/card.png"> 3Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus </Explanish>
+        <Explanish type='left' src="/primer/orvar/build/cards/card.png"> 3Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus </Explanish>
+        <Explanish type='right' src="/primer/orvar/build/cards/card.png"> 3Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus </Explanish>
         <SetCards id="set3" array_src={ [
-          "/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg","/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg", "/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg","/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg",
-          "/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg","/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg", "/primer/orvar/build/public/card.png","/primer/orvar/build/public/copy.jpg","/primer/orvar/build/public/card.png","/primer/orvar/build/public/card.png"]}>
+          "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg", "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg",
+          "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg", "/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/copy.jpg","/primer/orvar/build/cards/card.png","/primer/orvar/build/cards/card.png"]}>
             Conjunto de Cartas do versos
         </SetCards>  
 
