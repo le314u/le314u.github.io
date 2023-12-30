@@ -41,6 +41,10 @@ const rule_15="Se um efeito fizer com que uma criatura com changeling perca toda
 const rule_16="Se houver custos adicionais para conjurar uma mágica, ou se o custo para conjurar uma mágica for aumentado por um efeito (como aquele criado pela habilidade de Thalia, Guardiã de Thraben), aplique esses aumentos antes de aplicar reduções de custos. (04/11/2015)\n"
 const rule_17="A redução de custos pode aplicar-se a custos alternativos, tais como custos de flashback.(04/11/2015)\n"
 const rule_18="Se algum Clone de alguma forma entrar no campo de batalha ao mesmo tempo que outra criatura, Clone não poderá se tornar uma cópia daquela criatura. Você pode escolher apenas uma criatura que já esteja no campo de batalha. (01/07/2012)\n"
+const rule_19="Se você colocar um card de Aura no campo de batalha com alguma habilidade como por exemplo a do Zur, você escolhe o que ele encantará ao entrar no campo de batalha. Uma Aura colocada no campo de batalha desta forma não tem como alvo nada (então ela poderia ser anexada a uma permanente do oponente com resistência à magia, por exemplo), mas a habilidade de encantar da Aura restringe aquilo a que ela pode ser anexada. Se a Aura não puder ser legalmente anexada a nada, ela permanecerá em seu grimório. (2022-12-08)\n"
+const rule_20="Se um efeito permitir que você jogue um terreno ou conjure uma mágica dentre um grupo de cards, você poderá jogar ou conjurar um card modal dupla face com qualquer face que atenda aos critérios daquele efeito. (2020-09-25)\n"
+const rule_21="O custo de mana convertido de um card modal dupla face é baseado nas características da face que está sendo considerada. Na pilha e no campo de batalha, considere a face que está voltada para cima. Em todas as outras zonas, considere apenas a face frontal. Isso é diferente de como o custo de mana convertido de um card dupla face transformador é determinado. (2020-09-25)\n"
+
 
 const howPlay = (<div>Baseado em {(<a href='https://www.moxfield.com/decks/Y2cdFYZw_0-isKafmKXgNw/primer'> primers </a>)}  memoraveis. Aprendi o basico de como me portar jogando de orvar. O principal padrão de jogo do deck é descobrir como evitar tentativas de vitória por tempo suficiente para colocar Orvar em jogo e começar a agregar valor com um ou mais motores.
 Primeiro passo é não perder. mas atentesse a parar apenas o que deve ser interrompido.
@@ -76,6 +80,9 @@ const DATA = {
     rule_16,
     rule_17,
     rule_18,
+    rule_19,
+    rule_20,
+    rule_21,
     howPlay,
     habilidades,   
 }

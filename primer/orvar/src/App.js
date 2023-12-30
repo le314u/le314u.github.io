@@ -61,6 +61,9 @@ function App() {
         <Rule>{DATA.rule_16}</Rule>
         <Rule>{DATA.rule_17}</Rule>
         <Rule>{DATA.rule_18}</Rule>
+        <Rule>{DATA.rule_19}</Rule>
+        <Rule>{DATA.rule_20}</Rule>
+        <Rule>{DATA.rule_21}</Rule>
         <Block><List label="Porque jogar:" array={DATA.pros}/></Block>
         <Block><List label="Porque NÃO jogar:" array={DATA.contra}/></Block>
         
