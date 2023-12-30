@@ -1,0 +1,25 @@
+.block {
+  /* display: flex; */
+  box-sizing: border-box;
+  justify-content: center;
+  align-items:center;
+  text-align: justify;
+  line-height: 1.618em;
+  min-height: 100px;
+  margin-bottom: 10px;
+}
+
+.emphasis {
+  box-shadow: 2px 2px 2px 2px #c0c0c0;
+}
+
+
+div.block div.title{
+  font-size: 1.618em;
+}
+
+div.block div.content{
+  padding:0px 50px 0px 50px ;
+  text-align: justify;
+  font-size: 1em;
+}

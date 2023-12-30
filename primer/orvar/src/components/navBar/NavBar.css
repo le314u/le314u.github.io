@@ -1,0 +1,19 @@
+.navBar {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    background-color: var(--backGround);
+    display: flex;
+    justify-content:end;
+    transition: top 0.3s; /* Adicione uma transição suave para animar a exibição da barra de navegação */
+}
+  
+.navBar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+.navBar li {
+    padding: 0; /* Espaçamento interno na barra de navegação */
+}

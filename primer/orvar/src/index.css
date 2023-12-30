@@ -1,0 +1,59 @@
+/* :root{
+  --azulPastelClaro:#BFD7EA;
+  --azulCeu:#87CEEB;
+  --azulBebe:#AEDFF7;
+  --azulTurquesa:#AFDCEC;
+  --azulPalido:#ADD8E6;
+  --azulMarinho:#6E90B4;
+  --backGroundLess:#285c64;
+  --backGround:#283c44;
+} */
+
+:root{
+  --fundo:#f0f0f0;
+  --azulPastelClaro:#BFD7EA;
+  --azulCeu:#b3e9ff;
+  --azulBebe:#AEDFF7;
+  --azulTurquesa:#AFDCEC;
+  --azulPalido:#ADD8E6;
+  --azulMarinho:#6E90B4;
+  --backGroundLess:#3362b7;
+  --backGround:#2a5298;
+}
+
+div.content  div a {
+  color: var(--azulMarinho);
+}
+
+body {
+  background-color:  var(--fundo) ;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+
+@media only screen 
+  and (min-width: 700px) 
+  and (max-width: 1800px){
+  .App-Body{
+    padding:0% 10% 0% 10% ;
+  }
+}
+
+@media only screen 
+  and (min-width: 1800px) {
+  .App-Body{
+    padding:0% 20% 0% 20% ;
+  }
+}
