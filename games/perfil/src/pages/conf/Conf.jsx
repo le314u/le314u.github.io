@@ -5,13 +5,13 @@ import {PlusIcon,DashIcon } from '@primer/octicons-react';
 import { Link } from 'react-router-dom';
 import Draggable from "react-draggable";
 
-import NewCards from './newCards.jsx'
-import AttComp from './attComp.jsx'
 
 function Conf() {
+  const THEMA = "thema"
   const [nameFields, setNameFields] = useState([]);
   const [count, setCount] = useState(1);
   const names=useRef()
+  const ul=useRef()
 
 
   const alterarValor = (key, value) => {
@@ -41,6 +41,19 @@ function Conf() {
     }
   }
 
+  function chooseThema(){
+    let tags = ul.current.querySelectorAll('.active');
+    let thema = []
+    tags.forEach((tag, index, array) => {
+      thema.push( tag.getAttribute('url'))
+    })
+    if(thema.length == 0 ){
+      sessionStorage.setItem(THEMA, "/perfil/default.json");
+    }else{
+      sessionStorage.setItem(THEMA, thema);
+    }   
+  }
+
   function createInput(index,value){
     return(
       <div key={index} className="row align-items-center">
@@ -54,6 +67,7 @@ function Conf() {
       </div>)
   }
 
+  
   const handleChange = (event) => {
     const e = event.nativeEvent.target
     alterarValor(e.id, e.value)
@@ -96,11 +110,15 @@ function Conf() {
               </div>
                     
               <InputFiltered id="maxPoints" onChange={handleChange} placeholder="100" label="maxPoints" arrayFilter="0123456789" maxLength="4"/>
-              <CheckList.ul>
-                <CheckList.li> Tema : 1 </CheckList.li> 
-                <CheckList.li> Tema : 2 </CheckList.li> 
-                <CheckList.li> Tema : 3 </CheckList.li> 
-              </CheckList.ul>
+              <div onClick={chooseThema} ref={ul}>
+                <CheckList.ul>
+                  <CheckList.li data="HP" url="/perfil/harry_potter.json"> Harry Potter </CheckList.li> 
+                  {/* 
+                    <CheckList.li data="HP" url="/perfil/harry_potter.json"> Tema : 1 </CheckList.li> 
+                    <CheckList.li data="HP" url="/perfil/harry_potter.json"> Tema : 2 </CheckList.li>
+                  */}
+                </CheckList.ul>
+              </div>
 
             </div>
 
@@ -111,8 +129,6 @@ function Conf() {
             </div>
           </div>
         </div>
-        <NewCards></NewCards>
-        <AttComp></AttComp>
       </div>
     
   );

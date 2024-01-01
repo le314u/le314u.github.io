@@ -1,10 +1,12 @@
 // URL da API que você deseja chamar
-let apiUrl = 'https://raw.githubusercontent.com/le314u/LoremIpsum-PTBR/main/perfil/harry_potter.json';
+const base_url = 'https://raw.githubusercontent.com/le314u/LoremIpsum-PTBR/main'
 
 // Fazendo a requisição usando fetch
 const get = async () => {
   try {
-    const response = await fetch(apiUrl);
+    const apiUrl = sessionStorage.getItem("thema");
+    const url = `${base_url}${apiUrl?apiUrl:'/perfil/default.json'}`
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Erro de rede: ${response.status}`);
     }

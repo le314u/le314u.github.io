@@ -4,25 +4,16 @@ import { Link } from 'react-router-dom';
 import Button from '../../componentes/button/button.jsx'
 
 
-const vh_75 = {
-  width: "100vw",
-  margin: "0",
-  display: "flex",
-  flexDirection: "column", // Alterado para exibir os elementos em coluna
-  alignItems: "center",
-  justifyContent: "center",
-  height: "100vh",
-};
 
 if(sessionStorage.getItem("name_0") == null){
+  sessionStorage.clear()
   sessionStorage.setItem("name_0","guest")
 }
-
 
 const Home = () => {
   return (
     <>
-      <div style={vh_75} >      
+      <div style={{ width: "100vw", margin: "0", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh", }} >      
         <Link to="/play">
             <Button minWidth="300px" id="start" className="p-3 my-3"  buttonColor="345deg" >Start </Button>
         </Link>

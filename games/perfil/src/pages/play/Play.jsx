@@ -22,7 +22,8 @@ function Play() {
 
 
   useEffect(()=>{
-    console.log("Chama")
+    console.log('Componente renderizado pela primeira vez');
+    setGame(GAME(setCard,setQtd))
     setCard(game.getCard())
   },[])
 

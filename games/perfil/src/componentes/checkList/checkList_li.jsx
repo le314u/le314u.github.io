@@ -5,6 +5,9 @@ function CheckList_li(props){
 
   const toggleCheckbox = () => {
     setChecked(!isChecked);
+    if(typeof props.onClick === 'function'){
+      props.onClick(props.data)
+    }
   };
 
   return (
@@ -13,6 +16,8 @@ function CheckList_li(props){
       onClick={toggleCheckbox}
       data-bs-toggle="list"
       role="button"
+      data={props.data}
+      url={props.url}
     >
       {props.children}
     </li>
