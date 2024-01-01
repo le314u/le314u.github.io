@@ -25,3 +25,7 @@ svg.icon {
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
 }
+
+.blur{
+  filter: blur(0.75rem);
+}

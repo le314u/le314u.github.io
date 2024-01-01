@@ -7,10 +7,6 @@ import {ListOrderedIcon,CheckIcon,XIcon } from '@primer/octicons-react';
 import GAME from './hook.jsx'
 
 
-const vh_75={
-  height:" 75vh",
-}
-
 
 const estiloCustomizado = {
   maxWidth: '600px', // Defina o valor desejado para a largura máxima
@@ -22,7 +18,6 @@ function Play() {
   const [card, setCard] = useState(null);
   const [qtd, setQtd] = useState(1);
   const [game, setGame] = useState( GAME(setCard,setQtd) );
-
   const cardRef = useRef();
 
 
@@ -37,10 +32,9 @@ function Play() {
   let colorPlayer = game.player().getCor()
 
   return (
-    
       <div className="vh-100" role="document">
         <div className="modal-header p-5 pb-4 border-bottom-0"><div></div><PopupComponent players={players} ></PopupComponent></div>
-        <div  className="container d-flex align-items-center justify-content-center" style={vh_75} >
+        <div  className="container d-flex align-items-center justify-content-center" style={{ height:" 75vh", }} >
           {card ?(
           <Card ref={cardRef}
           color={colorPlayer}
@@ -55,7 +49,7 @@ function Play() {
           <h1>Fim</h1>
         )}
         </div>
-        <div id='play_controller vh-75' className='container d-flex align-items-center justify-content-evenly' style={estiloCustomizado}>
+        <div id='play_controller vh-75' className='container d-flex align-items-center justify-content-evenly' style={{ maxWidth: '600px', padding: '10px' }}>
           <Button buttonColor="345deg"  onClick={ ()=>{cardRef.current.wrong();game.errou()}} ><XIcon size={24}/>Errou </Button>
           <Button buttonColor="145deg"  onClick={ ()=>{cardRef.current.correct();game.acertou()}}  ><CheckIcon size={24}/>Acertou</Button> 
         </div>
