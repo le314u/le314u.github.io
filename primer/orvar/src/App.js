@@ -1,5 +1,5 @@
 
-import { useRef } from 'react';
+import { useRef,useState } from 'react';
 import logo from './logo.svg';
 import NavBar from './components/navBar/NavBar.js'
 import Header from './components/header/Header.js'
@@ -16,7 +16,7 @@ import './App.css';
 
 
 let Box = ({children})=>(<Block><Block>{children}</Block></Block>)
-let Rule = ({ children }) => (<Block><Block emphasis={true}>{children}</Block> </Block>);
+let Rule = ({ children}) => (<Block><Block emphasis={true}>{children}</Block> </Block>);
 let Lista = ({ children, dataArray })=>(<Block><List label={children} array={dataArray}/></Block>);
 let Card = ({src, children})=>(<Block><Explanish type='center' src={src} > {children}</Explanish></Block >);
 let CardL = ({src, children})=>(<Block><Explanish type='left' src={src} > {children}</Explanish></Block >);
@@ -34,11 +34,16 @@ function goTo(id){
 
 function App() {
   const tag = useRef();
+  const chainDisplay = useRef();
+  let [tutors,setTutors] = useState();
 
-  function teste(e){
-    console.log("TRIGUER")
-    tag.current.style.display = 'none'
-    console.log(e)
+  function changeContent(content){
+    let ele = chainDisplay.current.getElementsByClassName('emphasis')[0]
+    ele.innerHTML = content
+  }
+
+  function chainTutors(e){
+    setTutors(e)
   }
 
   return (
@@ -50,19 +55,7 @@ function App() {
         {/* <Block><List label="Tipo" array={["Criatura Lendária — Metamorfo",]}/></Block> */}
         {/* <Block><List label="Poder " array={["3/3"]}/></Block> */}
         <div ref={tag}>
-          <ComboBox triguer={teste} name="Win" array={
-
-            [{
-              value:"value1",
-              text:"text1"
-            },{
-              value:"value2",
-              text:"text2"
-            },{
-              value:"value3",
-              text:"text3"
-            }]
-          }/>
+          
         </div>
         <Box>{DATA.howPlay}</Box>
         <Box>Notas sobre Orvar das Formas Infindáveis</Box>
@@ -116,6 +109,68 @@ function App() {
             BackUp
         </SetCards>  
 
+        <ComboBox triguer={chainTutors} name="Chain de Tutor" array={
+          [{ value:"Intuition", text:"Intuition" },{ value:"Spellseeker", text:"Spellseeker" },{ value:"Vedalken", text:"Vedalken Aethermage" },{ value:"Invention", text:"Whir of Invention" },{ value:"FetchLand", text:"FetchLand" },{ value:"Expedition ", text:"Expedition Map" },{ value:"Merchant", text:"Merchant Scroll" },{ value:"Dizzy", text:"Dizzy Spell" },{ value:"Muddle", text:"Muddle the Mixture" }] }/>
+        <div ref={chainDisplay}><Rule>
+        {(() => {
+        switch (tutors) {
+          case 'Intuition':
+            return (
+              <SetCards id="Intuition" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}>
+                {tutors}
+              </SetCards>
+            );
+            
+          case 'Spellseeker':
+            return (<>
+              <SetCards id="Spellseeker_1" array_src={[card("Vedalken_Aethermage.jpg")]}> {tutors} </SetCards>
+              <SetCards id="Spellseeker_2" array_src={[card("Step_Through.jpg")]}> {tutors} </SetCards>
+            </>);
+
+          case 'Vedalken':
+            return (<>
+              <SetCards id="Vedalken" array_src={[card("Step_Through.jpg")]}> {tutors} </SetCards>
+            </>);
+
+          case 'Invention':
+            return (<>
+              <SetCards id="Invention" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}> Whir of Invention </SetCards>
+            </>);
+
+          case 'FetchLand':
+            return (<>
+              <SetCards id="FetchLand_1" array_src={[card("Intuition.jpg")]}>{tutors}</SetCards>
+              <SetCards id="FetchLand_2" array_src={[card("Expedition_Map.jpg")]}>{tutors}</SetCards>
+            </>);
+          
+          case 'Expedition':
+            return (<>
+              <SetCards id="Expedition_1" array_src={[card("Zumbido_da_Invencao.jpg")]}> Expedition Map </SetCards>
+              <SetCards id="Expedition_2" array_src={[card("Magica_Estonteante.jpg")]}> Expedition Map </SetCards>
+            </>);
+
+          case 'Merchant':
+            return (<>
+              <SetCards id="Merchant_1" array_src={[card("Baguncar_a_Mistura.jpg")]}> Merchant Scroll </SetCards>
+              <SetCards id="Merchant_2" array_src={[card("Busca-magica.jpg")]}> Merchant Scroll </SetCards>
+            </>);
+          
+          case 'Dizzy':
+            return (<>
+              <SetCards id="Dizzy_1" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}> Dizzy Spell </SetCards>
+              <SetCards id="Dizzy_2" array_src={[card("Busca-magica.jpg")]}> Dizzy Spell </SetCards>
+            </>);
+
+          case 'Muddle':
+            return (<>
+              <SetCards id="Dizzy_1" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}> Muddle the Mixture </SetCards>
+              <SetCards id="Dizzy_2" array_src={[card("Busca-magica.jpg")]}> Muddle the Mixture </SetCards>
+            </>);
+
+          default:
+            return null;
+        }
+      })()}</Rule></div >
 
 
         {/*
