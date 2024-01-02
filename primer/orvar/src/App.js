@@ -111,9 +111,9 @@ function App() {
 
 
 
-
+ 
         <ComboBox triguer={chainTutors} name="Chain de Tutor" array={
-          [{ value:"Intuition", text:"Intuition" },{ value:"Spellseeker", text:"Spellseeker" },{ value:"Vedalken", text:"Vedalken Aethermage" },{ value:"Invention", text:"Whir of Invention" },{ value:"FetchLand", text:"FetchLand" },{ value:"Expedition ", text:"Expedition Map" },{ value:"Merchant", text:"Merchant Scroll" },{ value:"Dizzy", text:"Dizzy Spell" },{ value:"Muddle", text:"Muddle the Mixture" }] }/>
+          [{ value:"Intuition", text:"Intuition" },{ value:"Spellseeker", text:"Spellseeker" },{ value:"Vedalken", text:"Vedalken Aethermage" },{ value:"Invention", text:"Whir of Invention" },{ value:"FetchLand", text:"FetchLand" },{ value:"Expedition", text:"Expedition Map" },{ value:"Merchant", text:"Merchant Scroll" },{ value:"Dizzy", text:"Dizzy Spell" },{ value:"Muddle", text:"Muddle the Mixture" }] }/>
 
         <div ref={chainDisplay}><Rule>
         {(() => {
