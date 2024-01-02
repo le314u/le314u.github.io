@@ -67,8 +67,8 @@ function App() {
         <Box>{DATA.howPlay}</Box>
         <Box>Notas sobre Orvar das Formas Infindáveis</Box>
         <Card src={card("Orvar_das_Formas_Infindaveis.jpg")}>{DATA.intro} {DATA.shell}</Card>
-        <CardL src={card("Orvar_das_Formas_Infindaveis.jpg")}>{DATA.intro} {DATA.shell}</CardL>
-        <CardR src={card("Orvar_das_Formas_Infindaveis.jpg")}>{DATA.intro} {DATA.shell}</CardR>
+        {/* <CardL src={card("Orvar_das_Formas_Infindaveis.jpg")}>{DATA.intro} {DATA.shell}</CardL>
+        <CardR src={card("Orvar_das_Formas_Infindaveis.jpg")}>{DATA.intro} {DATA.shell}</CardR> */}
         <Lista dataArray={DATA.habilidades}>Habilidades</Lista>
         <Rule>{DATA.rule_1}</Rule>
         <Rule>{DATA.rule_2}</Rule>
@@ -95,7 +95,7 @@ function App() {
         <Block><List label="Porque NÃO jogar:" array={DATA.contra}/></Block>
         
         
-        <SetCards id="drawEngine" array_src={ [card("Arquimago_Emerito.jpg"),card("Cavernas_Cripticas"),card("Coliseu_dos_Cefalidas.jpg"),card("Contradicao_Arcana.jpg"),card("Determinacao_do_Aquateto.jpg"),card("Difusao_de_Cristal.jpg"),card("Enervar.jpg"),card("Esfera_do_Comandante.jpg"),card("Estudo_Ristico.jpg"),card("Fluxo_Termal.jpg"),card("Hipocampo_da_Arrebentacao.jpg"),card("Idolo_do_Oblivio.jpg"),card("Infundir.jpg"),card("Lanterna_Guia-almas.jpg"),card("Magibomba_de_Eter.jpg"),card("Miragem_Tremeluzente.jpg"),card("Remora_Mistica.jpg"),card("Sacudida.jpg"),card("Safanao.jpg"),card("Simpatia_Nefasta.jpg"),card("Zenite_do_Sol_Azul.jpg")]}>
+        <SetCards id="drawEngine" array_src={ [card("Arquimago_Emerito.jpg"),card("Cavernas_Cripticas.jpg"),card("Coliseu_dos_Cefalidas.jpg"),card("Contradicao_Arcana.jpg"),card("Determinacao_do_Aquateto.jpg"),card("Difusao_de_Cristal.jpg"),card("Enervar.jpg"),card("Esfera_do_Comandante.jpg"),card("Estudo_Ristico.jpg"),card("Fluxo_Termal.jpg"),card("Hipocampo_da_Arrebentacao.jpg"),card("Idolo_do_Oblivio.jpg"),card("Infundir.jpg"),card("Lanterna_Guia-almas.jpg"),card("Magibomba_de_Eter.jpg"),card("Miragem_Tremeluzente.jpg"),card("Remora_Mistica.jpg"),card("Sacudida.jpg"),card("Safanao.jpg"),card("Simpatia_Nefasta.jpg"),card("Zenite_do_Sol_Azul.jpg")]}>
             Compra
         </SetCards>  
 
