@@ -9,17 +9,13 @@ function onChange(interno,externo){
   }
 }
 
-function getValue(){
-
-}
-
 function InputFiltered(props) {
   const { tag, value, handleChange, filter, saveName } = useFilteredInput(props.placeholder, props.arrayFilter,props.onEnter);
 
   return (
     <div className="form-floating mb-3">
       <input
-        ref={props.tag}
+        ref={tag}
         id={props.id}
         className="form-control rounded-3"
         value={value}

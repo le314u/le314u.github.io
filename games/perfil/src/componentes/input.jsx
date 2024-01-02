@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-class Inputsss extends React.Component {
+class Input extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

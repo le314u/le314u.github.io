@@ -31,7 +31,6 @@ function useFilteredInput(initialValue, allowedKeys,onEnter=undefined) {
     const saveName = () => {
         const key = tag.current.id
         const value = tag.current.value.trim(); // Utilize trim para remover espaços em branco no início e no final
-
         if (value ) {
             sessionStorage.setItem(key, value);
         return true;

@@ -5,10 +5,6 @@ import Button from '../../componentes/button/button.jsx'
 
 
 
-if(sessionStorage.getItem("name_0") == null){
-  sessionStorage.clear()
-  sessionStorage.setItem("name_0","guest")
-}
 
 const Home = () => {
   return (
