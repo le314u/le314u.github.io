@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://le314u.githubpage.io/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://le314u.github.io/</loc>
+    <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
    <url>
-    <loc>https://le314u.githubpage.io/games/</loc>
-    <changefreq>year</changefreq>
+    <loc>https://le314u.github.io/games</loc>
+    <changefreq>yearly</changefreq>
   </url>
    
    
@@ -19,7 +19,7 @@
   </url>
    <url>
     <loc>https://le314u.github.io/help/spy</loc>
-    <changefreq>year</changefreq>
+    <changefreq>yearly</changefreq>
   </url>
   
 
@@ -30,7 +30,7 @@
   </url>
    <url>
     <loc>https://le314u.github.io/help/perfil</loc>
-    <changefreq>year</changefreq>
+    <changefreq>yearly</changefreq>
   </url>
   
   
@@ -41,13 +41,13 @@
   </url>
    <url>
     <loc>https://le314u.github.io/help/telma</loc>
-    <changefreq>year</changefreq>
+    <changefreq>yearly</changefreq>
   </url>
 
 
 
   <url>
-    <loc>https://le314u.github.io/public/pages/troll.html</loc>
+    <loc>https://le314u.github.io/public/s/troll.html</loc>
     <changefreq>never</changefreq>
   </url>
 
