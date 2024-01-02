@@ -143,7 +143,7 @@ function App() {
 
           case 'FetchLand':
             return (<>
-              <SetCards roll={true} id="FetchLand_1" array_src={[card("Intuition.jpg")]}>{tutors}</SetCards>
+              <SetCards roll={true} id="FetchLand_1" array_src={[card("Intuicao.jpg")]}>{tutors}</SetCards>
               <SetCards roll={true} id="FetchLand_2" array_src={[card("Expedition_Map.jpg")]}>{tutors}</SetCards>
             </>);
           
