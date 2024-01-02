@@ -94,11 +94,27 @@ function App() {
         <Block><List label="Porque jogar:" array={DATA.pros}/></Block>
         <Block><List label="Porque NÃO jogar:" array={DATA.contra}/></Block>
         
-
-        <SetCards id="set3" array_src={ [card("card.png"),card("copy.jpg"),card("card.png"),card("copy.jpg"),card("card.png"),card("copy.jpg"),card("card.png"),card("copy.jpg"),card("card.png"),card("copy.jpg")]}>
-            Conjunto de Cartas do versos
+        
+        <SetCards id="drawEngine" array_src={ [card("Arquimago_Emerito.jpg"),card("Cavernas_Cripticas"),card("Coliseu_dos_Cefalidas.jpg"),card("Contradicao_Arcana.jpg"),card("Determinacao_do_Aquateto.jpg"),card("Difusao_de_Cristal.jpg"),card("Enervar.jpg"),card("Esfera_do_Comandante.jpg"),card("Estudo_Ristico.jpg"),card("Fluxo_Termal.jpg"),card("Hipocampo_da_Arrebentacao.jpg"),card("Idolo_do_Oblivio.jpg"),card("Infundir.jpg"),card("Lanterna_Guia-almas.jpg"),card("Magibomba_de_Eter.jpg"),card("Miragem_Tremeluzente.jpg"),card("Remora_Mistica.jpg"),card("Sacudida.jpg"),card("Safanao.jpg"),card("Simpatia_Nefasta.jpg"),card("Zenite_do_Sol_Azul.jpg")]}>
+            Compra
         </SetCards>  
 
+
+        <SetCards id="tutorEngine" array_src={ [card("Zumbido_da_Invencao.jpg"),card("Tutor_Mistico.jpg"),card("Praia_Inundada.jpg"),card("Pergaminho_dos_Mercadores.jpg"),card("Magica_Estonteante.jpg"),card("Intuicao.jpg"),card("Busca-magica.jpg"),card("Baguncar_a_Mistura.jpg")]}>
+            Tutores
+        </SetCards>  
+
+        <SetCards id="counter" array_src={ [card("Baguncar_a_Mistura.jpg"),card("Cancao_do_Cisne.jpg"),card("Contrabalancar.jpg"),card("Contradicao_Arcana.jpg"),card("Drenagem_de_Mana.jpg"),card("Eremita_Malevolente.jpg"),card("Explosao_Hidrica.jpg"),card("Forca_da_Negacao.jpg"),card("Forca_de_Vontade.jpg"),card("Oferta_Irrecusavel.jpg"),card("Pacto_de_Negacao.jpg"),card("Silfide_Magioclasta.jpg"),card("Tempestade_Atordoante.jpg"),card("Tutela_Feroz.jpg")]}>
+            Counters
+        </SetCards>  
+
+        <SetCards id="redutor" array_src={ [card("Genio_Arrogante.jpg"),card("Ornato_de_Safira.jpg"),card("Silfide_Zombeteira.jpg")]}>
+            Redutor
+        </SetCards>  
+
+        <SetCards id="backup" array_src={ [card("Arqueomante.jpg"),card("Cetro_Isocrono.jpg"),card("Recuperadora_de_Segredos.jpg"),card("Santuario_Mistico.jpg"),card("Vasculhador_de_Naufragios.jpg")]}>
+            BackUp
+        </SetCards>  
 
 
 
