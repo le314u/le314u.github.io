@@ -110,7 +110,7 @@ function Conf() {
               </div>
                     
               <InputFiltered id="maxPoints" onChange={handleChange} placeholder="100" label="maxPoints" arrayFilter="0123456789" maxLength="4"/>
-              <div onClick={chooseThema} ref={ul}>
+              <div ref={ul}>
                 <CheckList.ul>
                   <CheckList.li data="HP" url="/perfil/harry_potter.json"> Harry Potter </CheckList.li> 
                   {/* 
@@ -122,7 +122,7 @@ function Conf() {
 
             </div>
 
-            <div className="p-2 form-floating mb-3">
+            <div onClick={chooseThema} className="p-2 form-floating mb-3">
               <Link to="/play">
                 <button id="start" type="button" className="btn btn-primary form-control rounded-3 p-3" data-bs-dismiss="modal" aria-label="Start">Play</button>
               </Link>
