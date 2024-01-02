@@ -2,29 +2,8 @@ import buildCard from "../../modules/Card"
 import Deck from "../../modules/Deck"
 import Player from "../../modules/Player"
 import Tabuleiro from "../../modules/Tabuleiro"
-import Ranking from "../../modules/Ranking"
-import get from '../../modules/Ajax'
 
-
-// Função assíncrona para usar await
-const fetchData = async () => {
-    try {
-      const data = await get();
-      return data
-    } catch (error) {
-      console.error('Erro ao obter dados:', error);
-      return null
-    }
-  };
-  
-// Chama a função assíncrona
-let data = await fetchData();
 const card = new buildCard()
-let cards = data.map((value, index, array) => {
-    return card.build(value.resposta,value.p1,value.p2,value.p3,value.p4,value.p5)
-})
-
-
 
 function handleAcertou(setCard,setQtd,tabuleiro){
     return ()=>{
@@ -42,8 +21,6 @@ function handleErrou(setCard,setQtd,tabuleiro){
     }
 }
 
-
-
 function getPlayers(){
     let players = []
     let nameKeys = Object.keys(sessionStorage)
@@ -57,16 +34,19 @@ function getPlayers(){
     return players;
 }
 
-function getDeck(){
+function getDeck(cards){
     const deck = new Deck(cards)
     deck.shuffleDeck()
     return deck
 }
 
 
-const GAME = (setCard,setQtd)=>{
+const GAME = (data,setCard,setQtd)=>{
+    let cards = data.map((value, index, array) => {
+        return card.build(value.resposta,value.p1,value.p2,value.p3,value.p4,value.p5)
+    })
+    let deck =  getDeck(cards)
     let players = getPlayers();
-    let deck =  getDeck()
     let tabuleiro = new Tabuleiro(players, deck, sessionStorage.getItem("maxPoints"))
 
     return {

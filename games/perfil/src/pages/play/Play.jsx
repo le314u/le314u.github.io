@@ -6,35 +6,43 @@ import PopupComponent from '../ranking/ranking .jsx'
 import {ListOrderedIcon,CheckIcon,XIcon } from '@primer/octicons-react';
 import GAME from './hook.jsx'
 
-
-
-const estiloCustomizado = {
-  maxWidth: '600px', // Defina o valor desejado para a largura máxima
-  padding: '10px'
-};
-
+// URL da API que você deseja chamar
+const base_url = 'https://raw.githubusercontent.com/le314u/LoremIpsum-PTBR/main'
 
 function Play() {
   const [card, setCard] = useState(null);
   const [qtd, setQtd] = useState(1);
-  const [game, setGame] = useState( GAME(setCard,setQtd) );
+  const [game, setGame] = useState( null );
   const cardRef = useRef();
 
 
-  useEffect(()=>{
-    console.log('Componente renderizado pela primeira vez');
-    setGame(GAME(setCard,setQtd))
-    setCard(game.getCard())
+  useEffect(()=>{   
+    const apiUrl = sessionStorage.getItem("thema");
+    fetch(base_url+apiUrl)
+      .then((response)=>{
+        return response.json();
+      })
+      .then((json)=>{
+        let game_hook = GAME(json,setCard,setQtd)
+        setGame( game_hook )
+      });
+    
   },[])
 
+  useEffect(()=>{
+    if (game) {
+      setCard(game.getCard());
+    }
+  },[game])
 
-  let players = game.tabuleiro.players
-  let namePlayer = game.player().getNome()
-  let colorPlayer = game.player().getCor()
+
+  let players = game?.tabuleiro?.players ?? null
+  let namePlayer = game?.player()?.getNome() ?? "Guest"
+  let colorPlayer = game?.player()?.getCor() ?? "#AAA"
 
   return (
       <div className="vh-100" role="document">
-        <div className="modal-header p-5 pb-4 border-bottom-0"><div></div><PopupComponent players={players} ></PopupComponent></div>
+        {players !== null && players !== undefined ? (<div className="modal-header p-5 pb-4 border-bottom-0"><div></div><PopupComponent players={players} ></PopupComponent></div>):''}
         <div  className="container d-flex align-items-center justify-content-center" style={{ height:" 75vh", }} >
           {card ?(
           <Card ref={cardRef}
