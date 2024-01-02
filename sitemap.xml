@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://le314u.githubpage.io/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1</priority>
+  </url>
+   <url>
+    <loc>https://le314u.githubpage.io/games/</loc>
+    <changefreq>year</changefreq>
+  </url>
+   
+   
+
+
+   <url>
+    <loc>https://le314u.github.io/games/spy/dist/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+   <url>
+    <loc>https://le314u.github.io/help/spy</loc>
+    <changefreq>year</changefreq>
+  </url>
+  
+
+
+  <url>
+    <loc>https://le314u.github.io/games/perfil/dist/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+   <url>
+    <loc>https://le314u.github.io/help/perfil</loc>
+    <changefreq>year</changefreq>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://le314u.github.io/games/telma/dist/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+   <url>
+    <loc>https://le314u.github.io/help/telma</loc>
+    <changefreq>year</changefreq>
+  </url>
+
+
+
+  <url>
+    <loc>https://le314u.github.io/public/pages/troll.html</loc>
+    <changefreq>never</changefreq>
+  </url>
+
+
+  <url>
+    <loc>https://le314u.github.io/primer/orvar/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+
+</urlset>
