@@ -38,7 +38,7 @@ function Footer(props:any) {
           <a href="/games/spy/dist"><li>Who is Spy?</li></a>
         </ul></div>
         <div className="footerBar-column"><ul>
-          <a href="/primer/cEDH"><li>Orvar</li></a>
+          <a href="/primer/cEDH"><li>cEDH</li></a>
           <a href="/primer/orvar"><li>Orvar</li></a>
           <a href="/primer/urza"><li>Urza</li></a>
         </ul></div>
