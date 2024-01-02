@@ -120,55 +120,55 @@ function App() {
         switch (tutors) {
           case 'Intuition':
             return (
-              <SetCards id="Intuition" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}>
+              <SetCards roll={true} id="Intuition" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}>
                 {tutors}
               </SetCards>
             );
             
           case 'Spellseeker':
             return (<>
-              <SetCards id="Spellseeker_1" array_src={[card("Vedalken_Aethermage.jpg")]}> {tutors} </SetCards>
-              <SetCards id="Spellseeker_2" array_src={[card("Step_Through.jpg")]}> {tutors} </SetCards>
+              <SetCards roll={true} id="Spellseeker_1" array_src={[card("Vedalken_Aethermage.jpg")]}> {tutors} </SetCards>
+              <SetCards roll={true} id="Spellseeker_2" array_src={[card("Step_Through.jpg")]}> {tutors} </SetCards>
             </>);
 
           case 'Vedalken':
             return (<>
-              <SetCards id="Vedalken" array_src={[card("Step_Through.jpg")]}> {tutors} </SetCards>
+              <SetCards roll={true} id="Vedalken" array_src={[card("Step_Through.jpg")]}> {tutors} </SetCards>
             </>);
 
           case 'Invention':
             return (<>
-              <SetCards id="Invention" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}> Whir of Invention </SetCards>
+              <SetCards roll={true} id="Invention" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}> Whir of Invention </SetCards>
             </>);
 
           case 'FetchLand':
             return (<>
-              <SetCards id="FetchLand_1" array_src={[card("Intuition.jpg")]}>{tutors}</SetCards>
-              <SetCards id="FetchLand_2" array_src={[card("Expedition_Map.jpg")]}>{tutors}</SetCards>
+              <SetCards roll={true} id="FetchLand_1" array_src={[card("Intuition.jpg")]}>{tutors}</SetCards>
+              <SetCards roll={true} id="FetchLand_2" array_src={[card("Expedition_Map.jpg")]}>{tutors}</SetCards>
             </>);
           
           case 'Expedition':
             return (<>
-              <SetCards id="Expedition_1" array_src={[card("Zumbido_da_Invencao.jpg")]}> Expedition Map </SetCards>
-              <SetCards id="Expedition_2" array_src={[card("Magica_Estonteante.jpg")]}> Expedition Map </SetCards>
+              <SetCards roll={true} id="Expedition_1" array_src={[card("Zumbido_da_Invencao.jpg")]}> Expedition Map </SetCards>
+              <SetCards roll={true} id="Expedition_2" array_src={[card("Magica_Estonteante.jpg")]}> Expedition Map </SetCards>
             </>);
 
           case 'Merchant':
             return (<>
-              <SetCards id="Merchant_1" array_src={[card("Baguncar_a_Mistura.jpg")]}> Merchant Scroll </SetCards>
-              <SetCards id="Merchant_2" array_src={[card("Busca-magica.jpg")]}> Merchant Scroll </SetCards>
+              <SetCards roll={true} id="Merchant_1" array_src={[card("Baguncar_a_Mistura.jpg")]}> Merchant Scroll </SetCards>
+              <SetCards roll={true} id="Merchant_2" array_src={[card("Busca-magica.jpg")]}> Merchant Scroll </SetCards>
             </>);
           
           case 'Dizzy':
             return (<>
-              <SetCards id="Dizzy_1" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}> Dizzy Spell </SetCards>
-              <SetCards id="Dizzy_2" array_src={[card("Busca-magica.jpg")]}> Dizzy Spell </SetCards>
+              <SetCards roll={true} id="Dizzy_1" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}> Dizzy Spell </SetCards>
+              <SetCards roll={true} id="Dizzy_2" array_src={[card("Busca-magica.jpg")]}> Dizzy Spell </SetCards>
             </>);
 
           case 'Muddle':
             return (<>
-              <SetCards id="Dizzy_1" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}> Muddle the Mixture </SetCards>
-              <SetCards id="Dizzy_2" array_src={[card("Busca-magica.jpg")]}> Muddle the Mixture </SetCards>
+              <SetCards roll={true} id="Dizzy_1" array_src={[card("Pergaminho_dos_Mercadores.jpg")]}> Muddle the Mixture </SetCards>
+              <SetCards roll={true} id="Dizzy_2" array_src={[card("Busca-magica.jpg")]}> Muddle the Mixture </SetCards>
             </>);
 
           default:

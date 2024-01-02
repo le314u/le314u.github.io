@@ -4,7 +4,7 @@ import BlockCard from "../explanish/blockCard/BlockCard.js"
 
 
 let offset=0
-function SetCards({id, array_src, children }){
+function SetCards({id, array_src, children, roll }){
     let fix=()=>{
         let scope = document.getElementById(id)
         const setCard = scope.getElementsByClassName("setCard")[0]
@@ -40,10 +40,10 @@ function SetCards({id, array_src, children }){
                     <BlockCard key={index} src={element}/>
                 ))} 
             </div>
-            <div className="manipulation">
+            {roll??<div className="manipulation">
                 <button onClick={back} className="prev-button">Anterior</button>
                 <button onClick={next} className="next-button">Próximo</button>
-            </div>
+            </div>}
 
         </div>
     )
