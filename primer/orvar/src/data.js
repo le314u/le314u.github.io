@@ -46,6 +46,35 @@ const rule_20="Se um efeito permitir que você jogue um terreno ou conjure uma m
 const rule_21="O custo de mana convertido de um card modal dupla face é baseado nas características da face que está sendo considerada. Na pilha e no campo de batalha, considere a face que está voltada para cima. Em todas as outras zonas, considere apenas a face frontal. Isso é diferente de como o custo de mana convertido de um card dupla face transformador é determinado. (2020-09-25)\n"
 
 
+const panels = [
+    {
+      key: 'Rules',
+      title: 'Regra 1',
+      content: [
+        rule_1,
+        rule_2,
+        rule_3,
+        rule_4,
+        rule_5,
+        rule_6,
+        rule_7,
+        rule_8,
+        rule_9,
+        rule_10,
+        rule_11,
+        rule_12,
+        rule_13,
+        rule_14,
+        rule_15,
+        rule_16,
+        rule_17,
+        rule_18,
+        rule_19,
+        rule_20,
+        rule_21
+      ].join('\n')
+    },
+  ]
 const howPlay = (<div>Baseado em {(<a href='https://www.moxfield.com/decks/Y2cdFYZw_0-isKafmKXgNw/primer'> primers </a>)}  memoraveis. Aprendi o basico de como me portar jogando de orvar. O principal padrão de jogo do deck é descobrir como evitar tentativas de vitória por tempo suficiente para colocar Orvar em jogo e começar a agregar valor com um ou mais motores.
 Primeiro passo é não perder. mas atentesse a parar apenas o que deve ser interrompido.
 Segundo passo é obter o Santuário. castar Orvar e tirar o maior proveito disso possivel  (Copie terras e Compra cartas)
@@ -85,5 +114,6 @@ const DATA = {
     rule_21,
     howPlay,
     habilidades,   
+    panels,
 }
 export default DATA
