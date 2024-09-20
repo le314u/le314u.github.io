@@ -22,8 +22,8 @@ function Play() {
       result.current.innerText = "Digite uma chave de 4 digitos"
     }else{
       let key = Engine.createKey(code)
-      let spy = Engine.isSpy(key)
-      let local = Engine.local(key)
+      let spy = Engine.isSpy(key[0])
+      let local = Engine.local(key[1])
       result.current.innerText = local
     }
   }
