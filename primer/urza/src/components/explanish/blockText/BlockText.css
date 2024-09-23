@@ -1,0 +1,16 @@
+/* .blockText {
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: justify;
+    line-height: 1.618em;
+    font-size: 1em;
+} */
+
+  .blockText {
+    min-width: 300px;
+    flex: 7;
+    text-align: justify;
+    /* padding: 10px; */
+    margin: 5px;
+  }
+  

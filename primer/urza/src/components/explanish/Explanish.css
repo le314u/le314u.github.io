@@ -1,0 +1,39 @@
+div.explanish.orientate{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.explanish {
+  display: flex;
+  flex-direction: column;
+
+  align-items:center;
+  justify-content: space-between;
+  margin: 50px;
+  margin-bottom: 0px;
+  line-height: 1.618em;
+  font-size: 1em;
+  justify-content: center
+}
+
+.explanish .blockCard {
+  margin: 0px 20px 0px 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

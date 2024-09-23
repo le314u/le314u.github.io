@@ -1,0 +1,53 @@
+
+.cardsCarousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 0;
+  justify-content: space-between;
+  background-color: #ebebeb;
+  box-shadow: 2px 2px 2px 2px #c0c0c0;
+  overflow: hidden; /* Oculta o conteúdo fora do contêiner */
+  margin: 20px;
+}
+
+.titleSetCards {
+  padding: 10px;
+  margin: 5px;
+  color: black;
+}
+
+.setCard {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-content: center;
+  justify-content: start; /* Distribui os itens uniformemente na linha */
+  transition: transform 0.75s; /* Adicione uma transição suave ao alterar a posição do carrossel */
+}
+
+.setCard .blockCard {
+  padding: 10px;
+  margin: 5px;
+}
+
+.manipulation{
+  width: 100%;
+  display:flex;
+  flex:0;
+  justify-content: space-between;
+}
+
+.prev-button,
+.next-button {
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+
+

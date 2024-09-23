@@ -1,0 +1,26 @@
+.title {
+  /* display: flex; */
+  box-sizing: border-box;
+  justify-content: center;
+  align-items:center;
+  text-align: justify;
+  line-height: 1.618em;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.emphasis {
+  box-shadow: 2px 2px 2px 2px #c0c0c0;
+}
+
+
+div.title div.title{
+  font-size: 1.618em;
+}
+
+div.title div.content{
+  padding:0px 50px 0px 50px ;
+  text-align: justify;
+  font-size: 1em;
+}
