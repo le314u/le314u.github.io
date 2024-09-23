@@ -10,44 +10,24 @@ import Explanish from './components/explanish/Explanish.js'
 import DATA from './data.js'
 import 'semantic-ui-css/semantic.min.css'
 import './App.css';
-
-
 import { Accordion, Divider,   Segment ,ModalHeader, ModalDescription, ModalContent, ModalActions, Button,Confirm, Header, Image, Modal, } from 'semantic-ui-react'
-// import SetCards from './components/setCards/SetCards.js'
-// import ComboBox from './components/comboBox/ComboBox.js';
-// import logo from './logo.svg';
 
+import card from './assets/cards/urza.jpg'
+import banner from './assets/banner.webp'
+
+let goTo = (id) => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }) }
 
 let Topics = ({array}) => ( <Block> <Ull array={array}/> </Block> )
 let Box = ({children})=>(<Block>{children}</Block>)
 let Rule = ({ children}) => (<Block><Block emphasis={true}>{children}</Block> </Block>);
 let Lista = ({ children, dataArray })=>(<Block><List label={children} array={dataArray}/></Block>);
 let Card = ({src, children})=>(<Block><Explanish type='center' src={src} > {children}</Explanish></Block >);
-let CardL = ({src, children})=>(<Block><Explanish type='left' src={src} > {children}</Explanish></Block >);
 let CardR = ({src, children})=>(<Block><Explanish type='right' src={src} > {children}</Explanish></Block >);
-
-
-function goTo(id){
-  const tag =  document.getElementById(id)
-  tag.scrollIntoView({ behavior: 'smooth' });
-}
-
-const FormattedText = ({ text = ''}) => {
-  const formattedText = text.split('\n').map((line, index) => (
-    <React.Fragment key={index}>
-      {line}
-      {index < text.split('\n').length - 1 && <br/>}
-    </React.Fragment>
-  ));
-
-  return <div>{formattedText}</div>;
-};
-
+let CardL = ({src, children})=>(<Block><Explanish type='left' src={src} > {children}</Explanish></Block >);
 
 
 function App() {
-  let src_banner = "/primer/urza/build/banner.webp"
-  let card = (name)=>{  return "/primer/urza/build/cards/"+name}
+
   function ModalRules(props) {
     const [open, setOpen] = useState(false)
     return (
@@ -78,14 +58,13 @@ function App() {
     </Modal>
     )
   }
-  // <Headerr src="/primer/urza/build/banner.webp"/>
 
   return (
     <div className="App">
       <NavBar/>
-      <Headerr src={src_banner} />
+      <Headerr src={banner} />
       <div className="App-Body">
-        <Card src={card("urza.jpg")}/>
+        <Card src={card}/>
 
         <Block> <List label="Habilidades:" array={DATA.habilidades}/> </Block>
 
