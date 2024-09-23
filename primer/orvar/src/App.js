@@ -11,7 +11,8 @@ import ComboBox from './components/comboBox/ComboBox.js';
 import DATA from './data.js'
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
-
+import card from './assets/cards/Orvar_das_Formas_Infindaveis.jpg'
+import banner from './assets/banner.webp'
 import { Accordion, Divider,   Segment ,ModalHeader, ModalDescription, ModalContent, ModalActions, Button,Confirm, Header, Image, Modal, } from 'semantic-ui-react'
 
 
@@ -22,7 +23,7 @@ let Lista = ({ children, dataArray })=>(<Block><List label={children} array={dat
 let Card = ({src, children})=>(<Block><Explanish type='center' src={src} > {children}</Explanish></Block >);
 let CardL = ({src, children})=>(<Block><Explanish type='left' src={src} > {children}</Explanish></Block >);
 let CardR = ({src, children})=>(<Block><Explanish type='right' src={src} > {children}</Explanish></Block >);
-function  card(name){  return "/primer/orvar/build/cards/"+name}
+
 
 function goTo(id){
   const tag =  document.getElementById(id)
@@ -98,12 +99,12 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-      <Headerr src="/primer/orvar/build/banner.webp"/>
+      <Headerr src={banner}/>
       <div className="App-Body">
         <div ref={tag}> </div>
 
 
-        <Card src={card("Orvar_das_Formas_Infindaveis.jpg")}/>
+        <Card src={card}/>
 
         <Box>{DATA.intro} {DATA.shell}</Box>
 
@@ -121,9 +122,7 @@ function App() {
 
         <Block><List label="Porque jogar:" array={DATA.pros}/></Block>
 
-        <Block><List label="Porque NÃO jogar:" array={DATA.contra}/></Block>
-        
-        
+        <Block><List label="Porque NÃO jogar:" array={DATA.contra}/></Block>        
 
 
         </div>
