@@ -83,9 +83,9 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-      <Headerr src={"/banner.webp"} />
+      <Headerr src={src_banner} />
       <div className="App-Body">
-        <Card src={"/cards/urza.jpg"}/>
+        <Card src={card("urza.jpg")}/>
 
         <Block> <List label="Habilidades:" array={DATA.habilidades}/> </Block>
 
