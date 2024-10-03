@@ -18,15 +18,15 @@ let games = {cards:[
     {
         title:"Telma",
         subtitle:"Jogo de memoria",
-        href:"games/telma/dist/index.html"
+        href:"../games/telma/index.html"
     },{
         title:"Who is Spy",
         subtitle:"Jogo de Blefe",
-        href:"games/spy/dist/index.html"
+        href:"../games/spy/index.html"
     },{
         title:"Perfil",
         subtitle:"Jogo de Flash cards",
-        href:"games/perfil/dist/index.html"
+        href:"../games/perfil/index.html"
     },{
         title:"Card game",
         subtitle:"Jogo baseado em couple",
