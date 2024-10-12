@@ -1,47 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  <title>Document</title>
-    <title>Le314-u</title>
+    <title>Seu Nome ou Nome da Sua Empresa</title>
     <style>
-        .form-signin {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 20px;
             width: 100%;
-            max-width: 330px;
-            padding: 15px;
-            margin: auto;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
         }
-        *, ::after, ::before {
-            box-sizing: border-box;
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
         }
-        .form {
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .link {
             display: block;
+            background-color: #eae600;
+            color: black;
+            margin: 10px 0;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        #opt > label {
-            margin: 30px;
+        .link:hover {
+            background-color: #eae600;
+            transform: translateY(-2px);
+        }
+        h2 {
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #7f7c10;
+        }
+        footer {
+            margin-top: 20px;
+            color: #777;
+            font-size: 0.9em;
         }
     </style>
 </head>
-
-<body class="text-center">
-    <div id="opt" class="form-signin form-group" >
-        <label for="pwd">Let's go play party Games!!!</label>
-        <a onclick='carregarPagina("spy/index.html")' name="arg" value="whoSpy" class="w-100 btn btn-lg btn-primary form-floating">Who is Spy?</button></a>
-        <a onclick='carregarPagina("help/spy.html")' name="arg" value="whoSpy" class="w-100 btn btn-lg btn-primary form-floating">Regras</button></a><br><br>
+<body>
 
 
-        <a onclick='carregarPagina("perfil/index.html")' name="arg" value="perfil" class="w-100 btn btn-lg btn-primary form-floating">Perfil</button></a>
-        <a onclick='carregarPagina("help/perfil.html")' name="arg" value="whoSpy" class="w-100 btn btn-lg btn-primary form-floating">Regras</button></a><br><br>
+    <div class="container">
+        <a href="./telma" class="link">Telma</a>
+        <a href="./spy" class="link">Who is Spy?</a>
+        <a href="./perfil" class="link">Perfil</a>
 
+        <h2>Como?</h2>
+        <a href="./telma/help.html" class="link">Telma</a>
+        <a href="./spy/help.html" class="link">Who is Spy?</a>
+        <a href="./perfil/help.html" class="link">Perfil</a>
 
-        <a onclick='carregarPagina("telma/index.html")' name="arg" value="telma" class="w-100 btn btn-lg btn-primary form-floating">Telma</button></a>
-        <a onclick='carregarPagina("help/telma.html")' name="arg" value="whoSpy" class="w-100 btn btn-lg btn-primary form-floating">Regras</button></a><br><br>
-
+        <h2>Baguncinha</h2>
+        <a href="#" class="link">Bagaceira</a>
     </div>
-    <div id="resp"></div>
+
+    <footer>
+        <p>Hub de Jogos Sincronos Adaptados em Ambiente Serverless.</p>
+    </footer>
+
 </body>
 </html>
