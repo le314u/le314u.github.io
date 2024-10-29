@@ -20,16 +20,14 @@ function Play() {
 
   useEffect(()=>{   
     const themas = sessionStorage.getItem(THEMA);
-    const apiUrls = apiUrl.split(',');
-
+    const apiUrls = themas.split(',');
+    
 
     Promise.all(apiUrls.map(url => 
       fetch(base_url + url).then(response => response.json())
     ))
     .then(responses => { // Supondo que você queira concatenar as respostas em um único objeto
-      const concatenatedResponse = responses.reduce((acc, json) => {// Aqui você pode concatenar as respostas como desejar
-        return { ...acc, ...json }; // Exemplo: mesclando objetos
-      }, {});
+      let concatenatedResponse = responses.flat()
     
       let game_hook = GAME(concatenatedResponse, setCard, setQtd);
       setGame(game_hook);
