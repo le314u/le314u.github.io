@@ -14,7 +14,7 @@
 
 
    <url>
-    <loc>https://le314u.github.io/games/spy/dist/</loc>
+    <loc>https://le314u.github.io/games/spy/</loc>
     <changefreq>monthly</changefreq>
   </url>
    <url>
@@ -25,9 +25,10 @@
 
 
   <url>
-    <loc>https://le314u.github.io/games/perfil/dist/</loc>
+    <loc>https://le314u.github.io/games/perfil/</loc>
     <changefreq>monthly</changefreq>
   </url>
+  
    <url>
     <loc>https://le314u.github.io/help/perfil</loc>
     <changefreq>yearly</changefreq>
@@ -36,7 +37,7 @@
   
   
   <url>
-    <loc>https://le314u.github.io/games/telma/dist/</loc>
+    <loc>https://le314u.github.io/games/telma/</loc>
     <changefreq>monthly</changefreq>
   </url>
    <url>
@@ -54,6 +55,11 @@
 
   <url>
     <loc>https://le314u.github.io/primer/orvar/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://le314u.github.io/primer/urza/</loc>
     <changefreq>monthly</changefreq>
   </url>
 
