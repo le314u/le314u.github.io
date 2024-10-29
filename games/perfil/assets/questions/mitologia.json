@@ -1,0 +1,18 @@
+[
+    {"resposta":"Zeus","p1":"Deus grego do céu e do trovão","p2":"Líder dos deuses do Olimpo","p3":"Usa um raio como arma","p4":"Pai de muitos deuses e heróis","p5":"Famoso por suas aventuras românticas"},
+    {"resposta":"Afrodite","p1":"Deusa grega do amor e da beleza","p2":"Nasceu da espuma do mar","p3":"Associada à paixão e à fertilidade","p4":"Tem um papel importante na Guerra de Troia","p5":"É frequentemente representada com um coração"},
+    {"resposta":"Thor","p1":"Deus nórdico do trovão","p2":"Famoso por seu martelo, Mjolnir","p3":"Protege os deuses e os humanos","p4":"Associado a tempestades e guerra","p5":"Um dos principais deuses da mitologia nórdica"},
+    {"resposta":"Hades","p1":"Deus grego do submundo","p2":"Irmão de Zeus e Poseidon","p3":"Rege os mortos e os ricos","p4":"Associado a riqueza e posses subterrâneas","p5":"Tem um cão de três cabeças chamado Cérbero"},
+    {"resposta":"Os Deuses Olímpicos","p1":"Grupo de deuses da mitologia grega","p2":"Habitam o Monte Olimpo","p3":"Incluem Atena, Apolo e Poseidon","p4":"Cada um tem suas próprias esferas de influência","p5":"Famosos por suas interações com humanos"},
+    {"resposta":"Anúbis","p1":"Deus egípcio da mumificação e do submundo","p2":"Representado com cabeça de chacal","p3":"Protege os mortos e guia suas almas","p4":"Associado ao julgamento na vida após a morte","p5":"Importante na religião egípcia antiga"},
+    {"resposta":"Rá","p1":"Deus egípcio do sol","p2":"Representado com uma cabeça de falcão","p3":"Símbolo de renascimento e criação","p4":"Considerado o rei dos deuses","p5":"Associado à luz e à vida"},
+    {"resposta":"Odisseu","p1":"Herói da mitologia grega","p2":"Protagonista da Odisseia de Homero","p3":"Famoso por sua astúcia e inteligência","p4":"Enfrenta muitos desafios em seu retorno a Ítaca","p5":"Representa a luta e a perseverança"},
+    {"resposta":"Loki","p1":"Deus nórdico da trapaça","p2":"Ambíguo e muitas vezes antagonista","p3":"Conhecido por suas artimanhas","p4":"Relaciona-se com várias lendas e histórias nórdicas","p5":"Tem um papel central no Ragnarok"},
+    {"resposta":"Hera","p1":"Deusa grega do casamento e da família","p2":"Esposa de Zeus","p3":"Famosa por sua ciúmes","p4":"Protetora das mulheres e do matrimônio","p5":"Associada ao trono e ao poder"},
+    {"resposta":"Deméter","p1":"Deusa grega da agricultura e da colheita","p2":"Mãe de Perséfone","p3":"Famosa por suas emoções sazonais","p4":"Representa a fertilidade e o ciclo das estações","p5":"Importante na mitologia sobre a vida e a morte"},
+    {"resposta":"Poseidon","p1":"Deus grego do mar","p2":"Irmão de Zeus","p3":"Famoso por seu tridente","p4":"Controla os oceanos e as tempestades","p5":"Considerado o responsável por terremotos"},
+    {"resposta":"Fênix","p1":"Criatura mitológica que renasce das cinzas","p2":"Símbolo de renascimento e imortalidade","p3":"Associada a várias culturas antigas","p4":"Representa a transformação e a esperança","p5":"Famosa em lendas e histórias"},
+    {"resposta":"Minotauro","p1":"Criatura mitológica com corpo de homem e cabeça de touro","p2":"Habitava o Labirinto em Creta","p3":"Filho de Pasífae e um touro","p4":"Foi derrotado por Teseu","p5":"Representa desafios e monstros na mitologia"},
+    {"resposta":"Atena","p1":"Deusa grega da sabedoria e da guerra","p2":"Nascida da cabeça de Zeus","p3":"Protetora de Atenas","p4":"Associada à estratégia militar","p5":"Famosa por sua inteligência e justiça"}
+]
+

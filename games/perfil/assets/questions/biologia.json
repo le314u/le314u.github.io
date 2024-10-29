@@ -1,0 +1,18 @@
+[
+    {"resposta":"Célula","p1":"Unidade básica da vida","p2":"Pode ser procarionte ou eucarionte","p3":"Contém organelas como mitocôndrias","p4":"Forma tecidos e organismos","p5":"Estudada na biologia celular"},
+    {"resposta":"DNA","p1":"Material genético","p2":"Forma uma dupla hélice","p3":"Carrega a informação hereditária","p4":"Replicação ocorre antes da divisão celular","p5":"Descoberto por Watson e Crick"},
+    {"resposta":"Fotossíntese","p1":"Processo que converte luz em energia","p2":"Realizado por plantas e algumas algas","p3":"Produz oxigênio como subproduto","p4":"Ocorre nos cloroplastos","p5":"Requer água e dióxido de carbono"},
+    {"resposta":"Evolução","p1":"Teoria proposta por Charles Darwin","p2":"Processo de adaptação das espécies","p3":"Baseia-se na seleção natural","p4":"Explica a diversidade da vida","p5":"Relaciona-se com a genética"},
+    {"resposta":"Reprodução assexuada","p1":"Tipo de reprodução sem envolvimento de gametas","p2":"Exemplos incluem fissão binária e brotamento","p3":"Comum em organismos unicelulares","p4":"Proporciona descendentes idênticos ao progenitor","p5":"Rápida em ambientes favoráveis"},
+    {"resposta":"Sistema circulatório","p1":"Responsável pelo transporte de sangue","p2":"Inclui coração e vasos sanguíneos","p3":"Fornece nutrientes e oxigênio às células","p4":"Remove resíduos metabólicos","p5":"Pode ser fechado ou aberto"},
+    {"resposta":"Mutação","p1":"Alteração na sequência do DNA","p2":"Pode ser benéfica, prejudicial ou neutra","p3":"Fonte de variabilidade genética","p4":"Pode ser induzida por radiação","p5":"Ocorre naturalmente durante a replicação"},
+    {"resposta":"Homeostase","p1":"Capacidade de manter o equilíbrio interno","p2":"Importante para o funcionamento adequado do organismo","p3":"Regula temperatura, pH e outras condições","p4":"Envolve feedback positivo e negativo","p5":"Essencial para a sobrevivência"},
+    {"resposta":"Proteínas","p1":"Macromoléculas formadas por aminoácidos","p2":"Desempenham funções estruturais e funcionais","p3":"Catalisam reações como enzimas","p4":"São importantes para o sistema imunológico","p5":"A estrutura é determinada pelo DNA"},
+    {"resposta":"Ecossistema","p1":"Conjunto de organismos e seu ambiente","p2":"Inclui fatores bióticos e abióticos","p3":"Interações entre espécies e ambiente","p4":"Exemplos incluem florestas e desertos","p5":"Estudado em ecologia"},
+    {"resposta":"Cromossomos","p1":"Estruturas que contêm o DNA","p2":"Organizados em pares em células eucariontes","p3":"Ficam visíveis durante a divisão celular","p4":"Determinam características hereditárias","p5":"Humano possui 23 pares"},
+    {"resposta":"Clorofila","p1":"Pigmento verde presente nas plantas","p2":"Essencial para a fotossíntese","p3":"Absorve luz solar","p4":"Localizada nos cloroplastos","p5":"Dá cor a folhas e talos"},
+    {"resposta":"Hormônios","p1":"Mensageiros químicos no corpo","p2":"Regulam funções fisiológicas","p3":"Produzidos pelas glândulas endócrinas","p4":"Exemplos incluem insulina e adrenalina","p5":"Afetam crescimento, metabolismo e humor"},
+    {"resposta":"Anticorpos","p1":"Proteínas do sistema imunológico","p2":"Reconhecem e neutralizam patógenos","p3":"Produzidos por células B","p4":"Específicos para antígenos","p5":"Importantes na defesa do organismo"},
+    {"resposta":"Cadeia alimentar","p1":"Sequência de organismos que se alimentam uns dos outros","p2":"Inicia com produtores","p3":"Inclui consumidores primários, secundários e terciários","p4":"Mostra o fluxo de energia no ecossistema","p5":"Conecta todos os seres vivos"}
+]
+

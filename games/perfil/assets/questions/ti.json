@@ -1,0 +1,18 @@
+[
+    {"resposta":"Inteligência Artificial","p1":"Simula processos inteligentes","p2":"Usada em assistentes virtuais","p3":"Baseada em aprendizado de máquina","p4":"Transforma indústrias e serviços","p5":"Desenvolve sistemas autônomos"},
+    {"resposta":"Blockchain","p1":"Tecnologia de registro descentralizado","p2":"Base das criptomoedas","p3":"Segura e transparente","p4":"Usada em contratos inteligentes","p5":"Impossível de alterar dados sem consenso"},
+    {"resposta":"Realidade Virtual","p1":"Simula ambientes tridimensionais","p2":"Usada em jogos e treinamentos","p3":"Proporciona experiências imersivas","p4":"Usa dispositivos como óculos VR","p5":"Aplicada em terapia e educação"},
+    {"resposta":"Computação em Nuvem","p1":"Armazenamento e processamento via internet","p2":"Permite acesso remoto a dados","p3":"Reduz necessidade de infraestrutura física","p4":"Exemplos incluem AWS e Google Cloud","p5":"Facilita colaboração em tempo real"},
+    {"resposta":"Internet das Coisas","p1":"Conexão de dispositivos à internet","p2":"Permite comunicação entre objetos","p3":"Usada em casas inteligentes","p4":"Aumenta a automação e controle","p5":"Impacta áreas como saúde e transporte"},
+    {"resposta":"5G","p1":"Tecnologia de comunicação móvel de quinta geração","p2":"Oferece alta velocidade e baixa latência","p3":"Suporta mais dispositivos conectados","p4":"Facilita avanços em IoT e VR","p5":"Transforma a conectividade global"},
+    {"resposta":"Robótica","p1":"Desenvolvimento de máquinas automatizadas","p2":"Usada em indústrias e serviços","p3":"Inclui robôs colaborativos","p4":"Impulsiona eficiência e segurança","p5":"Interage com inteligência artificial"},
+    {"resposta":"Biometria","p1":"Identificação através de características físicas","p2":"Inclui impressões digitais e reconhecimento facial","p3":"Aumenta a segurança em sistemas","p4":"Usada em dispositivos móveis","p5":"Facilita autenticação de usuários"},
+    {"resposta":"Cibersegurança","p1":"Proteção contra ataques cibernéticos","p2":"Inclui firewalls e criptografia","p3":"Essencial para a segurança de dados","p4":"Combate ameaças como malware","p5":"Importante em empresas e governos"},
+    {"resposta":"Big Data","p1":"Análise de grandes volumes de dados","p2":"Extração de insights e tendências","p3":"Usado em marketing e ciência","p4":"Desafios em armazenamento e processamento","p5":"Impulsiona decisões baseadas em dados"},
+    {"resposta":"Machine Learning","p1":"Ramo da inteligência artificial","p2":"Algoritmos que aprendem com dados","p3":"Usado em recomendações e previsões","p4":"Capacita sistemas a melhorar com experiência","p5":"Fundamental em diversas aplicações"},
+    {"resposta":"Nanotecnologia","p1":"Manipulação de materiais em escala nanométrica","p2":"Usada em medicina e eletrônica","p3":"Aumenta propriedades de materiais","p4":"Possui aplicações em diversas indústrias","p5":"Transforma ciência dos materiais"},
+    {"resposta":"E-commerce","p1":"Comércio eletrônico pela internet","p2":"Permite comprar e vender online","p3":"Inclui marketplaces e lojas virtuais","p4":"Transformou o varejo tradicional","p5":"Facilita transações globais"},
+    {"resposta":"Tecnologia Verde","p1":"Soluções sustentáveis e ecológicas","p2":"Busca reduzir impacto ambiental","p3":"Inclui energias renováveis","p4":"Fomenta eficiência energética","p5":"Importante para o futuro sustentável"},
+    {"resposta":"Impressão 3D","p1":"Processo de criar objetos tridimensionais","p2":"Usa materiais como plásticos e metais","p3":"Revoluciona manufatura e prototipagem","p4":"Permite personalização em massa","p5":"Usada em setores como saúde e construção"}
+]
+

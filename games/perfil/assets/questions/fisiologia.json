@@ -1,0 +1,18 @@
+[
+    {"resposta":"Sistema nervoso","p1":"Responsável pela coordenação do corpo","p2":"Composto por neurônios e células gliais","p3":"Dividido em central e periférico","p4":"Controla reflexos e movimentos","p5":"Processa informações sensoriais"},
+    {"resposta":"Coração","p1":"Órgão muscular que bombeia sangue","p2":"Tem quatro câmaras","p3":"Controla a circulação sanguínea","p4":"Dividido em átrios e ventrículos","p5":"A frequência cardíaca é regulada pelo sistema nervoso"},
+    {"resposta":"Respiração","p1":"Processo de troca gasosa","p2":"Ocorre nos pulmões","p3":"Fornece oxigênio e remove dióxido de carbono","p4":"Inclui inspiração e expiração","p5":"É vital para a produção de energia"},
+    {"resposta":"Digestão","p1":"Processo de quebra dos alimentos","p2":"Inicia na boca e termina no intestino","p3":"Envolve órgãos como estômago e fígado","p4":"Absorção de nutrientes ocorre no intestino delgado","p5":"Regulada por hormônios e nervos"},
+    {"resposta":"Hormônios","p1":"Mensageiros químicos no corpo","p2":"Produzidos pelas glândulas endócrinas","p3":"Regulam processos como crescimento e metabolismo","p4":"Exemplos incluem adrenalina e insulina","p5":"Atuam em alvos específicos"},
+    {"resposta":"Sistema endócrino","p1":"Conjunto de glândulas que produzem hormônios","p2":"Regula funções do corpo através de secreções","p3":"Inclui glândulas como hipófise e tireoide","p4":"Controla o crescimento e o metabolismo","p5":"Funciona em conjunto com o sistema nervoso"},
+    {"resposta":"Homeostase","p1":"Manutenção do ambiente interno estável","p2":"Regula temperatura, pH e concentrações","p3":"Essencial para a sobrevivência","p4":"Envolve feedback positivo e negativo","p5":"Controlada por sistemas como o nervoso e endócrino"},
+    {"resposta":"Sistema imunológico","p1":"Defende o corpo contra patógenos","p2":"Inclui células como linfócitos e macrófagos","p3":"Produz anticorpos","p4":"Reconhece e elimina infecções","p5":"Essencial para a imunidade adquirida"},
+    {"resposta":"Rins","p1":"Órgãos responsáveis pela filtração do sangue","p2":"Regulam o equilíbrio de fluidos e eletrólitos","p3":"Produzem urina","p4":"Importantes para a homeostase","p5":"Parte do sistema urinário"},
+    {"resposta":"Ciclo celular","p1":"Processo de divisão e replicação celular","p2":"Inclui as fases de interfase e mitose","p3":"Regulado por proteínas chamadas ciclinas","p4":"Essencial para crescimento e reparo","p5":"Ocorre em todas as células do corpo"},
+    {"resposta":"Neurônios","p1":"Células especializadas do sistema nervoso","p2":"Transmiten impulsos elétricos","p3":"Compostos por dendritos, corpo celular e axônio","p4":"Comunicam-se através de sinapses","p5":"Fundamentais para a função nervosa"},
+    {"resposta":"Fígado","p1":"Órgão vital que metaboliza nutrientes","p2":"Produz bile para a digestão de gorduras","p3":"Desintoxica substâncias no sangue","p4":"Armazena glicose","p5":"Importante na regulação do colesterol"},
+    {"resposta":"Esqueleto","p1":"Estrutura que dá suporte ao corpo","p2":"Composto por ossos e cartilagens","p3":"Protege órgãos vitais","p4":"Participa da produção de células sanguíneas","p5":"Permite o movimento em conjunto com músculos"},
+    {"resposta":"Músculos","p1":"Tecido responsável pelo movimento","p2":"Classificados em esqueléticos, cardíacos e lisos","p3":"Funcionam por contração e relaxamento","p4":"Controlados pelo sistema nervoso","p5":"Fundamentais para a locomoção"},
+    {"resposta":"Sistema circulatório","p1":"Transporta sangue pelo corpo","p2":"Inclui coração e vasos sanguíneos","p3":"Fornece oxigênio e nutrientes às células","p4":"Remove resíduos metabólicos","p5":"Importante para a homeostase"},
+]
+
