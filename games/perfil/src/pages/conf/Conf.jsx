@@ -6,6 +6,11 @@ import { Link } from 'react-router-dom';
 import Draggable from "react-draggable";
 
 
+const FILES = ["arte.json", "biologia.json", "fisiologia.json", "geografia.json", "harry_potter.json", "historia.json", "literatura.json", "minas_gerais.json", "mitologia.json", "musica.json", "ti.json"]
+
+
+
+
 function Conf() {
   const THEMA = "thema"
   const [nameFields, setNameFields] = useState([]);
@@ -48,7 +53,7 @@ function Conf() {
       thema.push( tag.getAttribute('url'))
     })
     if(thema.length == 0 ){
-      sessionStorage.setItem(THEMA, "/perfil/default.json");
+      sessionStorage.setItem(THEMA, "default.json");
     }else{
       sessionStorage.setItem(THEMA, thema);
     }   
@@ -111,13 +116,16 @@ function Conf() {
                     
               <InputFiltered id="maxPoints" onChange={handleChange} placeholder="100" label="maxPoints" arrayFilter="0123456789" maxLength="4"/>
               <div ref={ul}>
-                <CheckList.ul>
-                  <CheckList.li data="HP" url="/perfil/harry_potter.json"> Harry Potter </CheckList.li> 
-                  {/* 
-                    <CheckList.li data="HP" url="/perfil/harry_potter.json"> Tema : 1 </CheckList.li> 
-                    <CheckList.li data="HP" url="/perfil/harry_potter.json"> Tema : 2 </CheckList.li>
-                  */}
-                </CheckList.ul>
+              <CheckList.ul>
+                  {
+                      FILES.map((file, index) => (
+                          <CheckList.li key={index} data="HP" url={file}> 
+                              {file.replace('.json', '').replace(/_/g, ' ').replace(/-/g, ' ').toUpperCase()}
+                          </CheckList.li>
+                      ))
+                  }
+              </CheckList.ul>
+
               </div>
 
             </div>
@@ -134,14 +142,4 @@ function Conf() {
   );
 }
 
-
-
-
 export default Conf;
-
-
-
-
-
-
-

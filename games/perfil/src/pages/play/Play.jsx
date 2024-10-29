@@ -7,7 +7,9 @@ import {ListOrderedIcon,CheckIcon,XIcon } from '@primer/octicons-react';
 import GAME from './hook.jsx'
 
 // URL da API que você deseja chamar
-const base_url = 'https://raw.githubusercontent.com/le314u/LoremIpsum-PTBR/main'
+const base_url = 'https://raw.githubusercontent.com/le314u/le314u.github.io/refs/heads/prod/games/perfil/assets/questions/'
+const THEMA = "thema"
+
 
 function Play() {
   const [card, setCard] = useState(null);
@@ -17,16 +19,24 @@ function Play() {
 
 
   useEffect(()=>{   
-    const apiUrl = sessionStorage.getItem("thema");
-    fetch(base_url+apiUrl)
-      .then((response)=>{
-        return response.json();
-      })
-      .then((json)=>{
-        let game_hook = GAME(json,setCard,setQtd)
-        setGame( game_hook )
-      });
+    const themas = sessionStorage.getItem(THEMA);
+    const apiUrls = apiUrl.split(',');
+
+
+    Promise.all(apiUrls.map(url => 
+      fetch(base_url + url).then(response => response.json())
+    ))
+    .then(responses => { // Supondo que você queira concatenar as respostas em um único objeto
+      const concatenatedResponse = responses.reduce((acc, json) => {// Aqui você pode concatenar as respostas como desejar
+        return { ...acc, ...json }; // Exemplo: mesclando objetos
+      }, {});
     
+      let game_hook = GAME(concatenatedResponse, setCard, setQtd);
+      setGame(game_hook);
+    })
+    .catch(error => {
+      console.error('Erro ao buscar as APIs:', error);
+    });    
   },[])
 
   useEffect(()=>{
