@@ -1,4 +1,4 @@
-import React, { useRef, useState,useEffect } from 'react';
+import React, { useRef, useState,useEffect, Children } from 'react';
 import CheckList from '../../componentes/checkList/index.jsx'
 import InputFiltered from '../../componentes/input/input.jsx'
 import {PlusIcon,DashIcon } from '@primer/octicons-react';
@@ -14,6 +14,7 @@ const FILES = ["arte.json", "biologia.json", "fisiologia.json", "geografia.json"
 function Conf() {
   const THEMA = "thema"
   const [nameFields, setNameFields] = useState([]);
+  const [stepConf, setStepConf] = useState(0);
   const [count, setCount] = useState(1);
   const names=useRef()
   const ul=useRef()
@@ -72,7 +73,6 @@ function Conf() {
       </div>)
   }
 
-  
   const handleChange = (event) => {
     const e = event.nativeEvent.target
     alterarValor(e.id, e.value)
@@ -84,57 +84,74 @@ function Conf() {
       <div  className="container d-flex align-items-center justify-content-center vh-100" role="document">
         <div className="container-fluid d-flex justify-content-center align-items-center">
           <div className="modal-content rounded-4 shadow">
-
-
             <div className="modal-header p-5 pb-4 border-bottom-0">
               <h1 className="fw-bold mb-0 fs-2">Configurando</h1>
               <Link to="/">
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
               </Link>
             </div>
-
-      
             <div className="p-5 pt-0">
+              
+
+
+
+
+            {stepConf === 0 && 
               <div id="names" ref={names}>
-                {/*Primeiro Nome*/}
-                <div className="row align-items-center">
-                  <div className="col">
-                    <InputFiltered onChange={handleChange} className="col" id={`name_0`} label="Name" maxLength="16" arrayFilter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
-                  </div>
-                  <div className="col-auto">
-                      <button  onClick={newName} type="button" className="btn mb-3"> <PlusIcon size={16}/></button>
-                  </div>
+              {/*Primeiro Nome*/}
+              <div className="row align-items-center">
+                <div className="col">
+                  <InputFiltered onChange={handleChange} className="col" id={`name_0`} label="Name" maxLength="16" arrayFilter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
                 </div>
-
-                {/*Nomes adicionados dinamicamente*/}
-                {
-                  nameFields.map((e, _) => {
-                    return <div key={e.key}>{createInput(e.key,e.data)}</div>
-                  })
-                }
+                <div className="col-auto">
+                    <button  onClick={newName} type="button" className="btn mb-3"> <PlusIcon size={16}/></button>
+                </div>
               </div>
-                    
+          
+              {/*Nomes adicionados dinamicamente*/}
+              {
+                nameFields.map((e, _) => {
+                  return <div key={e.key}>{createInput(e.key,e.data)}</div>
+                })
+              }
+              </div>
+            }
+            {stepConf === 1 && 
               <InputFiltered id="maxPoints" onChange={handleChange} placeholder="100" label="maxPoints" arrayFilter="0123456789" maxLength="4"/>
+            }
+            {stepConf === 2 && 
               <div ref={ul}>
-              <CheckList.ul>
-                  {
-                      FILES.map((file, index) => (
-                          <CheckList.li key={index} data="HP" url={file}> 
-                              {file.replace('.json', '').replace(/_/g, ' ').replace(/-/g, ' ').toUpperCase()}
-                          </CheckList.li>
-                      ))
-                  }
-              </CheckList.ul>
+                <CheckList.ul>
+                    {
+                        FILES.map((file, index) => (
+                            <CheckList.li key={index} data="HP" url={file}> 
+                                {file.replace('.json', '').replace(/_/g, ' ').replace(/-/g, ' ').toUpperCase()}
+                            </CheckList.li>
+                        ))
+                    }
+                </CheckList.ul>
+              </div> 
+            }
+        
 
+
+            </div>
+
+            {stepConf === 2 &&
+              <div onClick={chooseThema} className="p-2 form-floating mb-3">
+                <Link to="/play">
+                  <button id="start" type="button" className="btn btn-primary form-control rounded-3 p-3" data-bs-dismiss="modal" aria-label="Start">Play</button>
+                </Link>
               </div>
+            }
 
-            </div>
 
-            <div onClick={chooseThema} className="p-2 form-floating mb-3">
-              <Link to="/play">
-                <button id="start" type="button" className="btn btn-primary form-control rounded-3 p-3" data-bs-dismiss="modal" aria-label="Start">Play</button>
-              </Link>
-            </div>
+            {stepConf !== 2 &&
+              <div onClick={()=>setStepConf(stepConf+1)} className="p-2 form-floating mb-3">
+                  <button id="start" type="button" className="btn btn-primary form-control rounded-3 p-3" data-bs-dismiss="modal" aria-label="Start">Next</button>
+              </div>
+            }
+
           </div>
         </div>
       </div>

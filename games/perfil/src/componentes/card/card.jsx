@@ -1,4 +1,4 @@
-import { useImperativeHandle,useState,useRef,forwardRef } from 'react';
+import React,{ useImperativeHandle,useState,useRef,forwardRef } from 'react';
 import {build} from './card_animate.js';
 import './card.css';
 
