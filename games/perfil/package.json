@@ -20,6 +20,8 @@
     "react-draggable": "^4.4.6",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.20.0",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.5",
     "terser": "^5.26.0"
   },
   "devDependencies": {
