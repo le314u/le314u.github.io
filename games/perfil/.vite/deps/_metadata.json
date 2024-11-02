@@ -1,0 +1,67 @@
+{
+  "hash": "e3f9f1d0",
+  "configHash": "4cde760c",
+  "lockfileHash": "f2c7ecfd",
+  "browserHash": "d909410c",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "a2adc0b3",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "30886022",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "1bd6835e",
+      "needsInterop": false
+    },
+    "@primer/octicons-react": {
+      "src": "../../node_modules/@primer/octicons-react/dist/index.esm.js",
+      "file": "@primer_octicons-react.js",
+      "fileHash": "4776fbcf",
+      "needsInterop": false
+    },
+    "react-draggable": {
+      "src": "../../node_modules/react-draggable/build/cjs/cjs.js",
+      "file": "react-draggable.js",
+      "fileHash": "2e650fab",
+      "needsInterop": true
+    },
+    "semantic-ui-react": {
+      "src": "../../node_modules/semantic-ui-react/dist/es/index.js",
+      "file": "semantic-ui-react.js",
+      "fileHash": "567b7c78",
+      "needsInterop": false
+    },
+    "react-modal": {
+      "src": "../../node_modules/react-modal/lib/index.js",
+      "file": "react-modal.js",
+      "fileHash": "073ce983",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-NRQGPFG7": {
+      "file": "chunk-NRQGPFG7.js"
+    },
+    "chunk-FU566CA5": {
+      "file": "chunk-FU566CA5.js"
+    },
+    "chunk-QLFNZGPG": {
+      "file": "chunk-QLFNZGPG.js"
+    },
+    "chunk-6CYDA3EZ": {
+      "file": "chunk-6CYDA3EZ.js"
+    },
+    "chunk-ACBJSMGG": {
+      "file": "chunk-ACBJSMGG.js"
+    }
+  }
+}
