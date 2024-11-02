@@ -57,6 +57,7 @@ const GAME = (data,setCard,setQtd)=>{
         getCard: tabuleiro.getCard.bind(tabuleiro),
         readCard: tabuleiro.readCard.bind(tabuleiro),
         enabledTips: tabuleiro.getNumberTips.bind(tabuleiro),
+        isWorking : tabuleiro.isWorking.bind(tabuleiro),
         tabuleiro:tabuleiro
     }
 

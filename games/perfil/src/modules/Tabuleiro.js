@@ -9,9 +9,11 @@ class Tabuleiro{
         this.qtdPerguntas = 1;
         this.players = players;
         this.playerID = 0;
-        this.deck_mont = deck
-        this.deck_discard = new Deck([])
-        this.card = deck.getCard()
+        this.deck_mont = deck;
+        this.deck_discard = new Deck([]);
+        this.card = deck.getCard();
+        this.working = false;
+
     }
 
     //Retorna o Player atual
@@ -37,6 +39,9 @@ class Tabuleiro{
         return this.card
     }
 
+    isWorking(){
+        return this.working
+    }
     //Define a Quantidade Maxima de Pontos
     maxPontos(maxPontos){
         this.maxPontos = maxPontos;
@@ -64,6 +69,9 @@ class Tabuleiro{
     acertou(){
         let player = this.currentPlayer()
         player.addPontos( this.currentpoints() )
+        if( player.getPontos() >= this.maxPontos ){
+            this.working = false
+        }
         this.nextPlayer()
         this.nextCard()
     }

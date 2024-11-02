@@ -4,12 +4,28 @@ import InputFiltered from '../../componentes/input/input.jsx'
 import {PlusIcon,DashIcon } from '@primer/octicons-react';
 import { Link } from 'react-router-dom';
 import Draggable from "react-draggable";
-
 import { Progress, ButtonGroup, Button ,LabelGroup, LabelDetail, Icon, Label, Select } from 'semantic-ui-react'
-
 import 'semantic-ui-css/semantic.min.css'
 
-const FILES = ["arte.json", "biologia.json", "fisiologia.json", "geografia.json", "harry_potter.json", "historia.json", "literatura.json", "minas_gerais.json", "mitologia.json", "musica.json", "ti.json"]
+
+const orderedStatus = ['NAME', 'POINT', 'THEMA'];
+const Status = Object.freeze({
+  NAME: 0,
+  POINT: 1,
+  THEMA: 2,
+});
+
+
+
+
+
+
+
+
+function getKeyByText(text) {
+  const theme = THEMAS.find(theme => theme.text.toLowerCase() === text.toLowerCase());
+  return theme ? theme.key+'.json' : null; // Retorna a key ou null se não encontrar
+}
 
 const THEMAS = [
   { key: 'arte', value: 'arte', text: 'Arte' },
@@ -27,10 +43,15 @@ const THEMAS = [
 ]
 
 
-function getKeyByText(text) {
-  const theme = THEMAS.find(theme => theme.text.toLowerCase() === text.toLowerCase());
-  return theme ? theme.key+'.json' : null; // Retorna a key ou null se não encontrar
-}
+
+
+
+
+
+
+
+
+
 
 function Conf() {
   const THEMA = "thema"
@@ -39,8 +60,41 @@ function Conf() {
   const [themas, setThemas] = useState([]);
   const [count, setCount] = useState(1);
   const names=useRef()
-  const ul=useRef()
+  const observedRef = useRef(null);
   const state = { percent: ()=>(stepConf+1)/3 *100 }
+
+  useEffect(() => {    
+    if(stepConf==Status.THEMA){
+      // Define o callback que será executado quando ocorrer uma mutação
+      const mutationCallback = (mutationsList) => {
+        for (let mutation of mutationsList) {
+          if (mutation.type === 'attributes') {
+            if(mutation.attributeName=='data-suir-click-target'){
+              let value = mutation.target.childNodes[0].innerText
+              addThema(value)              
+            }
+          }
+        }
+      };
+      
+      // Cria o MutationObserver e configura as opções de observação
+      const observer = new MutationObserver(mutationCallback);
+      const config = { attributes: true, childList: true, subtree: true };
+      
+      // Observa o elemento referenciado
+      if (observedRef.current) {
+        observer.observe(observedRef.current, config);
+      }
+      
+      // Limpeza: desconecta o observer ao desmontar o componente
+      return () => {
+        observer.disconnect();
+      };
+
+
+    }
+   }, [state]);
+
 
   const alterarValor = (key, value) => {
     setNameFields(prevState => {
@@ -53,17 +107,28 @@ function Conf() {
     });
   }
 
-  function addThema(){
-    let value = ul.current.querySelectorAll('[aria-checked="true"]')[0].innerText;
+
+  function handleSelect(){
+    addThema()
+
+    // setTimeout(() => {
+    //   let value = observedRef.current.querySelector("#root > div > div > div > div:nth-child(2) > div > div.ui.selection.dropdown > div.divider.text").innerText
+    //   addThema(value)
+    // }, 100); // 2000 milissegundos = 2 segundos
+  }
+
+  function addThema(value=null){
+    if(value == null){
+      value = observedRef.current.querySelectorAll('[aria-checked="true"]')[0].innerText;
+    }
     if(themas.indexOf(value) == -1){
       let array = [...themas]
       array.push(value)
       setThemas(array)
     }
-    console.log(themas)
   }
 
-  function remove(element){
+  function removeThema(element){
     let array = themas.filter(item => item !== element);
     setThemas(array)
   }
@@ -119,7 +184,7 @@ function Conf() {
 
 
   function createTag(name){
-    return <Label as='a'> {name} <Icon name='close' onClick={()=>{remove(name)}} /> </Label>
+    return <Label as='a'> {name} <Icon name='close' onClick={()=>{removeThema(name)}} /> </Label>
   }
   return (
 
@@ -133,60 +198,49 @@ function Conf() {
               </Link>
             </div>
             <div className="p-5 pt-0">
-              
-
-
-
-
-            {stepConf === 0 && 
-              <div id="names" ref={names}>
-              {/*Primeiro Nome*/}
-              <div className="row align-items-center">
-                <div className="col">
-                  <InputFiltered onChange={handleChange} className="col" id={`name_0`} label="Name" maxLength="16" arrayFilter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
-                </div>
-                <div className="col-auto">
-                    <button  onClick={newName} type="button" className="btn mb-3"> <PlusIcon size={16}/></button>
-                </div>
-              </div>
-          
-              {/*Nomes adicionados dinamicamente*/}
-              {
-                nameFields.map((e, _) => {
-                  return <div key={e.key}>{createInput(e.key,e.data)}</div>
-                })
-              }
-              </div>
-            }
-            {stepConf === 1 && 
-              <InputFiltered id="maxPoints" onChange={handleChange} placeholder="100" label="maxPoints" arrayFilter="0123456789" maxLength="4"/>
-            }
-            {stepConf === 2 && 
-            
-              <div ref={ul}>
-                <Select  onMouseDown={addThema} laceholder='Escolha os Temas' options={THEMAS} />
-                <div className=' p-1 pb-1'/>
-                <LabelGroup color='blue'>
-                  { themas.map((name)=>createTag(name))}                    
-                </LabelGroup>
-              </div> 
-            }
+              {stepConf === Status.NAME && 
+                <div id="names" ref={names}>
+                  {/*Primeiro Nome*/}
+                  <div className="row align-items-center">
+                    <div className="col">
+                      <InputFiltered onChange={handleChange} className="col" id={`name_0`} label="Name" maxLength="16" arrayFilter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
                     </div>
+                    <div className="col-auto">
+                        <button  onClick={newName} type="button" className="btn mb-3"> <PlusIcon size={16}/></button>
+                    </div>
+                  </div>
+                  {/*Nomes adicionados dinamicamente*/}
+                  {nameFields.map((e, _) => {
+                    return <div key={e.key}>{createInput(e.key,e.data)}</div>
+                  })}
+                </div>
+              }
+              {stepConf === Status.POINT && 
+                <InputFiltered id="maxPoints" onChange={handleChange} placeholder="100" label="maxPoints" arrayFilter="0123456789" maxLength="4"/>
+              }
+              {stepConf === Status.THEMA && 
+                <div ref={observedRef}>
+                  <Select placeholder='Escolha os Temas' options={THEMAS} />
+                  <div className=' p-1 pb-1'/>
+                  <LabelGroup color='blue'>
+                    { themas.map((name)=>createTag(name))}                    
+                  </LabelGroup>
+                </div> 
+              }
+            </div>
 
-            {stepConf === 2 &&
+            {stepConf === Status.THEMA ? (
               <div onClick={chooseThema} className="p-2 form-floating mb-3 p-5 pt-0">
                 <Link to="/play">
                   <button id="start" type="button" className="btn btn-primary form-control rounded-3 p-3" data-bs-dismiss="modal" aria-label="Start">Play</button>
                 </Link>
               </div>
-            }
-
-
-            {stepConf !== 2 &&
+            ):(
               <div onClick={()=>setStepConf(stepConf+1)} className="p-2 form-floating mb-3 p-5 pt-0">
                   <button id="start" type="button" className="btn btn-primary form-control rounded-3 p-3" data-bs-dismiss="modal" aria-label="Start">Next</button>
               </div>
-            }
+            )}
+            
             <div className='p-5 pt-0'>
               <Progress percent={state.percent()} color='blue'  />
             </div>
@@ -198,37 +252,3 @@ function Conf() {
 }
 
 export default Conf;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

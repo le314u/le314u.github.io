@@ -15,6 +15,7 @@ function Play() {
   const [card, setCard] = useState(null);
   const [qtd, setQtd] = useState(1);
   const [game, setGame] = useState( null );
+  const [working, setWorking] = useState( true );
   const cardRef = useRef();
 
 
@@ -52,19 +53,20 @@ function Play() {
       <div className="vh-100" role="document">
         {players !== null && players !== undefined ? (<div className="modal-header p-5 pb-4 border-bottom-0"><div></div><PopupComponent players={players} ></PopupComponent></div>):''}
         <div  className="container d-flex align-items-center justify-content-center" style={{ height:" 75vh", }} >
-          {card ?(
-          <Card ref={cardRef}
-          color={colorPlayer}
-          namePlayer={namePlayer}
-          theme={card.getResposta()} 
-          tip_1={qtd >= 1 && card.getPergunta(1)}
-          tip_2={qtd >= 2 && card.getPergunta(2)}
-          tip_3={qtd >= 3 && card.getPergunta(3)}
-          tip_4={qtd >= 4 && card.getPergunta(4)}
-          tip_5={qtd >= 5 && card.getPergunta(5)}
-        />):(
-          <h1>Fim</h1>
+          {game?.isWorking() && card ?(
+            <Card ref={cardRef}
+              color={colorPlayer}
+              namePlayer={namePlayer}
+              theme={card.getResposta()} 
+              tip_1={qtd >= 1 && card.getPergunta(1)}
+              tip_2={qtd >= 2 && card.getPergunta(2)}
+              tip_3={qtd >= 3 && card.getPergunta(3)}
+              tip_4={qtd >= 4 && card.getPergunta(4)}
+              tip_5={qtd >= 5 && card.getPergunta(5)}
+            />):(
+            <h1>Fim </h1>
         )}
+
         </div>
         <div id='play_controller vh-75' className='container d-flex align-items-center justify-content-evenly' style={{ maxWidth: '600px', padding: '10px' }}>
           <Button buttonColor="345deg"  onClick={ ()=>{cardRef.current.wrong();game.errou()}} ><XIcon size={24}/>Errou </Button>
