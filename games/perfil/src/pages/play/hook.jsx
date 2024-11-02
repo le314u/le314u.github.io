@@ -47,7 +47,13 @@ const GAME = (data,setCard,setQtd)=>{
     })
     let deck =  getDeck(cards)
     let players = getPlayers();
-    let tabuleiro = new Tabuleiro(players, deck, sessionStorage.getItem("maxPoints"))
+    
+    let maxPoints = sessionStorage.getItem("maxPoints");
+    if (maxPoints === null) {
+        maxPoints = 100; // Se for null, atribui 100
+    }
+    let tabuleiro = new Tabuleiro(players, deck, maxPoints);
+
 
     return {
         acertou: handleAcertou(setCard,setQtd,tabuleiro),

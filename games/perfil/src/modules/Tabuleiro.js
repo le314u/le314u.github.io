@@ -12,7 +12,7 @@ class Tabuleiro{
         this.deck_mont = deck;
         this.deck_discard = new Deck([]);
         this.card = deck.getCard();
-        this.working = false;
+        this.working = true;
 
     }
 
@@ -70,7 +70,10 @@ class Tabuleiro{
         let player = this.currentPlayer()
         player.addPontos( this.currentpoints() )
         if( player.getPontos() >= this.maxPontos ){
+            console.log(player.getPontos())
+            console.log(this.maxPontos)
             this.working = false
+            console.log("PAROU")
         }
         this.nextPlayer()
         this.nextCard()

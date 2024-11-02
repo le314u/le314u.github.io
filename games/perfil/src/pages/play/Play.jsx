@@ -53,7 +53,7 @@ function Play() {
       <div className="vh-100" role="document">
         {players !== null && players !== undefined ? (<div className="modal-header p-5 pb-4 border-bottom-0"><div></div><PopupComponent players={players} ></PopupComponent></div>):''}
         <div  className="container d-flex align-items-center justify-content-center" style={{ height:" 75vh", }} >
-          {game?.isWorking() && card ?(
+          {game?.isWorking() == true && card ?(
             <Card ref={cardRef}
               color={colorPlayer}
               namePlayer={namePlayer}

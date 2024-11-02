@@ -111,10 +111,10 @@ function Conf() {
   function handleSelect(){
     addThema()
 
-    // setTimeout(() => {
-    //   let value = observedRef.current.querySelector("#root > div > div > div > div:nth-child(2) > div > div.ui.selection.dropdown > div.divider.text").innerText
-    //   addThema(value)
-    // }, 100); // 2000 milissegundos = 2 segundos
+    setTimeout(() => {
+      let value = observedRef.current.querySelector("#root > div > div > div > div:nth-child(2) > div > div.ui.selection.dropdown > div.divider.text").innerText
+      addThema(value)
+    }, 100); // 2000 milissegundos = 2 segundos
   }
 
   function addThema(value=null){
@@ -220,7 +220,7 @@ function Conf() {
               }
               {stepConf === Status.THEMA && 
                 <div ref={observedRef}>
-                  <Select placeholder='Escolha os Temas' options={THEMAS} />
+                  <Select onChange={handleSelect} placeholder='Escolha os Temas' options={THEMAS} />
                   <div className=' p-1 pb-1'/>
                   <LabelGroup color='blue'>
                     { themas.map((name)=>createTag(name))}                    
@@ -240,7 +240,7 @@ function Conf() {
                   <button id="start" type="button" className="btn btn-primary form-control rounded-3 p-3" data-bs-dismiss="modal" aria-label="Start">Next</button>
               </div>
             )}
-            
+
             <div className='p-5 pt-0'>
               <Progress percent={state.percent()} color='blue'  />
             </div>
