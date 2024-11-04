@@ -57,11 +57,13 @@ function Conf() {
       // Define o callback que será executado quando ocorrer uma mutação
       const mutationCallback = (mutationsList) => {
         for (let mutation of mutationsList) {
-          if (mutation.type === 'attributes') {
-            if(mutation.attributeName=='data-suir-click-target'){
+          if (mutation.type === 'attributes') {//Teve mudança de Atributo
+            if(mutation.attributeName === 'data-suir-click-target'){// teve mudança do atrib
               let value = mutation.target.childNodes[0].innerText
               addThema(value)              
             }
+            
+            
           }
         }
       };
@@ -104,13 +106,13 @@ function Conf() {
   
   function handleSelect(){
     //Gambiarra Pq nem sempre quando clica estava adicionando
-    let value = observedRef.current.querySelectorAll('[aria-checked="true"]')[0].innerText;
-    addThema(value)
+    // let value = observedRef.current.querySelectorAll('[aria-checked="true"]')[0].innerText;
+    // addThema(value)
 
-    setTimeout(() => {
-      let value = observedRef.current.querySelector("#root > div > div > div > div:nth-child(2) > div > div.ui.selection.dropdown > div.divider.text").innerText
-      addThema(value)
-    }, 100); // 2000 milissegundos = 2 segundos
+    // setTimeout(() => {
+    //   let value = observedRef.current.querySelector("#root > div > div > div > div:nth-child(2) > div > div.ui.selection.dropdown > div.divider.text").innerText
+    //   addThema(value)
+    // }, 100); // 2000 milissegundos = 2 segundos
   }
   
   function handleThema(){
@@ -142,6 +144,7 @@ function Conf() {
   function handleChange (event) {
     
     const alterarValor = (key, value) => {
+
       setNameFields(prevState => {
         return prevState.map(item => {
           if (item.key === key) {
@@ -157,6 +160,17 @@ function Conf() {
   
   function InputName(index,value, enable=true){
 
+    const newName = (key=index)=>{
+      const newElement = {
+        'key': 'name_'+(count+1),
+        'data':''
+      }
+      return ()=>{
+        setNameFields([...nameFields,newElement])
+        setCount(count+1)
+      }
+      
+    }
 
     const delName = (key=index) => {
       return ()=>{
@@ -166,33 +180,35 @@ function Conf() {
       }
     }
 
-    const newName = (key=index)=>{
-      const newElement = {
-        'key': 'name_'+(count+1),
-        'data':''
-      }
-      return ()=>{
-        setCount(count+1)
-        setNameFields([...nameFields,newElement])
-      }
-      
-    }
-
     const newFilter = (e)=>{
       if(e.key==='Enter'){ newName(index)() }
     }
 
-    
+    const isDisable=()=>{
+      return nameFields.some((obj,key) => {
+        if(obj.key == index && key!=nameFields.length-1){
+          return true
+        }
+        return false; // Continua iterando
+      });
+
+    }
+
+    if(isDisable() && value ==''){
+      delName(index)()
+    }
+
     return(
       <div key={index} className="row align-items-center">
-        <div className="col">
-          <InputFiltered disabled={ sessionStorage.getItem(index)} onType={newFilter} onChange={handleChange} id={index} label="Name" placeholder={value} maxLength="16" arrayFilter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   />
-        </div>
-        <div className="col-auto">
-          <button onClick={newName(index)} type="button" className="btn mb-3"> <PlusIcon size={16}/></button>
-          <button onClick={delName(index)} type="button" className="btn mb-3"> <DashIcon size={16}/></button>
-        </div>
-      </div>)
+      <div className="col">
+        <InputFiltered disabled={isDisable()} onType={newFilter} onChange={handleChange} id={index} label="Name" placeholder={value} maxLength="16" arrayFilter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   />
+      </div>
+      <div className="col-auto">
+        <button onClick={newName(index)} type="button" className="btn mb-3"> <PlusIcon size={16}/></button>
+        <button onClick={delName(index)} type="button" className="btn mb-3"> <DashIcon size={16}/></button>
+      </div>
+    </div>)
+
   };
 
   function Tag(name){
@@ -228,7 +244,7 @@ function Conf() {
                   {/*Primeiro Nome*/}
                   <div className="row align-items-center">
                     <div className="col">
-                        <InputFiltered disabled={ sessionStorage.getItem('name_0') != null } onType={(e)=>{ if(e.key==='Enter'){ newName() }}} onChange={handleChange} className="col" id={`name_0`} label="Name" maxLength="16" arrayFilter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>                   
+                        <InputFiltered disabled={ count>0 && nameFields.length>0 } onType={(e)=>{ if(e.key==='Enter'){ newName() }}} onChange={handleChange} className="col" id={`name_0`} label="Name" maxLength="16" arrayFilter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>                   
                     </div>
                     <div className="col-auto">
                         <button  onClick={newName} type="button" className="btn mb-3"> <PlusIcon size={16}/></button>
@@ -241,7 +257,7 @@ function Conf() {
                 </div>
               }
               {stepConf === Status.POINT && 
-                <InputFiltered id="maxPoints" onChange={handleChange} placeholder="100" label="maxPoints" arrayFilter="0123456789" maxLength="4"/>
+                <InputFiltered id="maxPoints"  placeholder="100" label="maxPoints" arrayFilter="0123456789" maxLength="4"/>
               }
               {stepConf === Status.THEMA && 
                 <div ref={observedRef}>

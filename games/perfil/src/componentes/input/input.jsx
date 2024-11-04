@@ -14,8 +14,7 @@ function InputFiltered(props) {
         value={value}
         maxLength={props.maxLength}
         onKeyDown={ combinedFunc( [props.onType, filter] ) }
-        // onKeyDown={ filter }
-        onChange={ combinedFunc( [handleChange, props.onChange] ) }  // Adicione o evento onChange
+        onChange={ combinedFunc( [handleChange, props.onChange,saveName] ) }  // Adicione o evento onChange
         onBlur={saveName}
         disabled = {props.disabled}
       />

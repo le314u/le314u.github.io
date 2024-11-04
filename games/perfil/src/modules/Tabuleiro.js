@@ -70,10 +70,7 @@ class Tabuleiro{
         let player = this.currentPlayer()
         player.addPontos( this.currentpoints() )
         if( player.getPontos() >= this.maxPontos ){
-            console.log(player.getPontos())
-            console.log(this.maxPontos)
             this.working = false
-            console.log("PAROU")
         }
         this.nextPlayer()
         this.nextCard()
