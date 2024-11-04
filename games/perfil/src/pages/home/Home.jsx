@@ -1,5 +1,5 @@
 // PopupPage.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../componentes/button/button.jsx'
 
@@ -7,6 +7,8 @@ import Button from '../../componentes/button/button.jsx'
 
 
 const Home = () => {
+  useEffect(()=>{sessionStorage.clear()},[])
+
   return (
     <>
       <div style={{ width: "100vw", margin: "0", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh", }} >      

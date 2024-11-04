@@ -38,15 +38,33 @@ function useFilteredInput(initialValue, allowedKeys,onEnter=undefined) {
         return false;
     };
 
+    const delName = () => {
+        const key = tag.current.id
+        const value = tag.current.value.trim(); // Utilize trim para remover espaços em branco no início e no final
+        if (value ) {
+            sessionStorage.removeItem(key);
+        return true;
+        }
+        return false;
+    };
+
     const filter = customFilter(allowedKeys,onEnter)
-  
+    
+    const combinedFunc = (array_func) => (e) => {
+        array_func.forEach((func) => {
+            try { func(e) } catch (error) { }
+        })
+    };
+    
+    
 
   return {
     tag,
     value,
     handleChange,
     filter,
-    saveName
+    saveName,
+    combinedFunc
   }
 }
 
