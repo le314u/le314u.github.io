@@ -41,113 +41,121 @@ const span = {
 }
 
 
-
 function Play() {
-  const [card, setCard] = useState(null);
-  const [qtd, setQtd] = useState(1);
-  const [game, setGame] = useState( GAME(setCard,setQtd) );
+	const [card, setCard] = useState(null);
+	const [qtd, setQtd] = useState(1);
+	const [game, setGame] = useState( GAME(setCard,setQtd) );
+	const cardRef = useRef();
+	const players = game.tabuleiro.players
+	const ID_NAME1 = "name_1"
+	const ID_NAME2 = "name_2"
+	const SPEED = 200
+	const namePlayer = game.player().getNome()
+	const colorPlayer = game.player().getCor()
+	const size = 140
+	const fontSize = size*0.6
 
-  const cardRef = useRef();
+	const [changing, setChanging] = useState(0);
 
+	useEffect(()=>{
+		if(changing == 3){
+			setChanging(0)
+		}
+	},[changing])
+	
+	const sortearNumeros=(min, max)=>{
+		var numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
+		var numero2;
+	
+		do {
+			numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
+		} while (numero2 === numero1);
+	
+		return [numero1, numero2];
+	}
+	
+	const caractereAleatorio=()=>{
+		var codigoCaractere = Math.floor(Math.random() * 26) + 97;
+		return String.fromCharCode(codigoCaractere);
+	}
+	
+	const replace=(str, i, char)=>{
+		//Dada a string "str" substituo o caracter de indice "i" pelo novo caracter "char"
+		if (i < 0 || i >= str.length) {
+			return str;
+		}
+	
+		//Divisão de string em um array de caracteres
+		var caracteres = str.split('');
+		//Replace em si
+		caracteres[i] = char;
+		//União de um array de caracteres em uma unica string.
+		return caracteres.join('');
+	}
 
- 
-
-
-  let players = game.tabuleiro.players
-  console.log(players)
-  let namePlayer = game.player().getNome()
-  let colorPlayer = game.player().getCor()
-  let size = 140
-  let fontSize = size*0.6
-
-
-
-  function get2Names(){
-    function sortearNumeros(min, max) {
-      var numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
-      var numero2;
-  
-      do {
-          numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
-      } while (numero2 === numero1);
-  
-      return [numero1, numero2];
-    }
-  
-      
-    // Exemplo: sorteando dois números entre 1 e 100
-    let resultado = sortearNumeros(0, players.length-1);
-    console.log(resultado)
-    let name1 = players[resultado[0]].getNome()
-    let name2 =players[resultado[1]].getNome()
-
-    typing("name_1",name1,0,500)
-    typing("name_2",name2,0,500)
-
-    function typing(id,txt, i = 0, speed = 50) {
-        i = txt.length
-        function caractereAleatorio() {
-            var codigoCaractere = Math.floor(Math.random() * 26) + 97;
-            return String.fromCharCode(codigoCaractere);
-        }
-
-        function replace(str, indice, novoCaractere) {
-            if (indice < 0 || indice >= str.length) {
-                console.error("Índice fora dos limites da string.");
-                return str;
-            }
-
-            var caracteres = str.split('');
-            caracteres[indice] = novoCaractere;
-            return caracteres.join('');
-        }
-
-        function add() {
-            let complete = txt.length - tag.innerHTML.length;
-
-            if (complete !== 0) {
-                tag.innerHTML += caractereAleatorio();
-                setTimeout(add, speed, i + 1);
-            } else {
-                typeWriter(i);
-            }
-        }
-
-        function rm() {
-            let complete = txt.length - tag.innerHTML.length;
-
-            if (complete !== 0) {
-                let i = tag.innerHTML.length - 1;
-                tag.innerHTML = tag.innerHTML.substring(0, i);
-                setTimeout(rm, speed, i);
-            } else {
-                typeWriter(i);
-            }
-        }
-
-        let tag = document.getElementById(id);
-        let complete = txt.length - tag.innerHTML.length;
-
-        if (complete !== 0) {
-            complete > 0 ? add() : rm();
-        }else{
-          typeWriter(i)
-        }
-
-      function typeWriter(i) {
-
-        if (i >= 0) {
-            let newText = replace(tag.innerHTML, i, txt.charAt(i));
-            tag.innerHTML = newText;
-            setTimeout(typeWriter, speed, i - 1);
-        }
-    }
-  }
-  }
-
-
-  //typing("name_1","judas",0,500)
-
+	const get_tag = (id)=>document.getElementById(id);
+	const get_name=(id)=>{
+		let tag = get_tag(id)
+		return tag.innerText
+	}
+	const set_name=(id,newName)=>{
+		let tag = get_tag(id)
+		tag.innerText = newName
+	}
+	function get2Names(){
+		// Exemplo: sorteando dois números
+		let indices = sortearNumeros(0, players.length-1);
+		// Pega os dois nomes Sorteados
+		let name1 = players[indices[0]].getNome()
+		let name2 = players[indices[1]].getNome()
+		return [name1,name2]
+	}
+	function fog(originalName,func){
+		let arrayName = originalName.split('')
+		for (let i = 0; i < arrayName.length; i++) {
+			arrayName[i] = caractereAleatorio()		
+		}
+		func(arrayName)
+	}
+	function add(oldName) {
+		return oldName+caractereAleatorio()
+	}
+	function rm(oldName) {
+		return oldName.substring(0, oldName.length-1)
+	}
+	function typing(id, newName, step = 0){
+		let oldName = get_name(id)
+		let offSet = newName.length - oldName.length
+		if (offSet !== 0) {
+			let auxName = offSet > 0 ? add(oldName) : rm(oldName);
+			set_name(id,auxName)
+			effectTyping(id,step,newName)
+			setTimeout(() => typing(id, newName, step + 1), SPEED);
+		}else{
+			if(step < newName.length){
+				effectTyping(id,step,newName)
+				setTimeout(() => typing(id, newName, step + 1), SPEED);
+			}else{
+				setChanging((prevChanging) => (prevChanging + 1));
+			}
+		}
+	}
+	function effectTyping(id,step,newName) { 
+		let oldName = get_name(id)
+		if (step < newName.length) {
+			let auxName = replace(oldName,step,newName.charAt(step))
+			set_name(id, auxName)
+		}
+	}
+	function play(){
+		if(changing == 0){
+			setChanging((prevChanging) => (prevChanging + 1));
+			let [name1,name2] = get2Names()
+			//Subistitui o primeiro nome e o segundo nome
+			typing(ID_NAME1, name1)
+			typing(ID_NAME2, name2)
+		}
+	}
 
   return (
     
@@ -167,7 +175,7 @@ function Play() {
         </div>
 
         <div id="play_start" className="d-flex flex-column align-items-center">
-          <Button onClick={get2Names} minWidth="300px" id="start" className="p-3 my-3" buttonColor="345deg">Start</Button>
+          <Button onClick={play} minWidth="300px" id="start" className="p-3 my-3" buttonColor="345deg">Start</Button>
           <div id='play_controller' className='container d-flex align-items-center justify-content-evenly' style={estiloCustomizado}>
             {/* <Button buttonColor="225deg" onClick={() => { cardRef.current.wrong(); game.errou() }}><XIcon size={24} />Errou</Button>
             <Button buttonColor="75deg" onClick={() => { cardRef.current.correct(); game.acertou() }}><CheckIcon size={24} />Acertou</Button> */}
