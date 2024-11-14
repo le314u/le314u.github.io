@@ -53,7 +53,8 @@ function createKey(cod){
 function isSpy(key){
     let numPlayer = sessionStorage.getItem("numPlayer")
     let maxPlayer = sessionStorage.getItem("maxPlayer")
-    return ((key % maxPlayer)+1) == numPlayer
+    // return ((key % maxPlayer)+1) == numPlayer
+    return lcg(key,maxPlayer) == numPlayer
 }
 
 //mostra a onde esta
@@ -62,11 +63,27 @@ function local(key){
     return array[0]
 }
 
+
+
+function lcg(seed,max) {
+    // Parâmetros do LCG: (Usado em um exemplo comum)
+    const a = 1664525; // Multiplicador
+    const c = 1013904223; // Incremento
+    const m = Math.pow(2, 32); // Modulo (2^32)
+    let state = seed; // Garantir que a semente esteja dentro do módulo
+    const random = (a * state + c)
+    // const normalizado = Math.floor((random / m)*max)
+    const normalizado = random % max
+    return normalizado + 1
+}
+
+
 export default {
     local:local,
     isSpy:isSpy,
     createKey:createKey,
     hash:hash,
     shiftedArray:shiftedArray,
+    random:lcg,
     locate:locate,
 };

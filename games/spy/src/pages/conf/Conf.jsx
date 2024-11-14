@@ -12,14 +12,29 @@ function Conf() {
 
   const handleId = (event) => {
     // Lógica de manipulação, removendo caracteres indesejados
-    const sanitizedValue = event.target.value.replace(/[^0-9]/g, '');
-    sanitizedValue == '' ? setNumPlayer(1) : numPlayer > maxPlayer ? setNumPlayer(maxPlayer) : setNumPlayer(sanitizedValue);
+    const sanitizedValue = parseInt( event.target.value.replace(/[^0-9]/g, '') )
+    if(Number.isNaN(sanitizedValue)){
+      setNumPlayer(1)
+      return
+    }
+    sanitizedValue <= maxPlayer ? setNumPlayer(sanitizedValue) : setNumPlayer(maxPlayer);     
   };
 
   const handleTotal = (event) => {
+    const sanitizedValue = parseInt( event.nativeEvent.target.value.replace(/[^0-9]/g, '') )
     // Lógica de manipulação, removendo caracteres indesejados
-    const sanitizedValue = event.target.value.replace(/[^0-9]/g, '');
-    sanitizedValue == '' ? setMaxPlayer(numPlayer) : maxPlayer < numPlayer ? setMaxPlayer(numPlayer) : setMaxPlayer(sanitizedValue);
+    const newValue = sanitizedValue == '' ? numPlayer : sanitizedValue
+    if(Number.isNaN(newValue)){
+      setNumPlayer(1)
+      setMaxPlayer(1)
+      return
+    }
+    if(newValue < numPlayer){
+      setNumPlayer(newValue)
+      setMaxPlayer(newValue) 
+    }else{
+      setMaxPlayer(newValue) 
+    }
   };
 
   function handleClick(){

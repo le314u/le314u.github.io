@@ -9,22 +9,25 @@ function Play() {
   const [code, setCode] = useState('----');
   const result = useRef();
 
+  const setLocal = (text)=>{
+    result.current.innerText = text
+  }
+
   const handleCode = (event) => {
     // Lógica de manipulação, removendo caracteres indesejados
     let sanitizedValue = event.target.value.replace(/[^0-9a-z]/ig, '');
     sanitizedValue = sanitizedValue.slice(-4);
     setCode(sanitizedValue)
-    console.log(code)
   };
   
   function handleClick(){
     if(code == "----"  || code.length < 4 ){
-      result.current.innerText = "Digite uma chave de 4 digitos"
+      setLocal("Digite uma chave de 4 digitos")
     }else{
       let key = Engine.createKey(code)
       let spy = Engine.isSpy(key[0])
       let local = Engine.local(key[1])
-      result.current.innerText = local
+      spy ? setLocal('Espião'):setLocal(local)
     }
   }
 
