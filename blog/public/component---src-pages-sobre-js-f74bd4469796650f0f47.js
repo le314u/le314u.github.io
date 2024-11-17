@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_fucking_bblog=self.webpackChunkmy_fucking_bblog||[]).push([[88],{6982:function(e,t,l){l.r(t),l.d(t,{Head:function(){return o}});var n=l(6540),u=l(4810);const o=()=>n.createElement("title",null,"About Me");t.default=()=>n.createElement("main",null,n.createElement("h1",null,"Sobre"),n.createElement("p",null,"Olá! Sou o orgulhoso criador deste site, que construí com Gatsby."),n.createElement(u.N_,{to:"/"},"Back to Home"))}}]);
+//# sourceMappingURL=component---src-pages-sobre-js-f74bd4469796650f0f47.js.map

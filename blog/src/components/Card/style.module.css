@@ -1,0 +1,86 @@
+
+.cardList {
+    display: block;
+    margin: 1rem auto;
+    padding: 0;
+    font-size: 0;
+    text-align: center;
+    list-style: none;
+}
+
+.card {
+	display: inline-block;
+	width: 90%;
+	max-width: 20rem;
+	margin: 1rem;
+	font-size: 1rem;
+	text-decoration: none;
+	box-shadow: 0 0 1.8rem -1rem rgba(0,0,0,0.5);
+    height: 24rem;
+	overflow: hidden;
+}
+
+.cardImage {
+    height:18rem;
+
+    transition: filter 2s ease, height 2s ease; /* Transição suave para o padding */
+	display: block;
+	background: #fff center center no-repeat;
+	background-size: cover;
+    filter: grayscale(0);
+}
+
+
+.cardDescription {
+    height:3rem;
+    transition: height 2s ease ; /* Transição suave para o padding */
+	display: block;
+	padding: 1em 0.5em;
+	color: #515151;
+	text-decoration: none;
+    flex-grow: 1; /* Faz com que A ocupe o restante do espaço disponível */
+}
+
+
+
+
+.card:hover {
+    box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+}
+
+.card:hover .cardImage{
+    height:3rem;
+    filter: grayscale(1);
+    transition: filter 2s ease, height 2s ease; /* Transição suave para o padding */
+} 
+
+.card:hover .cardDescription{
+    height: 20rem;
+}
+
+
+.cardImage > img {
+    display: block;
+    width: 100%;
+    opacity: 0;
+}
+.cardDescription > h2 {
+    margin: 0 0 0.5em;
+}
+
+.cardDescription > p {
+    margin: 0;
+}
+
+.cardDescription > pre {
+    height: 0px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Remove a barra em navegadores baseados em Firefox */
+    transition: height 2s ease; /* Transição suave para o padding */
+
+}
+
+.card:hover .cardDescription>pre{
+    height: 16.5rem;
+}

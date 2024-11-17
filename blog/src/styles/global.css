@@ -1,0 +1,21 @@
+body, html {
+	overflow-x: hidden; /* Impede a rolagem horizontal */
+	direction: ltr;
+}
+
+main{
+	padding: 25px;
+}
+
+#___gatsby{
+	display: flex;
+	min-height: 100vh;
+}
+
+#gatsby-focus-wrapper{
+	min-height: 100vh;
+}
+
+#gatsby-focus-wrapper{
+	width: 100%;
+}
