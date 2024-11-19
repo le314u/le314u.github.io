@@ -10,25 +10,23 @@ ul {
     padding: 15px 30px; /* Espaçamento interno na barra de navegação */
 
 }
+
 .button:hover {
     background-color:var(--backGround);
 }
 
 .link {
+    color: #abaaab;
     text-decoration: none; /* Remover sublinhado dos links */
     font-weight: bold; /* Estilo de fonte para os links */
 }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-  }
-  
-  
-  
-  a {
-    
-    color: var(--azulCeu); /* Cor do texto dos links */
-  }
-  
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+a {  
+  color: var(--azulCeu); /* Cor do texto dos links */
+}

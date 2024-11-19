@@ -1,0 +1,101 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+.descriptionContainer{
+  margin: 20px auto auto auto;
+  box-shadow: 3px 3px px 0px rgba(0,0,0,0.75);
+  height: auto;
+  display: flex;
+  box-sizing: border-box;  
+}
+
+.header{
+  color: #ffffff;
+  height: auto;
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  padding: 3%;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+}
+.header h1{
+  font-size: 0px;
+}
+.card{
+  align-items: center;
+  position: relative;
+
+}
+.card img{
+  box-shadow: 0px -2px 20px 10px rgba(255, 255, 255, .2);
+  height: 400px;
+  margin: 0;
+  width: auto;
+}
+
+.description{
+  height: 450px;
+  flex:6;
+  padding: 1% 2% 3% 2%;
+  position: relative;
+}
+
+
+.text{
+  overflow: auto;
+  height: 100%;
+  color: black;
+  padding-bottom:20px
+}
+.text h2::first-letter{
+  font-size: 150%;
+  font-weight: bold;
+}
+.text p{
+  text-align: justify; /* Justifica o texto */
+  padding-right: 10px;
+}
+
+.info{
+  position: absolute; /* Faz a Div B ser posicionada em relação à Div C */
+  bottom: 0; /* Alinha ao fundo da Div C */
+  left: 0; /* Alinha ao lado esquerdo */
+  width: 97%; /* Opcional: para que ocupe toda a largura */
+  background-color: #efefef;
+  color: white;
+  text-align: center;
+  padding: 10px;  
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+.info a{
+  color: #464646;
+  text-decoration: none;
+  height: 555px;
+}
+
+@media screen and (max-width: 1100px) {
+	.blog-container {
+		flex-direction: column;
+		height: auto;
+	}
+  .descriptionContainer{
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para uma nova linha */
+    flex-direction: column;
+  }
+  .header{
+    flex: 1 1 45%; /* Itens ocupam 45% da largura disponível, ajustam-se */
+    min-width: 200px; /* Largura mínima de cada item */
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  .description{
+    flex: 1 1 45%; /* Itens ocupam 45% da largura disponível, ajustam-se */
+    min-width: 200px; /* Largura mínima de cada item */
+    padding: 20px;
+    text-align: center;
+  }
+  
+}

@@ -1,4 +1,6 @@
   .listBox {
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: auto;
     display: flex;
     flex-direction: column;
@@ -35,17 +37,17 @@
     border-bottom-right-radius: 5px;
   }
   .listBox ul:hover li {
-    opacity: 0.2;
+    opacity: 0.3;
+    transition: opacity ease 0.5s;
   }
   .listBox ul li {
     text-align: justify;
-
     box-sizing: border-box; /* Largura e altura incluem preenchimento e bordas */
     list-style: none;
     padding: 10px 20px 10px 20px;
     width: 100%; /* Cada item ocupa 100% da largura disponível */
     background: #fff;
-    transition: transform 0.5s;
+    transition: transform 0.5s,opacity ease 1s;
   }
   
   .listBox ul li:hover {

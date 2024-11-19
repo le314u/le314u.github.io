@@ -1,5 +1,4 @@
 .block {
-  /* display: flex; */
   box-sizing: border-box;
   justify-content: center;
   align-items:center;
@@ -7,6 +6,8 @@
   line-height: 1.618em;
   min-height: 100px;
   margin-bottom: 10px;
+  display: block;
+
 }
 
 .emphasis {
@@ -14,12 +15,17 @@
 }
 
 
-div.block div.title{
+.block div.title{
   font-size: 1.618em;
 }
 
-div.block div.content{
-  padding:0px 50px 0px 50px ;
+.block div.content{
+  width: 100%;
   text-align: justify;
   font-size: 1em;
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

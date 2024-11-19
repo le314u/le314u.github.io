@@ -41,11 +41,16 @@ const rule_15="Se um efeito fizer com que uma criatura com changeling perca toda
 const rule_16="Se houver custos adicionais para conjurar uma mágica, ou se o custo para conjurar uma mágica for aumentado por um efeito (como aquele criado pela habilidade de Thalia, Guardiã de Thraben), aplique esses aumentos antes de aplicar reduções de custos. (04/11/2015)\n"
 const rule_17="A redução de custos pode aplicar-se a custos alternativos, tais como custos de flashback.(04/11/2015)\n"
 const rule_18="Se algum Clone de alguma forma entrar no campo de batalha ao mesmo tempo que outra criatura, Clone não poderá se tornar uma cópia daquela criatura. Você pode escolher apenas uma criatura que já esteja no campo de batalha. (01/07/2012)\n"
-const rule_19="Se você colocar um card de Aura no campo de batalha com alguma habilidade como por exemplo a do Zur, você escolhe o que ele encantará ao entrar no campo de batalha. Uma Aura colocada no campo de batalha desta forma não tem como alvo nada (então ela poderia ser anexada a uma permanente do oponente com resistência à magia, por exemplo), mas a habilidade de encantar da Aura restringe aquilo a que ela pode ser anexada. Se a Aura não puder ser legalmente anexada a nada, ela permanecerá em seu grimório. (2022-12-08)\n"
-const rule_20="Se um efeito permitir que você jogue um terreno ou conjure uma mágica dentre um grupo de cards, você poderá jogar ou conjurar um card modal dupla face com qualquer face que atenda aos critérios daquele efeito. (2020-09-25)\n"
-const rule_21="O custo de mana convertido de um card modal dupla face é baseado nas características da face que está sendo considerada. Na pilha e no campo de batalha, considere a face que está voltada para cima. Em todas as outras zonas, considere apenas a face frontal. Isso é diferente de como o custo de mana convertido de um card dupla face transformador é determinado. (2020-09-25)\n"
-
-
+const rule_19="Se você colocar um card de Aura no campo de batalha com alguma habilidade como por exemplo a do Zur, você escolhe o que ele encantará ao entrar no campo de batalha. Uma Aura colocada no campo de batalha desta forma não tem como alvo nada (então ela poderia ser anexada a uma permanente do oponente com resistência à magia, por exemplo), mas a habilidade de encantar da Aura restringe aquilo a que ela pode ser anexada. Se a Aura não puder ser legalmente anexada a nada, ela permanecerá em seu grimório. (08/12/2022)\n"
+const rule_20="Se uma Aura for colocada no campo de batalha sem ser conjurada, como por ser criada como uma ficha, o futuro controlador da Aura escolhe o que ela encantará ao entrar no campo de batalha. Uma Aura colocada no campo de batalha dessa forma não tem como alvo nada (então ela poderia ser anexada a uma permanente do oponente com resistência à magia, por exemplo), mas a habilidade de encantamento da Aura restringe ao que ela pode ser anexada. Se uma ficha de Aura não puder ser anexada legalmente a nada, ela não é criada.(17/04/2020)\n"
+const rule_21="O custo de mana convertido de um card modal dupla face é baseado nas características da face que está sendo considerada. Na pilha e no campo de batalha, considere a face que está voltada para cima. Em todas as outras zonas, considere apenas a face frontal. Isso é diferente de como o custo de mana convertido de um card dupla face transformador é determinado. (25/09/2020)\n"
+const rule_22="A redução de custos pode ser aplicada a custos alternativos, como custos de flashback.(04/11/2015)\n"
+const rule_23="Se houver custos adicionais para conjurar uma magia, ou se o custo para conjurar uma magia for aumentado por um efeito (como o criado pela habilidade de Thalia, Guardiã de Thraben), aplique esses aumentos antes de aplicar as reduções de custo.(04/11/2015)\n"
+const rule_24="O token copia exatamente o que foi impresso na permanente original e nada mais (a menos que a permanente esteja copiando outra coisa; veja abaixo). Ele não copia se a permanente está virada ou desvirada, se tem marcadores ou Auras e Equipamentos anexados a ela, ou quaisquer efeitos não copiados que mudaram seu poder, resistência, tipos, cor e assim por diante.(08/11/2016)\n"
+const rule_25="Se a permanente copiada estiver copiando outra coisa (por exemplo, se a criatura copiada for um Clone), então a ficha entra no campo de batalha como qualquer coisa que a permanente copiou.(08/11/2016)\n"
+const rule_26="Uma ficha que entra no campo de batalha como uma cópia de uma criatura virada para baixo é uma criatura 2/2 incolor virada para cima, sem nome, habilidades ou tipos de criatura.(25/02/2015)\n"
+const rule_27="Se a criatura copiada tiver{X}em seu custo de mana, X é considerado zero.(25/02/2015)\n"
+const rule_28="Se um efeito permitir que você jogue um terreno ou conjure uma mágica dentre um grupo de cards, você poderá jogar ou conjurar um card modal dupla face com qualquer face que atenda aos critérios daquele efeito. (25/09/2020)\n"
 const panels = [
     {
       key: 'Rules',
@@ -71,7 +76,14 @@ const panels = [
         rule_18,
         rule_19,
         rule_20,
-        rule_21
+        rule_21,
+        rule_22,
+        rule_23,
+        rule_24,
+        rule_25,
+        rule_26,
+        rule_27,
+        rule_28,
       ].join('\n')
     },
   ]
@@ -112,6 +124,13 @@ const DATA = {
     rule_19,
     rule_20,
     rule_21,
+    rule_22,
+    rule_23,
+    rule_24,
+    rule_25,
+    rule_26,
+    rule_27,
+    rule_28,
     howPlay,
     habilidades,   
     panels,

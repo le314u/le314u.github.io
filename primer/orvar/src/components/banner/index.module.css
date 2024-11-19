@@ -1,16 +1,16 @@
 .header {
     width: 100%; /* ocupa 100% da largura da div pai */
-    height: 300px;
-    margin: 0;
-    padding: 0;
     overflow: hidden; /* evita que a imagem ultrapasse os limites da div */
 }
 
 .header .banner {
-    width: 100%;
-    height: auto; /* a altura será ajustada automaticamente para manter a proporção original */
+    width: 100%; /* ocupa 100% da largura da div pai */
     object-fit: none; /* a imagem não será esticada e o espaço extra será cortado */
     object-position: center top; /* a imagem será cortada no centro na parte superior da div */
     object-fit: cover ; /* redimensiona a imagem para cobrir a área inteira da div */
+    top:0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
 }
-

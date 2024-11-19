@@ -2,18 +2,33 @@
     z-index: 100;
     position: fixed;
     width: 100%;
-    background-color: var(--backGround);
+    background-color: var(--backGroundLess);
     display: flex;
     justify-content:end;
     transition: top 0.3s; /* Adicione uma transição suave para animar a exibição da barra de navegação */
-}
+  }
   
-.navBar ul {
+  .navBar ul {
     list-style: none;
     padding: 0;
     display: flex;
   }
   
-.navBar li {
+  .navBar ul li {
     padding: 0; /* Espaçamento interno na barra de navegação */
-}
+  }
+
+
+
+@media (max-width: 375px) {
+  .navBar > ul > li{
+    height: 50px;
+  }
+
+  .navBar > ul > li > div{
+    list-style: none;
+    font-size: 10px;
+    height: 100%;
+    padding: 10px;
+  }
+} 

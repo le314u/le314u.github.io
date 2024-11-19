@@ -43,3 +43,19 @@
 div.App-Body > div:first-child{
   margin-top: 50px;
 }
+main{
+  padding-top: 3px;
+  background-color: white;
+  position: relative;
+  top: 250px;
+
+}
+
+body{
+  position: relative;
+}
+
+
+img {
+  pointer-events: none; /* Desativa interações */
+}

@@ -1,0 +1,65 @@
+.targetContent {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 200ms;
+    pointer-events: all; /*O elemento pode ser alvo de um evento de hover.*/
+    opacity: 1;
+  }
+
+  .targetContent .targetInner {
+    position: absolute;
+    display: block;
+    padding: 48px;
+    line-height: 1.8;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+    background: white;
+    color: #34495E;
+  }
+  .targetContent .targetInner h2 {
+    margin-top: 0;
+  }
+
+  .targetContent a.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #34495E;
+    transition: opacity 200ms;  
+  }
+  .targetContent a.close:hover {
+    opacity: 0.4;
+  }
+  
+  
+  
+  .button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 16px 24px;
+    border-radius: 1px;
+    text-decoration: none;
+    font-size: 24px;
+    display: block;
+    color: white;
+    background-color: #34495E;
+    text-align: center;
+    font-weight: 100;
+    transition: box-shadow 200ms;
+    border-radius: 4px;
+  }
+  .button:hover {
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  }

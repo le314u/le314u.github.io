@@ -1,28 +1,15 @@
 import {useRef, useState} from "react";
-import './ComboBox.css'
+import './index.css'
 
-
-
-// $(document).ready(function() {
-  
-//     $(".selLabel").click(function () {
-//       $('.dropdown').toggleClass('active');
-//     });
-    
-//     $(".dropdown-list li").click(function() {
-//       $('.selLabel').text($(this).text());
-//       $('.dropdown').removeClass('active');
-//       $('.selected-item p span').text($('.selLabel').text());
-//     });
-    
-//   });
-function ComboBox({triguer,name,array}) {
+export function ComboBox({triguer,name,array}) {
     const [isActive, setIsActive] = useState(false);
     const [selectedItem, setSelectedItem] = useState(name);
     const dropdown = useRef();
     const dropdownList = useRef();
     const selLabel = useRef();
   
+    console.log("Fazer module.css de ComboBox")
+    
     function handleToggleClass() {
       setIsActive(!isActive)
     }
@@ -61,7 +48,4 @@ function ComboBox({triguer,name,array}) {
         </div>
       </div>
     );
-  }
-  
-  export default ComboBox;
-  
+  }  
