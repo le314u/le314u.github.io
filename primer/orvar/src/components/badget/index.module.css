@@ -15,20 +15,24 @@
   -ms-user-select: none; /* Suporte para navegadores mais antigos da Microsoft */
 }
 
-.target{
-    bottom: 0;
-    right:30px;
-    background-color: rgb(250, 73, 73);
+
+
+.lt{ /* Lefte Top*/
+    top: -12.5px;
+    left:15px;
 }
 
-.triguer{
-    top:-10px;
-    right:30px;
-    background-color:rgb(106, 245, 255);
+.rt{ /* Right Top*/
+    top:-12.5px;
+    right:15px;
 }
 
-.hold{
-    top:-10px;
-    left:30px;
-    background-color:rgb(255, 253, 106);
+.lb{ /* Left Bottom*/
+    bottom:-6px;
+    left:15px;
+}
+
+.rb{ /* Right Bottom*/
+    bottom:-6px;
+    right:15px;
 }

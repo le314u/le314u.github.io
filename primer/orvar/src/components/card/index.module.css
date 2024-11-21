@@ -9,13 +9,14 @@
   box-shadow: 0px -2px 20px 10px rgba(255, 255, 255, .2);
   max-height: 400px;
   overflow: hidden; /* Esconde o conteúdo que ultrapassa */
-
-  margin: 0;
   width: auto;
 }
-
 .card > span {
-  height: 0px;
-  width: 0px;
-  font-size: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+  font-size: 0rem;
+  height: 0;
+  width: 0;
 }

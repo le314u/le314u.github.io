@@ -1,5 +1,4 @@
 import React from "react";
-import {Badget} from '../badget/badget'
 import { Card } from "../card/card";
 import styles from './index.module.css'
 

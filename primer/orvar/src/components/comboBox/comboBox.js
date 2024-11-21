@@ -1,9 +1,9 @@
 import {useRef, useState} from "react";
 import './index.css'
 
-export function ComboBox({triguer,name,array}) {
+export function ComboBox({launcher,defaultValue,array}) {
     const [isActive, setIsActive] = useState(false);
-    const [selectedItem, setSelectedItem] = useState(name);
+    const [selectedItem, setSelectedItem] = useState(defaultValue);
     const dropdown = useRef();
     const dropdownList = useRef();
     const selLabel = useRef();
@@ -19,7 +19,7 @@ export function ComboBox({triguer,name,array}) {
           let tag = dropdownList.current.getElementsByTagName('li')[i]
           setIsActive(!isActive)
           setSelectedItem(tag.innerText)
-          triguer(tag.dataset.value)
+          launcher(tag.dataset.value)
         }
     }
 

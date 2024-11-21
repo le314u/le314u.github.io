@@ -1,11 +1,11 @@
 import React from "react";
 import styles from './index.module.css'
 
-export function Card({children,nameCard,urlImg}){
+export function Card({children,nameCard,urlImg,onClick}){
     return (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={onClick}>
             {children}
-            <img src={urlImg}/>
+            <img  tabIndex="0" src={urlImg}/>
             <span>{nameCard}</span>
         </div>
     )

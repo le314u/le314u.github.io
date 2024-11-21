@@ -5,10 +5,13 @@
     bottom: 0;
     left: 0;
     pointer-events: none;
-    opacity: 0;
     transition: opacity 200ms;
     pointer-events: all; /*O elemento pode ser alvo de um evento de hover.*/
     opacity: 1;
+    z-index: 2;
+
+    overflow-y: auto; /* Permite rolagem vertical */
+    overflow-x: hidden; /* Impede rolagem horizontal */
   }
 
   .targetContent .targetInner {
@@ -23,25 +26,27 @@
     box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
     background: white;
     color: #34495E;
+    max-height: 80%;
+
+    overflow-y: auto; /* Permite rolagem vertical */
+    overflow-x: hidden; /* Impede rolagem horizontal */
+
+    
   }
   .targetContent .targetInner h2 {
     margin-top: 0;
   }
 
   .targetContent a.close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    position: fixed;
+    inset:0;
     background-color: #34495E;
     transition: opacity 200ms;  
   }
+  
   .targetContent a.close:hover {
     opacity: 0.4;
   }
-  
-  
   
   .button {
     position: absolute;
