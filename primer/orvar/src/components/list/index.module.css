@@ -78,3 +78,78 @@
     color: var(--backGroundLess);
   } 
 /* o que é inherit initial unset */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+@media only screen and (max-width: 600px){
+  .listUl {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+  .listUl {
+    width: auto;
+    display: flex;
+    flex-direction: column; /* Adicione esta linha */
+    position: relative;
+  }
+
+  .listUl li {
+    text-align: justify;
+
+    box-sizing: border-box; /* Largura e altura incluem preenchimento e bordas */
+    list-style: none;
+    padding: 10px 20px 10px 20px;
+    width: 100%; /* Cada item ocupa 100% da largura disponível */
+    transition: transform 0.5s;
+  }
+
+  .listUl li span {
+    user-select: none;  
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .listUl:hover li {
+    opacity: 0.2;
+  }
+  
+
+  .listUl li:hover {
+    background-color:#FFF;
+    cursor: default;
+    transform: scale(1.1);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    color: #000;
+    opacity: 1;
+    transition: opacity 0.1s;
+  }

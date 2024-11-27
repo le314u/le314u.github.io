@@ -1,22 +1,33 @@
 // import Explanish from './components/explanish/Explanish.js'
 
-import React,{ useRef,useState } from 'react';
-import { Accordion , Divider, Segment ,ModalHeader, ModalDescription, ModalContent, ModalActions, Button,Confirm, Header, Image, Modal, } from 'semantic-ui-react'
+import React,{ useState } from 'react';
+import { Divider, ModalContent, ModalActions, Button, Modal,  StepGroup, Step } from 'semantic-ui-react'
 import { NavBar } from './components/navBar'
 import { Banner } from './components/banner'
 import { Block } from './components/block'
-import { Badget } from './components/badget'
-import { List } from './components/list'
+import { Badges } from './components/badges/index.js'
+import { List, ListDot } from './components/list'
 import { ComboBox } from './components/comboBox';
-import { Card } from './components/card'
+import { Card,Art } from './components/card'
 import { Section } from './components/section'
 import { PopUp } from './components/popUp';
+import { Tips } from './components/tips';
 import Description from './components/description'
+import { Combo } from './components/combo';
+import { StepProgress } from './components/stepProgress';
 import DATA from './data.js'
-import banner from './assets/banner.webp'
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 import {ManaText} from './filters/mana.js'
+import { StepCombo } from './components/combo/combo.js';
+
+//Sections
+import SectionCombos from './sections/Combos.js'
+import SectionCards from './sections/Cards.js'
+import SectionTutors from './sections/ChainTutors.js'
+import SectionTricks from './sections/Tricks.js'
+
+
 
 let Box = ({children})=>(<Block>{children}</Block>)
 // let Rule = ({ children}) => (<Block><Block emphasis={true}>{children}</Block> </Block>);
@@ -76,107 +87,204 @@ function CardWithPopUp({nameCard,urlImg,text,badgets}){
 }
 
 
+const SECTIONS = [
+	{ value:"combos", text:"Combos" },
+	{ value:"cards", text:"Cartas" },
+	{ value:"chain", text:"Tutores" },
+	{ value:"trick", text:"Truques" },
+]
+
+
+
+
 function App() {
 	const [sectionVisible,setSectionVisible] = useState( '' )
 
 	return (
 		<div className="App">
-			<div className="App-header">	<NavBar/>	<Banner src={banner}/>	</div>
+			<div className="App-header">	<NavBar/>	<Banner/>	</div>
 			<div className="App-Body">
 				<Block>{DATA.howPlay}</Block>
 				<Block>{DATA.intro} {DATA.shell}</Block>
+				<Block>				<Card urlImg={Art.orvar}></Card>				</Block>
 				<ModalRules><Button>Regras Orvar</Button></ModalRules>
 				<List label="Habilidades:" array={DATA.habilidades}/>
 				<Block>{DATA.explanishSkills}</Block>
 				<List label="Porque jogar:" array={DATA.pros}/>
 				<List label="Porque NÃO jogar:" array={DATA.contra}/>
 				<Block>  {DATA.how_Play.map((c, i) => (    <ManaText key={i}>{c}</ManaText>  ))}</Block>
-				<h1>Cartas separadas por TAG</h1>
-				<ComboBox launcher={setSectionVisible}
-					defaultValue="TAG"
-					array={[
-						{ value:"Cards do tipo A", text:"Cards do tipo A" },
-						{ value:"DrawGo", text:"DrawGo" },
-						{ value:"Creature", text:"Creature" },
-				]}/>
+				
+				<ComboBox launcher={setSectionVisible} defaultValue="TAG" array={SECTIONS}/>
 
-				<Block><Card 
-					nameCard="FON"
-					urlImg="https://cards.scryfall.io/large/front/5/3/5396b405-6fa0-43d7-a8f6-f64154e95e98.jpg?1698434610">
-					<Badget color="rgb(255, 73, 73)" text="Target" position="rt"/>
-					<Badget color="rgb(247, 255, 87)" text="Target" position="lb"/>
-				</Card></Block>
-
-				<hr></hr>
-
-				<Section variable={sectionVisible} value='Cards do tipo A'>
-					<CardWithPopUp 
-						nameCard="FON"
-						urlImg="https://cards.scryfall.io/large/front/8/4/84e70a5b-f846-45a3-808b-377da3165f2e.jpg?1681081752"
-						text="Dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin Commodo aliquip exercitation laboris est velit ut veniam consequat dolore ut qui. Ea ex velit commodo tempor voluptate exercitation nisi ea ipsum officia do est proident. Dolore id mollit excepteur tempor nostrud veniam Lorem ullamco minim irure. Quis aliqua exercitation ex esse ad et proident aliqua adipisicing officia aute labore. Minim cupidatat occaecat officia voluptate velit in minim Lorem consectetur quis Lorem.Eu officia ea duis exercitation magna commodo aliquip consequat dolor nulla reprehenderit laborum sunt anim. Ipsum voluptate eu sint commodo sit incididunt ut proident anim proident id magna. Nulla aliquip in ut amet tempor proident irure. Occaecat eiusmod culpa ullamco dolor elit aute dolor ullamco. Ut dolor ipsum voluptate anim anim non ullamco. Dolore mollit ullamco veniam quis incididunt est enim veniam anim eu qui ad deserunt. Eu dolor ipsum dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin FIM"
-					/>
+				<Section value="combos" variable={sectionVisible} >
+					<SectionCombos/>
 				</Section>
 
-				<Section variable={sectionVisible} value='Spellseeker'>
-					<Card nameCard="FON" urlImg="https://cards.scryfall.io/large/front/5/3/5396b405-6fa0-43d7-a8f6-f64154e95e98.jpg?1698434610"/>
-					<Card nameCard="FON" urlImg="https://cards.scryfall.io/large/front/8/4/84e70a5b-f846-45a3-808b-377da3165f2e.jpg?1681081752"/>
-					<Card nameCard="FON" urlImg="https://cards.scryfall.io/large/front/0/d/0d840284-ce56-4e4f-822f-8b237a261d1e.jpg?1681411109"/>
-					<Card nameCard="FON" urlImg="https://cards.scryfall.io/large/front/e/9/e9be371c-c688-44ad-ab71-bd4c9f242d58.jpg?1562201382"/>
+				<Section value="cards" variable={sectionVisible} >
+					<SectionCards/>
 				</Section>
 
-				<Description.Container nameCard="Vial" urlImg="https://cards.scryfall.io/large/front/7/4/741c479b-5e92-4837-9673-9bc72aa11d26.jpg?1562637557">
+				<Section value="chain" variable={sectionVisible} >
+					<SectionTutors/>
+				</Section>
 
-					<Description.Text 
-						title="O que a carta Faz?"
-						trick="Lorem consectetur quis Lorem.Eu officia ea duis exercitation magna commodo aliquip consequat dolor nulla reprehenderit laborum sunt anim. Ipsum voluptate eu sint commodo sit incididunt ut proident anim proident id magna. Nulla aliquip in ut amet tempor proident irure. Occaecat eiusmod culpa ullamco dolor elit aute dolor ullamco. Ut dolor ipsum voluptate anim anim non ullamco. Dolore mollit ullamco veniam quis incididunt est enim veniam anim eu qui ad deserunt. Eu dolor ipsum dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin FIM"
-					/>
-					<Description.Text 
-						title="Porque esta carta está no deck?"
-						trick="Commodo orem.Eu officia ea duis exercitation magna commodo aliquip consequat dolor nulla reprehenderit laborum sunt anim. Ipsum voluptate eu sint commodo sit incididunt ut proident anim proident id magna. Nulla aliquip in ut amet tempor proident irure. Occaecat eiusmod culpa ullamco dolor elit aute dolor ullamco. Ut dolor ipsum voluptate anim anim non ullamco. Dolore mollit ullamco veniam quis incididunt est enim veniam anim eu qui ad deserunt. Eu dolor ipsum dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin FIM"
-					/>
-					<Description.Text 
-						title="Tricks:"
-						trick="Aliquip consequat dolor nulla reprehenderit laborum sunt anim. Ipsum voluptate eu sint commodo sit incididunt ut proident anim proident id magna. Nulla aliquip in ut amet tempor proident irure. Occaecat eiusmod culpa ullamco dolor elit aute dolor ullamco. Ut dolor ipsum voluptate anim anim non ullamco. Dolore mollit ullamco veniam quis incididunt est enim veniam anim eu qui ad deserunt. Eu dolor ipsum dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin FIM"
-					/>
-					<Description.Text 
-						trick="Dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin Commodo aliquip exercitation laboris est velit ut veniam consequat dolore ut qui. Ea ex velit commodo tempor voluptate exercitation nisi ea ipsum officia do est proident. Dolore id mollit excepteur tempor nostrud veniam Lorem ullamco minim irure. Quis aliqua exercitation ex esse ad et proident aliqua adipisicing officia aute labore. Minim cupidatat occaecat officia voluptate velit in minim Lorem consectetur quis Lorem.Eu officia ea duis exercitation magna commodo aliquip consequat dolor nulla reprehenderit laborum sunt anim. Ipsum voluptate eu sint commodo sit incididunt ut proident anim proident id magna. Nulla aliquip in ut amet tempor proident irure. Occaecat eiusmod culpa ullamco dolor elit aute dolor ullamco. Ut dolor ipsum voluptate anim anim non ullamco. Dolore mollit ullamco veniam quis incididunt est enim veniam anim eu qui ad deserunt. Eu dolor ipsum dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin FIM"
-					/>
-				</Description.Container>	
+				<Section value="trick" variable={sectionVisible} >
+					<SectionTricks/>
+				</Section>
+				
+			{/* 
+				<Block text><ManaText>
+				{`
+					13{u}
+					>Wyzard ciclying	{2}
+					>Spellseeker {2}{u}
+					>Flux {u}
+					>Cantrip e Mystical Tutor {u} {u}
+					>ExtraTurn e BuyBack {3}{u}{u} e {u}+{2}
+				`}
+				</ManaText></Block>
 
+				<Block text><ManaText>
+				{`
+					16{u}
+					>Bagunçar mistura {1}{u}{u}
+					>veldaken {3}
+					>AetherMage {3}{u}{u}
+					>Extra Turn {3}{u}{u}
+				`}
+				</ManaText></Block>
 
-				<Block>
-					<CardWithPopUp 
-							badgets={[ <Badget color="rgb(255, 73, 73)" text="Target" position="rt"/>, <Badget color="rgb(247, 255, 87)" text="Target" position="lb"/>]}
-							nameCard="FON"
-							urlImg="https://cards.scryfall.io/large/front/8/4/84e70a5b-f846-45a3-808b-377da3165f2e.jpg?1681081752"
-							text="Dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin Commodo aliquip exercitation laboris est velit ut veniam consequat dolore ut qui. Ea ex velit commodo tempor voluptate exercitation nisi ea ipsum officia do est proident. Dolore id mollit excepteur tempor nostrud veniam Lorem ullamco minim irure. Quis aliqua exercitation ex esse ad et proident aliqua adipisicing officia aute labore. Minim cupidatat occaecat officia voluptate velit in minim Lorem consectetur quis Lorem.Eu officia ea duis exercitation magna commodo aliquip consequat dolor nulla reprehenderit laborum sunt anim. Ipsum voluptate eu sint commodo sit incididunt ut proident anim proident id magna. Nulla aliquip in ut amet tempor proident irure. Occaecat eiusmod culpa ullamco dolor elit aute dolor ullamco. Ut dolor ipsum voluptate anim anim non ullamco. Dolore mollit ullamco veniam quis incididunt est enim veniam anim eu qui ad deserunt. Eu dolor ipsum dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin FIM"
-					/>
-					<CardWithPopUp 
-							badgets={[ <Badget color="gray" text="x2" position="rt"/>, <Badget color="gray" text="hold" position="lb"/>]}
-							nameCard="FON"
-							urlImg="https://cards.scryfall.io/large/front/8/4/84e70a5b-f846-45a3-808b-377da3165f2e.jpg?1681081752"
-							text="Dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin Commodo aliquip exercitation laboris est velit ut veniam consequat dolore ut qui. Ea ex velit commodo tempor voluptate exercitation nisi ea ipsum officia do est proident. Dolore id mollit excepteur tempor nostrud veniam Lorem ullamco minim irure. Quis aliqua exercitation ex esse ad et proident aliqua adipisicing officia aute labore. Minim cupidatat occaecat officia voluptate velit in minim Lorem consectetur quis Lorem.Eu officia ea duis exercitation magna commodo aliquip consequat dolor nulla reprehenderit laborum sunt anim. Ipsum voluptate eu sint commodo sit incididunt ut proident anim proident id magna. Nulla aliquip in ut amet tempor proident irure. Occaecat eiusmod culpa ullamco dolor elit aute dolor ullamco. Ut dolor ipsum voluptate anim anim non ullamco. Dolore mollit ullamco veniam quis incididunt est enim veniam anim eu qui ad deserunt. Eu dolor ipsum dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin FIM"
-					/>
-					<CardWithPopUp 
-							nameCard="FON"
-							urlImg="https://cards.scryfall.io/large/front/8/4/84e70a5b-f846-45a3-808b-377da3165f2e.jpg?1681081752"
-							text="Dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin Commodo aliquip exercitation laboris est velit ut veniam consequat dolore ut qui. Ea ex velit commodo tempor voluptate exercitation nisi ea ipsum officia do est proident. Dolore id mollit excepteur tempor nostrud veniam Lorem ullamco minim irure. Quis aliqua exercitation ex esse ad et proident aliqua adipisicing officia aute labore. Minim cupidatat occaecat officia voluptate velit in minim Lorem consectetur quis Lorem.Eu officia ea duis exercitation magna commodo aliquip consequat dolor nulla reprehenderit laborum sunt anim. Ipsum voluptate eu sint commodo sit incididunt ut proident anim proident id magna. Nulla aliquip in ut amet tempor proident irure. Occaecat eiusmod culpa ullamco dolor elit aute dolor ullamco. Ut dolor ipsum voluptate anim anim non ullamco. Dolore mollit ullamco veniam quis incididunt est enim veniam anim eu qui ad deserunt. Eu dolor ipsum dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin FIM"
-					/>
-					<CardWithPopUp 
-							nameCard="FON"
-							urlImg="https://cards.scryfall.io/large/front/8/4/84e70a5b-f846-45a3-808b-377da3165f2e.jpg?1681081752"
-							text="Dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin Commodo aliquip exercitation laboris est velit ut veniam consequat dolore ut qui. Ea ex velit commodo tempor voluptate exercitation nisi ea ipsum officia do est proident. Dolore id mollit excepteur tempor nostrud veniam Lorem ullamco minim irure. Quis aliqua exercitation ex esse ad et proident aliqua adipisicing officia aute labore. Minim cupidatat occaecat officia voluptate velit in minim Lorem consectetur quis Lorem.Eu officia ea duis exercitation magna commodo aliquip consequat dolor nulla reprehenderit laborum sunt anim. Ipsum voluptate eu sint commodo sit incididunt ut proident anim proident id magna. Nulla aliquip in ut amet tempor proident irure. Occaecat eiusmod culpa ullamco dolor elit aute dolor ullamco. Ut dolor ipsum voluptate anim anim non ullamco. Dolore mollit ullamco veniam quis incididunt est enim veniam anim eu qui ad deserunt. Eu dolor ipsum dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin FIM"
-					/>
-					<CardWithPopUp 
-							nameCard="FON"
-							urlImg="https://cards.scryfall.io/large/front/8/4/84e70a5b-f846-45a3-808b-377da3165f2e.jpg?1681081752"
-							text="Dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin Commodo aliquip exercitation laboris est velit ut veniam consequat dolore ut qui. Ea ex velit commodo tempor voluptate exercitation nisi ea ipsum officia do est proident. Dolore id mollit excepteur tempor nostrud veniam Lorem ullamco minim irure. Quis aliqua exercitation ex esse ad et proident aliqua adipisicing officia aute labore. Minim cupidatat occaecat officia voluptate velit in minim Lorem consectetur quis Lorem.Eu officia ea duis exercitation magna commodo aliquip consequat dolor nulla reprehenderit laborum sunt anim. Ipsum voluptate eu sint commodo sit incididunt ut proident anim proident id magna. Nulla aliquip in ut amet tempor proident irure. Occaecat eiusmod culpa ullamco dolor elit aute dolor ullamco. Ut dolor ipsum voluptate anim anim non ullamco. Dolore mollit ullamco veniam quis incididunt est enim veniam anim eu qui ad deserunt. Eu dolor ipsum dolor velit deserunt dolor aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis si aliqua consectetu aliqua consectetur quis si aliqua consectetur quis si aliqua consectetur quis sir quis sin FIM"
-					/>
+				<Block text><ManaText>
+				{`
+					8{u}
+					>Bagunçar mistura {1}{u}{u}
+					>Medalion de Saphire {2}
+					>BuyBack {U}+{1}
+					>Looping {u}
+				`}
+				</ManaText></Block>
 
-				</Block>
+				<Block text><ManaText>
+				{`	9{u}			
+					>Spell Seker {2}{u}
+					>Flux {HT e Snap} {u}
+					>HT {u}
+					>Snap in Seker {Hiden String} {1}{u}
+					>Hiden String {island} {u}{u}
+					>Seker BuyBack {2}{u}
+					>BuyBack in Seeker {Bagunçar mistura}    {2}{u}
+					>Bagunçar mistura {1}{u}{u}
+					>Medalion de Saphire {2}
+					>BuyBack in Medalion {1}{u}
+					>Looping {u}
+
+				`}
+				</ManaText></Block>
+
+				<Block text><ManaText>
+				{`	9{u}			
+					>Spell Seker {2}{u}
+					>Flux {HT e Snap} {u}
+					>HT {u}
+					>Snap in Seker {Hiden String} {1}{u}
+					>Hiden String {island} {u}{u}
+					>Seker BuyBack {2}{u}
+					>BuyBack in Seeker {Bagunçar mistura}    {2}{u}
+					>Bagunçar mistura {1}{u}{u}
+					>Medalion de Saphire {2}
+					>BuyBack in Medalion {1}{u}
+					>Looping {u}
+				`}
+				</ManaText></Block>
+
+				<Block text><ManaText>
+				{`	8{u}			
+					>Spell Seker {2}{u}
+					>Flux {HT e Snap} {u}
+					>HT {u}
+					>Snap in Seker {Hiden String} {1}{u}
+					>Hiden String {island} {u}{u}
+					>Seker BuyBack {2}{u}
+					>BuyBack in Seeker {cantrip}    {2}{u}
+					>Cantrip in Seeker { Mystical Tutor} {u}{u}
+					>Turnabout	{2}{u}{u}
+					>Bagunçar mistura {1}{u}{u}
+					>Medalion de Saphire {2}
+					>BuyBack in Medalion {1}{u}					
+					>Looping {u}
+				`}
+				</ManaText></Block>
+
+				<Block text><ManaText>
+				{`	8{u} + Mystical			
+					>Spell Seker {2}{u}
+					>Flux {HT e Snap} {u}
+					>HT {u}
+					>Snap in Seker {Hiden String} {1}{u}
+					>Hiden String {HT in top} {u}{u}
+					>Seker BuyBack {2}{u}
+					>BuyBack in Seeker {HT}    {2}{u}
+					>HT {u}
+					>Loop {u}
+				`}
+				</ManaText></Block>
+
+				<Block text><ManaText>
+				{`	7{u}		VERIFICAR!!	
+					>Spell Seker {2}{u}
+					>Flux {HT e Snap} {u}
+					>HT {u}
+					>Snap in Seker {Hiden String} {1}{u}
+					>Hiden String {island} {u}{u}
+					>Seker {Reality Spasm }{2}{u}
+					>Reality Spasm  in seek {2}{u}
+					>Seker BuyBack {2}{u}
+					>BuyBack in Seeker {cantrip}    {2}{u}
+					>Cantrip in Seeker { Mystical Tutor} {u}{u}
+					>Turnabout	{2}{u}{u}
+					>BuyBack in Seeker {Bagunçar mistura}    {2}{u}
+					>Bagunçar mistura {1}{u}{u}
+					>Medalion de Saphire {2}
+					>BuyBack in Medalion {1}{u}					
+					>Looping {u}
+				`}
+				</ManaText></Block>
+
+				<Block text><ManaText>
+				{`
+					3{u}+mystical
+					> encantamento {U}
+					> cantrip {u}
+					> cantrip {u}				
+					>Looping {u}
+				`}
+				</ManaText></Block>
+
+				<Block text><ManaText>
+				{`
+					3{u}+mystical
+					>HT {u}
+					>cantrip tritao {u}
+					>miragen {1}{u}
+				`}
+				</ManaText></Block>
+				
+				<Block text><ManaText>
+				{`
+					3{u}+mystical
+					>HT {u}
+					>cantrip tritao {u}
+					>HT {u}
+					>Target {u}
+					>Draw  {u} 
+				`}
+				</ManaText></Block>
+				
+			*/
+			}
+				
 			</div>
 		</div>
 	)
 }
-
 export default App;		

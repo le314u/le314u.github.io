@@ -1,9 +1,10 @@
 import styles from "./index.module.css"
+import banner from '../../assets/banner.webp'
 
-export function Banner({src}){
+export function Banner(){
     return (
         <div className={styles.header}>
-            <img className={styles.banner} src={src} alt="banner"/>
+            <img className={styles.banner} src={banner} alt="banner"/>
         </div>
     )
 }

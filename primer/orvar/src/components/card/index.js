@@ -1,2 +1,9 @@
 import {Card} from './card'
-export {Card};
+
+import orvar from '../../assets/cards/Orvar_das_Formas_Infindaveis_0.jpg'
+
+const Art = {
+    orvar
+}
+
+export {Card,Art};

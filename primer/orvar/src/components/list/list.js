@@ -11,3 +11,17 @@ export function List({label, array}){
         </ul>
     </div>)
 }
+
+
+
+
+export function ListDot({children}){
+    const childrens = React.Children.toArray(children)
+    return (
+            <ul className={styles.listUl}>
+            {childrens.map((element, index) => (
+                <li key={index+1}><span></span>{element}</li>
+            ))}     
+            </ul>
+    )
+}

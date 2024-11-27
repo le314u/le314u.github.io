@@ -24,11 +24,13 @@
   width: 100%;
   text-align: justify;
   font-size: 1em;
-
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 16px; /* Espaço entre os elementos */
+}
+
+.text div.content{
+  justify-content: start;
 }

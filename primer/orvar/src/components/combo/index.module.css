@@ -1,0 +1,149 @@
+.combo {
+    width: auto;
+    padding: 10px; /* Adiciona um pouco de espaço dentro do combo */
+    font-size: 18px;
+    background-color: #f9f9f9;
+    border-radius: 14px; /* Arredonda as bordas */
+    margin: 10px 0 10px 0;
+}
+
+.header {
+    display: flex;          /* Usando flexbox para alinhar itens */
+    align-items: flex-start; /* Alinha os itens verticalmente no topo */
+    justify-content: flex-start; /* Garante que os itens comecem no canto esquerdo */
+    gap: 10px;              /* Espaçamento entre os itens */
+    flex-direction: column; /* Os itens são organizados verticalmente */
+    flex-wrap: wrap;
+    text-align: left;       /* Textos alinhados à esquerda */
+    position: relative;
+    --margin-left:40px;
+}
+
+
+.body {
+    max-height: 0; /* Inicialmente fechado */
+    opacity: 0;
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 0px 10px 10px 10px; /* Espaçamento interno da área do corpo */
+    visibility: hidden;
+    transition: max-height 1s ease, visibility 0.3s ease,opacity 1s ease;
+
+}
+
+
+.header .mana {
+    display: flex;          /* Usando flexbox para alinhar ícones e texto */
+    align-items: center;    /* Alinha verticalmente ao centro */
+    margin-left: var(--margin-left);
+}
+
+.header .bf {
+    display: flex;          /* Usando flexbox */
+    align-items: center;    /* Alinha o ícone e o texto verticalmente */
+    margin-left: var(--margin-left);
+
+}
+
+.header .hand {
+    display: flex;          /* Usando flexbox */
+    align-items: center;    /* Alinha o ícone e o texto verticalmente */
+    margin-left: var(--margin-left);
+
+}
+
+.header .name {
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    font-size: 2em;
+    align-items: center;    /* Alinha o ícone e o texto verticalmente */
+    margin-left: var(--margin-left);
+}
+
+.info.icon {
+    display: block;
+    height: 2em;
+    width: 2em;
+    margin-right: 10px;      /* Espaçamento entre o ícone e o texto */
+    position: absolute;
+    right: 0;
+    transition: opacity 0.5s linear, transform 0.5s linear;
+}
+
+
+
+
+
+
+
+.hidden{
+    transform: rotate(180deg);
+    opacity:0
+}
+
+.visibility{
+    visibility: visible;
+    opacity: 1;
+    max-height: 100vh;
+}
+
+
+
+
+
+.step {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.step p {
+    padding: 20px; /* Espaçamento interno */
+    margin: 0 10px; /* Margem entre os itens */
+    flex: 2; /* Faz com que cada item ocupe igual espaço */
+    display: flex; /* Permite usar flexbox dentro do p */
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+    height: 100px; /* Altura fixa para manter o tamanho uniforme */
+    text-align: left; /* Alinha o texto à esquerda */
+    height: fit-content;
+}
+.step p:first-child{
+    flex:1
+}
+
+/* Adicionando uma media query para mudar a direção para coluna em telas menores */
+@media (max-width: 600px) {
+    .step {
+        flex-direction: column; /* Muda a direção para coluna quando a tela é pequena */
+    }
+    .step p {
+        text-align: center; /* Alinha o texto à esquerda */
+        flex: 0; /* Faz com que cada item ocupe igual espaço */
+    }
+    .step p:empty {
+        display: none; /* Remove o espaço ocupado por p vazio */
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .header .mana, .header .bf ,.header .hand {
+        display: none;
+    }
+
+    .header .name {
+        margin-left: 0px;
+        position: unset;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: justify;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items:center;
+        width: 100%;
+        padding: 1em;
+        font-size: 2em;
+    }
+}

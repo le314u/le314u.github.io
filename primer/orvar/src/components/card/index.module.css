@@ -10,6 +10,8 @@
   max-height: 400px;
   overflow: hidden; /* Esconde o conteúdo que ultrapassa */
   width: auto;
+  border-radius: 14px; /* Arredonda as bordas */
+
 }
 .card > span {
   position: absolute;
