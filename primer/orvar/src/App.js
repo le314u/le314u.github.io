@@ -1,25 +1,16 @@
-// import Explanish from './components/explanish/Explanish.js'
-
 import React,{ useState } from 'react';
-import { Divider, ModalContent, ModalActions, Button, Modal,  StepGroup, Step } from 'semantic-ui-react'
+import { Divider, ModalContent, ModalActions, Button, Modal } from 'semantic-ui-react'
 import { NavBar } from './components/navBar'
 import { Banner } from './components/banner'
 import { Block } from './components/block'
-import { Badges } from './components/badges/index.js'
 import { List, ListDot } from './components/list'
 import { ComboBox } from './components/comboBox';
 import { Card,Art } from './components/card'
 import { Section } from './components/section'
-import { PopUp } from './components/popUp';
-import { Tips } from './components/tips';
-import Description from './components/description'
-import { Combo } from './components/combo';
-import { StepProgress } from './components/stepProgress';
+import { ManaText } from './filters/mana.js'
 import DATA from './data.js'
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
-import {ManaText} from './filters/mana.js'
-import { StepCombo } from './components/combo/combo.js';
 
 //Sections
 import SectionCombos from './sections/Combos.js'
@@ -28,19 +19,7 @@ import SectionTutors from './sections/ChainTutors.js'
 import SectionTricks from './sections/Tricks.js'
 
 
-
 let Box = ({children})=>(<Block>{children}</Block>)
-// let Rule = ({ children}) => (<Block><Block emphasis={true}>{children}</Block> </Block>);
-// let Lista = ({ children, dataArray })=>(<Block><List label={children} array={dataArray}/></Block>);
-// let Card = ({src, children})=>(<Block><Explanish type='center' src={src} > {children}</Explanish></Block >);
-// let CardL = ({src, children})=>(<Block><Explanish type='left' src={src} > {children}</Explanish></Block >);
-// let CardR = ({src, children})=>(<Block><Explanish type='right' src={src} > {children}</Explanish></Block >);
-
-
-function goTo(id){
-	const tag =  document.getElementById(id)
-	tag.scrollIntoView({ behavior: 'smooth' });
-}
 
 function ModalRules(props) {
 	const [open, setOpen] = useState(false)
@@ -74,27 +53,12 @@ function ModalRules(props) {
 	)
 }
 
-function CardWithPopUp({nameCard,urlImg,text,badgets}){
-	return (
-		<PopUp trigger={
-			<Card nameCard={nameCard} urlImg={urlImg}>{badgets}</Card>
-		}>
-			<Description.Container nameCard={nameCard} urlImg={urlImg}>
-				<Description.Text trick={text} />
-			</Description.Container>	
-		</PopUp>
-	)
-}
-
-
 const SECTIONS = [
 	{ value:"combos", text:"Combos" },
 	{ value:"cards", text:"Cartas" },
 	{ value:"chain", text:"Tutores" },
 	{ value:"trick", text:"Truques" },
 ]
-
-
 
 
 function App() {

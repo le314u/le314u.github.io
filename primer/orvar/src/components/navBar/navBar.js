@@ -5,6 +5,12 @@ import styles from './index.module.css'
 export function NavBar(){
 	const [scroll, setScroll] = useState(window.scrollY);
 
+
+	function goTo(id){
+		const tag =  document.getElementById(id)
+		tag.scrollIntoView({ behavior: 'smooth' });
+	}
+
 	useEffect(() => {
 		const navbar = document.getElementsByTagName("nav")[0];
 		const handleScroll = () => {
@@ -24,12 +30,12 @@ export function NavBar(){
 
 	return (
 		<nav className={styles.navBar}>
-				<ul>
-						<li><Button path="#cards" text="Selection Card"/></li>
-						<li><Button path="#tricks" text="Tricks"/></li>
-						<li><Button path="#win" text="Win"/></li>
-						<li><Button path="https://www.moxfield.com/decks/v00Bw4xtZUGlqu60IcdKXw" text="MoxField"/></li>
-				</ul>
+			<ul>
+				<li><Button path="#cards" text="Selection Card"/></li>
+				<li><Button path="#tricks" text="Tricks"/></li>
+				<li><Button path="#win" text="Win"/></li>
+				<li><Button path="https://www.moxfield.com/decks/v00Bw4xtZUGlqu60IcdKXw" text="MoxField"/></li>
+			</ul>
 		</nav>
 		)
 }
