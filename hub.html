@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Interativo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            transition: background-image 0.5s ease-in-out, color 0.5s ease-in-out;
+            /* background-image: url('https://r4.wallpaperflare.com/wallpaper/453/844/953/enter-skull-hacker-hacking-wallpaper-54e50b99c19b1adbfa5c4c44c2ea8a73.jpg');  */
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+            transition: background-color 1s ease;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0px;
+            font-size: 0.9rem;
+            color: #ff4081;
+            background-color: rgb(255, 255, 255);
+            width: 100vw;
+        }
+
+        .hub-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .hub-links a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 30px;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hub-links a:hover {
+            background-color: #ff4081;
+            transform: scale(1.1);
+        }
+
+        .links-container {
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+            overflow-wrap: break-word;
+
+        }
+        
+        .links-container a {
+            width: 300px;
+            color:black;
+            animation: fadeIn 2s ease-in-out;
+            font-size: 1.2rem;
+            display: block;
+            padding: 10px;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border: 2px solid; /* Borda do link */
+            border-radius: 30px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .links-container a:hover {
+            transform: scale(1.2); /* Equal to scaleX(0.7) scaleY(0.7) */
+            transform-origin: center; /* Garante que o efeito de escala ocorra a partir do centro */
+            background-color: #ff4081;
+            color :white;
+            border:none;
+            transition: background-color 0.3s ease, 
+                transform 0.3s ease, 
+                color 0.3s ease, 
+                border 0.3s ease;
+        }
+
+        .links-container {
+            max-height: 400px; /* Ajuste a altura conforme necessário */
+            padding-right: 10px; /* Para evitar que o conteúdo fique encostado na borda */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+    <script>
+        let flag = true;
+
+        function changeColor(){
+            let linksContainer = document.getElementById('linksList');
+            let links = document.querySelectorAll('#linksList a');
+            flag = !flag
+            // Seleciona todos os links dentro do linksContainer
+            switch (flag) {
+                case true:
+                    document.body.style.color = 'white';
+                    document.body.style.backgroundColor = 'black';
+                    // Itera sobre todos os links e altera o estilo de cada um
+                    links.forEach(link => {
+                        link.style.color = 'white';; // Altera a cor do texto do link
+                        link.style.borderColor = 'white'; // Altera a cor da borda
+                    });
+                    break;
+                case false:
+                    document.body.style.color = 'black';
+                    document.body.style.backgroundColor = 'white';
+                    // Itera sobre todos os links e altera o estilo de cada um
+                    links.forEach(link => {
+                        link.style.color = 'black'; // Altera a cor do texto do link
+                        link.style.borderColor = 'black'; // Altera a cor da borda
+                    });
+                    break;
+                default:
+                    // Código a ser executado se a expressão não corresponder a nenhum dos valores anteriores
+            }
+
+        }
+
+
+        function addLink(text,href) {
+            // Cria um novo elemento <li>
+            let li = document.createElement('li');
+
+            // Cria um novo elemento <a> dentro do <li>
+            let a = document.createElement('a');
+            a.href = href; // Define o href
+            a.textContent = '' +text; // Define o texto do link
+
+            // Adiciona o link (<a>) ao item de lista (<li>)
+            li.appendChild(a);
+
+            // Adiciona o item de lista (<li>) ao contêiner de lista (ul)
+            document.getElementById('linksList').appendChild(li);
+        }
+    </script>
+</head>
+<body>
+
+    <h1 id="title">Bem-vindo ao Hub Estiloso</h1>
+
+    <div class="hub-links">
+        <a href="#" onclick="changePage('page1')">Games</a>
+        <a href="#" onclick="changePage('page2')">Tools</a>
+        <a href="#" onclick="changePage('page3')">Magic</a>
+        <a href="#" onclick="changePage('page4')">Blog</a>
+    </div>
+    
+    <ul class="links-container" id="linksList"></ul>
+
+    <footer>
+        <p>&copy; 2024 Hub Estiloso | Criado com ajuda do primo pobre do Tony ajudante do Lucas Montano do canal Lucas montano 💻</p>
+    </footer>
+
+    <script>
+
+
+
+        function changePage(page) {
+            // Mudar título
+            const title = document.getElementById('title');
+            document.getElementById('linksList').innerHTML='';
+
+            // Mudar fundo e texto com base no link clicado
+            switch (page) {
+                case 'page1':
+                    addLink('Telma','https://314-u.com/games/telma/')
+                    addLink('Spy','https://314-u.com/games/spy/')
+                    addLink('Perfil','https://314-u.com/games/perfil/')
+                    title.textContent = 'Games';
+                    changeColor()
+
+                    break;
+                case 'page2':
+                    addLink('Encrypt','https://314-u.com/tools/encrypt/')
+                    title.textContent = 'Tools';
+                    changeColor()
+
+
+                    break;
+                case 'page3':
+                    addLink('cEDH','https://314-u.com/primer/cEDH/')
+                    addLink('Orvar','https://314-u.com/primer/orvar/')
+                    addLink('Urza','https://314-u.com/primer/urza/')
+                    title.textContent = 'Magic';
+                    changeColor()
+                    
+                    break;
+                    case 'page4':
+                        title.textContent = 'Blog';
+                        changeColor()
+                    break;
+                default:
+                    title.textContent = 'Bem-vindo ao Hub Estiloso';
+                    break;
+            }
+        }
+    </script>
+
+</body>
+</html>
