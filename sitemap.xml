@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://le314u.github.io/</loc>
+    <loc>https://314-u.com/</loc>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
+
    <url>
-    <loc>https://le314u.github.io/games</loc>
+    <loc>https://314-u.com/games</loc>
+    <changefreq>yearly</changefreq>
+  </url>
+   <url>
+    <loc>https://314-u.com/hub</loc>
     <changefreq>yearly</changefreq>
   </url>
    
@@ -14,54 +19,60 @@
 
 
    <url>
-    <loc>https://le314u.github.io/games/spy/</loc>
+    <loc>https://314-u.com/games/spy/</loc>
     <changefreq>monthly</changefreq>
   </url>
    <url>
-    <loc>https://le314u.github.io/help/spy</loc>
+    <loc>https://314-u.com/help/spy</loc>
     <changefreq>yearly</changefreq>
   </url>
   
 
 
   <url>
-    <loc>https://le314u.github.io/games/perfil/</loc>
+    <loc>https://314-u.com/games/perfil/</loc>
     <changefreq>monthly</changefreq>
   </url>
   
    <url>
-    <loc>https://le314u.github.io/help/perfil</loc>
+    <loc>https://314-u.com/help/perfil</loc>
     <changefreq>yearly</changefreq>
   </url>
   
   
   
   <url>
-    <loc>https://le314u.github.io/games/telma/</loc>
+    <loc>https://314-u.com/games/telma/</loc>
     <changefreq>monthly</changefreq>
   </url>
    <url>
-    <loc>https://le314u.github.io/help/telma</loc>
+    <loc>https://314-u.com/help/telma</loc>
     <changefreq>yearly</changefreq>
   </url>
 
 
 
   <url>
-    <loc>https://le314u.github.io/public/s/troll.html</loc>
+    <loc>https://314-u.com/public/s/troll.html</loc>
     <changefreq>never</changefreq>
   </url>
 
 
   <url>
-    <loc>https://le314u.github.io/primer/orvar/</loc>
+    <loc>https://314-u.com/primer/orvar/</loc>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://le314u.github.io/primer/urza/</loc>
+    <loc>https://314-u.com/primer/urza/</loc>
     <changefreq>monthly</changefreq>
   </url>
 
+
+  <url>
+    <loc>https://314-u.com/tools/encrypt</loc>
+    <changefreq>yearly</changefreq>
+  </url>
+   
 
 </urlset>
