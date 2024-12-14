@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia Simples</title>
+    <link rel="stylesheet" href="./style.css"> <!-- Importando o arquivo CSS -->
+    <script src="./crypto.js"></script> <!-- Importando o arquivo JavaScript -->
+</head>
+<body>
+
+    <div class="container">
+        <h1>Criptografia Simples</h1>
+        <textarea id="inputText" name="comentario" rows="4" cols="50" placeholder="Digite seu texto aqui"></textarea>
+        <input type="password" id="inputPw" placeholder="Digite sua chave">
+        <button onclick="Encript()">Criptografar</button>
+        <button onclick="Dencript()">Descriptografar</button>
+        <div class="output">
+            <pre id="outputText">Resultado aparece aqui...</pre>
+        </div>
+    </div>
+
+    <script>
+        function Conf(){
+            // Obtendo o valor do campo de input
+            const inputText = document.getElementById('inputText').value;
+            const inputPw = document.getElementById('inputPw').value;
+            let Engine = new Criptografia(inputPw)
+            return {
+                inputText:inputText,
+                inputPw:inputPw,
+                Engine:Engine,
+            }
+        }
+        function Output(outputText){
+            document.getElementById('outputText').textContent = outputText;
+        }
+
+        function Encript() {
+            const {inputText,inputPw,Engine}=Conf()
+            Output( Engine.encode(inputText) )
+        }
+        function Dencript() {
+            const {inputText,inputPw,Engine}=Conf()
+            Output( Engine.decode(inputText) )
+        }
+
+    </script>
+
+</body>
+</html>
+
