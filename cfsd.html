@@ -97,7 +97,7 @@
 
   <h1>Relógio do Curso</h1>
 
-  <div id="info"></div>
+  <div id="info">Carregando...</div>
 
   <div id="progress-bar">
     <div id="progress">0%</div>
@@ -114,18 +114,15 @@
   </footer>
 
   <script>
-    // 🟢 CONFIGURA AQUI as datas do curso
-    //const startDate = new Date(2025, 6, 23);  // 23/07/2025 (mês 6 = julho)
-    //const endDate   = new Date(2026, 3, 13);   // 13/04/2026 (mês 3 = abril)
+    // Datas do curso no formato ISO (seguro para todos navegadores)
     const startDate = new Date("2025-07-23T00:00:00");
-    const endDate   = new Date("2026-04-13T00:00:00");
-
+    const endDate = new Date("2026-04-13T00:00:00");
 
     function updateCourseClock() {
       const now = new Date();
-      const total = endDate - startDate;
-      const elapsed = now - startDate;
-      const remaining = endDate - now;
+      const total = endDate.getTime() - startDate.getTime();
+      const elapsed = now.getTime() - startDate.getTime();
+      const remaining = endDate.getTime() - now.getTime();
 
       const infoEl = document.getElementById("info");
       const progressEl = document.getElementById("progress");
@@ -137,4 +134,23 @@
         return;
       }
 
-      const daysRemaini
+      const daysRemaining = Math.ceil(remaining / (1000 * 60 * 60 * 24));
+      const percentage = Math.min((elapsed / total) * 100, 100).toFixed(2);
+
+      const day = String(endDate.getDate()).padStart(2, '0');
+      const month = String(endDate.getMonth() + 1).padStart(2, '0');
+      const year = endDate.getFullYear();
+
+      infoEl.innerHTML = `Faltam <strong>${daysRemaining}</strong> dias para <strong>${day}/${month}/${year}</strong><br>
+                         Já se passou <strong>${percentage}%</strong> do curso.`;
+
+      progressEl.style.width = `${percentage}%`;
+      progressEl.innerText = `${percentage}%`;
+    }
+
+    // Inicia a contagem imediatamente e atualiza a cada segundo
+    updateCourseClock();
+    setInterval(updateCourseClock, 1500);
+  </script>
+</body>
+</html>
