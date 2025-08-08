@@ -115,11 +115,11 @@
 
   <script>
     // Datas do curso no formato ISO (seguro para todos navegadores)
-    const startDate = new Date("2025-07-23T00:00:00");
+    const startDate = new Date("2025-06-23T00:00:00");
     const endDate = new Date("2026-03-13T00:00:00");
 
     function updateCourseClock() {
-      const now = new Date();
+      let now = new Date();
       const total = endDate.getTime() - startDate.getTime();
       const elapsed = now.getTime() - startDate.getTime();
       const remaining = endDate.getTime() - now.getTime();
