@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Meu Hub de Links</title>
+  <title>Relógio do Curso</title>
   <style>
     * {
       margin: 0;
@@ -27,29 +27,36 @@
       font-size: 2.5rem;
     }
 
-    .link-hub {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 90%;
+    #info {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      background-color: #ffffff20;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #ffffff30;
+      backdrop-filter: blur(5px);
       max-width: 400px;
     }
 
-    .link-hub a {
-      text-decoration: none;
-      padding: 15px;
-      border-radius: 10px;
+    #progress-bar {
+      width: 90%;
+      max-width: 400px;
       background-color: #ffffff20;
-      color: #fff;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      height: 30px;
+      overflow: hidden;
       border: 1px solid #ffffff30;
+      backdrop-filter: blur(5px);
     }
 
-    .link-hub a:hover {
-      background-color: #ffffff40;
-      transform: scale(1.05);
+    #progress {
+      height: 100%;
+      background-color: #4caf50;
+      width: 0%;
+      line-height: 30px;
+      color: white;
+      font-weight: bold;
+      transition: width 0.5s ease;
     }
 
     footer {
@@ -62,15 +69,19 @@
 </head>
 <body>
 
-  <h1>Links do Lucas</h1>
-<div class="link-hub">
-  <a href="https://drive.google.com/drive/folders/1jW6TzFKmf3Ar5cF1cAMyhksdWeI_dLKL?usp=drive_link" target="_blank">Ir para o Google</a>
+  <h1>Relógio do Curso</h1>
 
+  <div id="info"></div>
+
+  <div id="progress-bar">
+    <div id="progress">0%</div>
   </div>
 
   <footer>
     © 2025 Lucas Mateus
   </footer>
 
-</body>
-</html>
+  <script>
+    // 🟢 CONFIGURA AQUI as datas do curso
+    const startDate = new Date(2025, 6, 23);  // 23/07/2025 (mês 6 = julho)
+    const endDate   = new Date(2
