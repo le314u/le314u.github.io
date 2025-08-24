@@ -38,25 +38,26 @@
       max-width: 400px;
     }
 
-    #progress-bar {
-      width: 90%;
-      max-width: 400px;
-      background-color: #ffffff20;
-      border-radius: 10px;
-      height: 30px;
-      overflow: hidden;
-      border: 1px solid #ffffff30;
-      backdrop-filter: blur(5px);
+    /* Chevron progress */
+    .progress-container {
+      position: relative;
+      width: 200px;
+      height: 120px;
+      margin-bottom: 60px; /* espaço para texto da porcentagem */
     }
 
-    #progress {
+    svg {
+      width: 100%;
       height: 100%;
-      background-color: #4caf50;
-      width: 0%;
-      line-height: 30px;
-      color: white;
+    }
+
+    .progress-text {
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
       font-weight: bold;
-      transition: width 0.5s ease;
     }
 
     .link-hub {
@@ -99,8 +100,23 @@
 
   <div id="info">Carregando...</div>
 
-  <div id="progress-bar">
-    <div id="progress">0%</div>
+  <!-- Chevron progress -->
+  <div class="progress-container">
+    <svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet">
+      <polyline id="progress-bg"
+                points="0,120 100,20 200,120"
+                fill="none"
+                stroke="white"
+                stroke-width="8"
+                stroke-linecap="round"/>
+      <polyline id="progress"
+                points="0,120 100,20 200,120"
+                fill="none"
+                stroke="black"
+                stroke-width="12"
+                stroke-linecap="round"/>
+    </svg>
+    <div class="progress-text" id="progress-text">0%</div>
   </div>
 
   <div class="link-hub">
@@ -114,41 +130,42 @@
   </footer>
 
   <script>
-    // Datas do curso no formato ISO (seguro para todos navegadores)
     const startDate = new Date("2025-06-23T00:00:00");
     const endDate = new Date("2026-03-13T00:00:00");
 
+    const progressEl = document.getElementById("progress");
+    const textEl = document.getElementById("progress-text");
+    const pathLength = progressEl.getTotalLength();
+
+    progressEl.setAttribute("stroke-dasharray", pathLength);
+    progressEl.setAttribute("stroke-dashoffset", pathLength);
+
     function updateCourseClock() {
-      let now = new Date();
-      const total = endDate.getTime() - startDate.getTime();
-      const elapsed = now.getTime() - startDate.getTime();
-      const remaining = endDate.getTime() - now.getTime();
+      const now = new Date();
+      const total = endDate - startDate;
+      const elapsed = Math.max(0, now - startDate);
+      const remaining = endDate - now;
 
       const infoEl = document.getElementById("info");
-      const progressEl = document.getElementById("progress");
 
       if (remaining <= 0) {
         infoEl.innerHTML = "<strong>O curso terminou! 🎓</strong>";
-        progressEl.style.width = "100%";
-        progressEl.innerText = "100%";
+        progressEl.setAttribute("stroke-dashoffset", 0);
+        textEl.innerText = "100%";
         return;
       }
 
-      const daysRemaining = Math.ceil(remaining / (1000 * 60 * 60 * 24));
-      const percentage = Math.min((elapsed / total) * 100, 100).toFixed(2);
+      const daysRemaining = Math.ceil(remaining / (1000*60*60*24));
+      const percentage = Math.min(Math.max((elapsed / total) * 100, 0), 100).toFixed(2);
 
-      const day = String(endDate.getDate()).padStart(2, '0');
-      const month = String(endDate.getMonth() + 1).padStart(2, '0');
-      const year = endDate.getFullYear();
+      infoEl.innerHTML = `Faltam <strong>${daysRemaining}</strong> dias para <strong>${String(endDate.getDate()).padStart(2,'0')}/${String(endDate.getMonth()+1).padStart(2,'0')}/${endDate.getFullYear()}</strong><br>
+                          Já se passou <strong>${percentage}%</strong> do curso.`;
 
-      infoEl.innerHTML = `Faltam <strong>${daysRemaining}</strong> dias para <strong>${day}/${month}/${year}</strong><br>
-                         Já se passou <strong>${percentage}%</strong> do curso.`;
-
-      progressEl.style.width = `${percentage}%`;
-      progressEl.innerText = `${percentage}%`;
+      const offset = pathLength * (1 - percentage / 100);
+      progressEl.setAttribute("stroke-dashoffset", offset);
+      textEl.innerText = `${percentage}%`;
     }
 
-    // Inicia a contagem imediatamente e atualiza a cada segundo
     updateCourseClock();
     setInterval(updateCourseClock, 1500);
   </script>
