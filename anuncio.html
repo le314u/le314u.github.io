@@ -23,8 +23,8 @@
     .num.abm{background:#22c55e;color:#051622;border-color:transparent}
     .num.bbm{background:#eab308;color:#051622;border-color:transparent}
     .num.x{background:#ef4444;color:#fff;border-color:transparent}
-    .controls{display:flex;gap:8px;align-items:center}
-    button.btn{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:10px 12px;border-radius:8px;color:inherit;cursor:pointer;font-weight:600}
+    .controls { display: flex; flex-direction: column; /* empilha verticalmente */ gap: 8px;               /* espaço entre os botões */ width: 100%;            /* ocupa toda a largura do container pai */ } 
+    .controls .btn { width: 100%;           /* cada botão ocupa 100% da largura do container */ text-align: center;    /* centraliza o texto do botão */ box-sizing: border-box; /* garante que padding/borda não ultrapasse a largura */ } button.btn{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:10px 12px;border-radius:8px;color:inherit;cursor:pointer;font-weight:600}
     button.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);border:0;color:#03151a}
     button:disabled{opacity:.45;cursor:not-allowed}
     .info{margin-left:auto;color:var(--muted);font-size:13px}
