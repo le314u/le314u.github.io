@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Escala de ServiÃ§o</title>
+  <!-- Importando Materialize e Ã­cones -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      background: #f0f4f8;
+    }
+    .hoje-card {
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+    .hoje-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #fffb00;
+    }
+    .card-escala {
+      border-radius: 12px;
+    }
+    .fab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+ 
+  <!-- Navbar -->
+  <nav class="blue darken-3">
+    <div class="nav-wrapper container">
+      <a href="#!" class="brand-logo">ðŸ“… Escala - Outubro</a>
+    </div>
+  </nav>
+ 
+  <div class="container">
+    <!-- Card do responsÃ¡vel de hoje
+    <div class="card white hoje-card z-depth-2">
+      <div class="card-content center-align">
+        <span class="hoje-title" id="responsavelHoje"></span>
+      </div>
+    </div> -->
+ 
+    <!-- Card do responsÃ¡vel de hoje -->
+    <div class="card hoje-card z-depth-3 blue darken-1 white-text center-align">
+      <div class="card-content">
+        <i class="material-icons large">event_available</i>
+        <h5 id="today">ResponsÃ¡vel de Hoje </h5>
+        <span class="hoje-title" id="responsavelHoje"></span>
+      </div>
+    </div>
+    
+ 
+    <!-- Campo de pesquisa -->
+    <div class="input-field">
+      <i class="material-icons prefix">search</i>
+      <input id="pesquisa" type="text" placeholder="Pesquisar por nome ou data...">
+    </div>
+ 
+    <!-- Lista de prÃ³ximos responsÃ¡veis -->
+    <div id="cardsEscala" class="row"></div>
+  </div>
+ 
+  <!-- <div class="fixed-action-btn fab">
+    <a class="btn-floating btn-large green modal-trigger" href="#modalAdd">
+      <i class="material-icons">cloud_download</i>
+    </a>
+  </div>
+ 
+  <div id="modalAdd" class="modal">
+    <div class="modal-content">
+      <h4>Adicionar Escala</h4>
+      <div class="input-field">
+        <input id="dataInput" type="date">
+        <label for="dataInput">Data</label>
+      </div>
+      <div class="input-field">
+        <input id="nomeInput" type="text">
+        <label for="nomeInput">ResponsÃ¡vel</label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+      <a href="#!" id="btnSalvar" class="waves-effect waves-green btn blue">Salvar</a>
+    </div>
+  </div> -->
+ 
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ 
+  <script>
+
+
+    let e = [
+      { data: "2025-09-9", numero: 1 },
+      { data: "2025-09-19", numero: 1 },
+      { data: "2025-09-12", numero: 2 },
+      { data: "2025-09-18", numero: 2 },
+      { data: "2025-09-12", numero: 3 },
+      { data: "2025-09-23", numero: 3 },
+      { data: "2025-09-01", numero: 5 },
+      { data: "2025-09-16", numero: 7 },
+      { data: "2025-09-03", numero: 8 },
+      { data: "2025-09-25", numero: 8 },
+      { data: "2025-09-02", numero: 9 },
+      { data: "2025-09-15", numero: 9 },
+      { data: "2025-09-08", numero: 10 },
+      { data: "2025-09-22", numero: 10 },
+      { data: "2025-09-01", numero: 12 },
+      { data: "2025-09-08", numero: 12 },
+      { data: "2025-09-22", numero: 12 },
+      { data: "2025-09-17", numero: 13 },
+      { data: "2025-09-29", numero: 13 },
+      { data: "2025-09-17", numero: 14 },
+      { data: "2025-09-23", numero: 14 },
+      { data: "2025-09-18", numero: 15 },
+      { data: "2025-09-04", numero: 17 },
+      { data: "2025-09-09", numero: 17 },
+      { data: "2025-09-24", numero: 17 },
+      { data: "2025-09-15", numero: 18 },
+      { data: "2025-09-25", numero: 18 },
+      { data: "2025-09-05", numero: 19 },
+      { data: "2025-09-24", numero: 19 },
+      { data: "2025-09-05", numero: 20 },
+      { data: "2025-09-29", numero: 20 },
+      { data: "2025-09-10", numero: 21 },
+      { data: "2025-09-12", numero: 21 },
+      { data: "2025-09-11", numero: 22 },
+      { data: "2025-09-11", numero: 25 },
+      { data: "2025-09-26", numero: 25 },
+      { data: "2025-09-10", numero: 26 },
+      { data: "2025-09-12", numero: 26 },
+      { data: "2025-09-03", numero: 27 },
+      { data: "2025-09-02", numero: 28 },
+      { data: "2025-09-26", numero: 28 },
+      { data: "2025-09-04", numero: 29 },
+      { data: "2025-09-16", numero: 30 },      
+      { data: "2025-09-19", numero: 30 }
+      
+    ];
+
+
+    
+    // Mostrar tÃ­tulo com data de hoje
+document.getElementById("today").textContent =
+  "ResponsÃ¡vel â€“ " + formatarData(new Date().toISOString().split("T")[0]);
+ 
+  
+  const relacao = {
+    1:" RAPHAEL",
+    2:" MATHEUS",
+    3:" BARBOSA REIS",
+    4:" LIBRELON",
+    5:" SOUZA",
+    6:" LORENA",
+    7:" OLIVEIRA ",
+    8:" GUILHERME ANDRADE ",
+    9:" CARDOSO ",
+    10:" MORINI ",
+    11:" JESSICA CASTRO ",
+    12:" RIBAS ",
+    13:" R.SILVEIRA ",
+    14:" GRUNEWALD ",
+    15:" LAUREANO ",
+    16:" LORENA DIAS ",
+    17:" GERHEIN ",
+    18:" SANTIAGO ",
+    19:" CRISTIAN ",
+    20:" BIANCHINI ",
+    21:" G.RODRIGUES ",
+    22:" DORNELAS ",
+    23:" MARIANA GOMES",
+    25:" LUCAS MATEUS",
+    26:" ENOK ",
+    27:" BRENNO LOPES",
+    28:" FREITAS ",
+    29:" JOÃƒO PEDRO",
+    30:" ARAUJO",
+    31:" ELLEM"
+  }
+    function getName(n){
+        return relacao[n] | "ASPON"
+    }
+ 
+    // Inicializar modais
+    document.addEventListener("DOMContentLoaded", () => {
+      M.Modal.init(document.querySelectorAll(".modal"));
+    });
+ 
+    function formatarData(isoDate) {
+        if (!isoDate) return "";
+        const [ano, mes, dia] = isoDate.split("-");
+        return `${dia}/${mes}/${ano}`;
+    }
+ 
+    // Escala de exemplo
+    // Escala sÃ³ com nÃºmero + data
+   
+ 
+    
+    let escala = e.map((l)=>{ return {data:l.data,nome:relacao[l.numero]}})
+ 
+    const hoje = new Date().toISOString().split("T")[0];
+    // pega todos os responsÃ¡veis do dia
+    const respHoje = escala.filter(e => e.data === hoje);
+    document.getElementById("responsavelHoje").innerHTML =
+    respHoje.length > 0
+        ? respHoje.map(e => `<div>${e.nome}</div>`).join("")  // cada um em uma linha
+        : "Sem responsÃ¡vel hoje.";
+ 
+ 
+    const cardsContainer = document.getElementById("cardsEscala");
+ 
+    function renderCards(filtro="") {
+      cardsContainer.innerHTML = "";
+      escala
+        .filter(e =>
+          e.nome.toLowerCase().includes(filtro.toLowerCase()) ||
+          e.data.includes(filtro)|| formatarData(e.data).includes(filtro)
+        )
+        .forEach(e => {
+          const col = document.createElement("div");
+          col.className = "col s12 m6";
+          col.innerHTML = `
+            <div class="card blue lighten-5 card-escala">
+              <div class="card-content">
+                <span class="card-title">${e.nome}</span>
+                <p><b>Data:</b> ${formatarData(e.data)}</p>
+              </div>
+            </div>`;
+          cardsContainer.appendChild(col);
+        });
+    }
+ 
+    renderCards();
+ 
+    document.getElementById("pesquisa").addEventListener("input", (ev) => {
+      renderCards(ev.target.value);
+    });
+ 
+    // Salvar nova escala
+    document.getElementById("btnSalvar").addEventListener("click", () => {
+      const data = document.getElementById("dataInput").value;
+      const nome = document.getElementById("nomeInput").value;
+      if (data && nome) {
+        escala.push({ data, nome });
+        renderCards();
+        M.Modal.getInstance(document.getElementById("modalAdd")).close();
+      }
+    });
+  </script>
+</body>
+</html>
