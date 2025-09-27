@@ -1,0 +1,318 @@
+<!doctype html>
+
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Selecionar Números (1-31)</title>
+  <style>
+    :root{--bg:#0f172a;--card:#0b1220;--accent:#06b6d4;--muted:#94a3b8}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,Roboto,system-ui,-apple-system,Segoe UI,Arial}
+    body{background:linear-gradient(180deg,#071025 0%, #07172a 100%);color:#e6eef6;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:20px;max-width:640px;width:100%;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    h1{font-size:20px;margin:0 0 8px}
+    p{margin:0 0 16px;color:var(--muted)}
+    .legend{display:flex;gap:16px;margin-bottom:16px;font-size:14px}
+    .legend span{display:flex;align-items:center;gap:6px}
+    .legend .color{width:14px;height:14px;border-radius:4px;display:inline-block}
+    .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:16px}
+    .num{background:transparent;border:2px solid rgba(255,255,255,0.06);padding:14px 10px;border-radius:8px;text-align:center;cursor:pointer;user-select:none;font-weight:600;transition:all .12s}
+    .num:hover{transform:translateY(-3px)}
+    .num.ctp{background:#06b6d4;color:#051622;border-color:transparent}
+    .num.abm{background:#22c55e;color:#051622;border-color:transparent}
+    .num.bbm{background:#eab308;color:#051622;border-color:transparent}
+    .num.x{background:#ef4444;color:#fff;border-color:transparent}
+    .controls { display: flex; flex-direction: column; /* empilha verticalmente */ gap: 8px;               /* espaço entre os botões */ width: 100%;            /* ocupa toda a largura do container pai */ } 
+    .controls .btn { width: 100%;           /* cada botão ocupa 100% da largura do container */ text-align: center;    /* centraliza o texto do botão */ box-sizing: border-box; /* garante que padding/borda não ultrapasse a largura */ } button.btn{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:10px 12px;border-radius:8px;color:inherit;cursor:pointer;font-weight:600}
+    button.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);border:0;color:#03151a}
+    button:disabled{opacity:.45;cursor:not-allowed}
+    .info{margin-left:auto;color:var(--muted);font-size:13px}
+    .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:#072031;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    @media (max-width:520px){.grid{grid-template-columns:repeat(5,1fr)} }
+  </style>
+</head>
+<body>
+  <div class="card" role="application">
+    <div class="legend">
+      <span><span class="color" style="background:#06b6d4"></span> CTP</span>
+      <span><span class="color" style="background:#22c55e"></span> ABM</span>
+      <span><span class="color" style="background:#eab308"></span> 1BBM</span>
+      <span><span class="color" style="background:#ef4444"></span> X</span>
+    </div><h1>Atenção para o anuncio!!! </h1>
+<p>Clique nos números para alternar cores entre CTP → ABM → 1BBM → X → sem cor.</p>
+
+<div class="grid" id="grid" aria-label="Números">
+  <!-- números gerados por JS -->
+</div>
+
+<div class="controls">
+  <button id="clearBtn" class="btn">Limpar</button>
+  <button id="selectAllBtn" class="btn">Selecionar todos</button>
+  <button id="selectCombatentesBtn" class="btn">Combatentes</button>
+  <button id="selectEspecialistasBtn" class="btn">Especialistas</button>
+  <button id="shareBtn" class="btn primary">Compartilhar</button>
+  <div class="info" id="count"></div>
+</div>
+
+  </div>  <script>
+    const graduacao = 'Sd 2ª Cl'
+    const grid = document.getElementById('grid');
+    const shareBtn = document.getElementById('shareBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const selectAllBtn = document.getElementById('selectAllBtn');
+    const countEl = document.getElementById('count');
+    const states = ["ctp","abm","bbm","x"];
+    const relacao = {
+      1:" RAPHAEL",
+      2:" MATHEUS",
+      3:" BARBOSA REIS",
+      4:" LIBRELON",
+      5:" SOUZA",
+      6:" LORENA",
+      7:" OLIVEIRA ",
+      8:" GUILHERME ANDRADE ",
+      9:" CARDOSO ",
+      10:" MORINI ",
+      11:" JESSICA CASTRO ",
+      12:" RIBAS ",
+      13:" R.SILVEIRA ",
+      14:" GRUNEWALD ",
+      15:" LAUREANO ",
+      16:" LORENA DIAS ",
+      17:" GERHEIN ",
+      18:" SANTIAGO ",
+      19:" CRISTIAN ",
+      20:" BIANCHINI ",
+      21:" G.RODRIGUES ",
+      22:" DORNELA ",
+      23:" MARIANA GOMES",
+      25:" LUCAS MATEUS",
+      26:" ENOK ",
+      27:" BRENNO LOPES",
+      28:" FREITAS ",
+      29:" JOÃO PEDRO",
+      30:" ARAÚJO",
+      31:" ELLEM"
+    }
+
+    // Cria 1..30
+    for(let i=1;i<=30;i++){
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'num';
+      btn.textContent = i;
+      if( i > 23){
+        btn.textContent = i+1;
+      }
+      btn.dataset.stateIndex = 0; // começa sem cor
+      btn.addEventListener('click', ()=> cycle(btn));
+      grid.appendChild(btn);
+    }
+
+    function cycle(btn){
+      let idx = parseInt(btn.dataset.stateIndex,10);
+      idx = (idx+1) % (states.length+1);
+      btn.dataset.stateIndex = idx;
+      const state = states[idx-1];
+      btn.className = 'num';
+      if(state) btn.classList.add(state);
+      updateCount();
+    }
+
+    function selectedNumbers(){
+      return Array.from(grid.querySelectorAll('.num')).filter(b=>states[b.dataset.stateIndex]!="null" && states[b.dataset.stateIndex]!=null).map(b=>({value:b.textContent,state:states[b.dataset.stateIndex]}));
+    }
+
+    function updateCount(){
+      //const sel = selectedNumbers();
+      //countEl.textContent = sel.length + (sel.length===1? ' marcado' : ' marcados');
+      //shareBtn.disabled = sel.length === 0;
+    }
+
+    clearBtn.addEventListener('click', ()=>{
+      grid.querySelectorAll('.num').forEach(b=>{
+        b.dataset.stateIndex = 0;
+        b.className = 'num';
+      });
+      updateCount();
+      showToast('Marcadores limpos');
+    });
+
+    selectAllBtn.addEventListener('click', ()=>{
+      grid.querySelectorAll('.num').forEach(b=>{
+        let index = parseInt(b.dataset.stateIndex)
+        if( index >= 4){
+          b.dataset.stateIndex = 0
+          b.className = 'num';
+        }else{
+          b.dataset.stateIndex = index + 1
+          b.className = 'num '+ states[index];
+        }
+      });
+      updateCount();
+    });
+
+    selectCombatentesBtn.addEventListener('click', ()=>{
+      grid.querySelectorAll('.num').forEach(b=>{
+        if(parseInt(b.innerText) >=25){
+          return;
+        }
+        let index = parseInt(b.dataset.stateIndex)
+        if( index >= 4){
+          b.dataset.stateIndex = 0
+          b.className = 'num';
+        }else{
+          b.dataset.stateIndex = index + 1
+          b.className = 'num '+ states[index];
+        }
+      });
+      updateCount();
+    });
+
+    selectEspecialistasBtn.addEventListener('click', ()=>{
+      grid.querySelectorAll('.num').forEach(b=>{
+        if(parseInt(b.innerText) < 25){
+          return;
+        }
+        let index = parseInt(b.dataset.stateIndex)
+        if( index >= 4){
+          b.dataset.stateIndex = 0
+          b.className = 'num';
+        }else{
+          b.dataset.stateIndex = index + 1
+          b.className = 'num '+ states[index];
+        }
+        });
+      updateCount();
+    });
+
+    shareBtn.addEventListener('click', async ()=>{
+      const sel = selectedNumbers();
+      const text = sel.map(s=> s.value+":"+s.state.toUpperCase()).join(', ');
+      const finalText = getAnuncio();
+
+      if(navigator.share){
+        try{
+          await navigator.share({title:'Números marcados',text:finalText });
+          showToast('Compartilhado com sucesso');
+        }catch(err){
+          showToast('Compartilhamento cancelado ou falhou');
+        }
+        return;
+      }
+
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        try{
+          await navigator.clipboard.writeText(finalText);
+          showToast('Copiado para a área de transferência');
+        }catch(err){
+          fallbackPrompt(finalText);
+        }
+        return;
+      }
+
+      fallbackPrompt(finalText);
+    });
+
+    function fallbackPrompt(text){
+      prompt('Copie os dados abaixo:', text);
+    }
+
+    let toastTimeout;
+    function showToast(msg){
+      clearTimeout(toastTimeout);
+      let t = document.querySelector('.toast');
+      if(!t){
+        t = document.createElement('div');
+        t.className = 'toast';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg;
+      toastTimeout = setTimeout(()=>{ t.remove(); }, 2500);
+    }
+
+    function toDay(){
+      const hoje = new Date();
+      const dia = hoje.getDate().toString().padStart(2, "0"); // 01, 02, ...
+      const mes = (hoje.getMonth() + 1).toString().padStart(2, "0"); // janeiro = 0, por isso +1
+      const dataFormatada = `${dia}/${mes}`;
+      return dataFormatada
+    }
+      
+    function getFreq(){
+      let CTP = []
+      let ABM = []
+      let BBM = []
+      let X = []
+      let Licenciados = []
+
+      grid.querySelectorAll('.num').forEach(b=>{
+        let index = parseInt(b.dataset.stateIndex)
+        let num = parseInt(b.innerText)
+        console.log(index,num)
+        switch (index) {
+          case 0:
+            Licenciados.push(num);
+            break;
+          case 1:
+            CTP.push(num);
+            break;
+          case 2:
+            ABM.push(num);
+            break;
+          case 3:
+            BBM.push(num);
+            break;
+          case 4:
+            X.push(num)
+            break;
+          default:
+        }
+      });
+      return {
+        "CTP" : CTP,
+        "ABM" : ABM,
+        "BBM" : BBM,
+        "X" : X,
+        "Licenciados" : Licenciados
+      }  
+    }
+
+// Função que recebe um vetor de números e retorna os nomes
+function num2name(vetor_num, hash_name=relacao) {
+  return vetor_num
+    .map(num => hash_name[num]
+      ?`${graduacao}${hash_name[num]}`
+      :null)
+    .filter(Boolean); 
+}
+
+function getAnuncio(){
+    let freq = getFreq()
+    console.log(freq)
+return `
+Turma JULIET – CFSD
+Efetivo: 
+  ${freq['CTP'].length > 0 && freq['BBM'].length == 0 && freq['ABM'].length == 0 
+  ? freq['CTP'].length + "/30 no CTP\n"
+  : freq['CTP'].length > 0
+    ? 'Combatentes - '+freq['CTP'].length + "/23 no CTP\n"
+    : ""}${freq['ABM'].length == 1 
+  ? "Especialista Musico - 1/1 na ABM\n" 
+  : freq['ABM'].length > 1 
+    ? freq['ABM'].length + "/30 na ABM\n" 
+    : ""}${freq['BBM'].length >= 1 && freq['BBM'].length <= 6 
+    ? 'Especialistas Comunicação - '+freq['BBM'].length + "/6 no 1ºBBM\n"
+    : freq['BBM'].length >= 6
+      ? freq['BBM'].length + "/30 no 1ºBBM\n"
+      : ""}
+Horário: 
+Atividade: 
+${freq['X'].length > 0 ? 'Dispensados:\n\t'+num2name(freq['X']).join("\n\t") : ""}
+${freq['Licenciados'].length > 0 ? 'Licenciados:\n\t'+num2name(freq['Licenciados']).join("\n\t") : ""}
+`
+  }
+    updateCount();
+  </script></body>
+</html>
