@@ -47,7 +47,7 @@
       </div>
     </div> -->
  
-    <!-- Card do responsÃ¡vel de hoje -->
+    <!-- Card do responsável de hoje -->
     <div class="card hoje-card z-depth-3 blue darken-1 white-text center-align">
       <div class="card-content">
         <i class="material-icons large">event_available</i>
@@ -63,7 +63,7 @@
       <input id="pesquisa" type="text" placeholder="Pesquisar por nome ou data...">
     </div>
  
-    <!-- Lista de prÃ³ximos responsÃ¡veis -->
+    <!-- Lista de prÃ³ximos responsáveis -->
     <div id="cardsEscala" class="row"></div>
   </div>
  
@@ -149,7 +149,7 @@
     
     // Mostrar tÃ­tulo com data de hoje
 document.getElementById("today").textContent =
-  "ResponsÃ¡vel â€“ " + formatarData(new Date().toISOString().split("T")[0]);
+  "Responsável â€“ " + formatarData(new Date().toISOString().split("T")[0]);
  
   
   const relacao = {
@@ -207,12 +207,12 @@ document.getElementById("today").textContent =
     let escala = e.map((l)=>{ return {data:l.data,nome:relacao[l.numero]}})
  
     const hoje = new Date().toISOString().split("T")[0];
-    // pega todos os responsÃ¡veis do dia
+    // pega todos os responsáveis do dia
     const respHoje = escala.filter(e => e.data === hoje);
     document.getElementById("responsavelHoje").innerHTML =
     respHoje.length > 0
         ? respHoje.map(e => `<div>${e.nome}</div>`).join("")  // cada um em uma linha
-        : "Sem responsÃ¡vel hoje.";
+        : "Sem responsável hoje.";
  
  
     const cardsContainer = document.getElementById("cardsEscala");
