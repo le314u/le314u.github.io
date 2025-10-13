@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Escala de Serviço</title>
-  <!-- Importando Materialize e Ã­cones -->
+  <!-- Importando Materialize e ícones -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -22,6 +22,7 @@
     }
     .card-escala {
       border-radius: 12px;
+      cursor: pointer;
     }
     .fab {
       position: fixed;
@@ -31,72 +32,59 @@
   </style>
 </head>
 <body>
- 
+
   <!-- Navbar -->
   <nav class="blue darken-3">
     <div class="nav-wrapper container">
       <a href="#!" class="brand-logo">Escala - Outubro</a>
     </div>
   </nav>
- 
+
   <div class="container">
-    <!-- Card do responsável de hoje
-    <div class="card white hoje-card z-depth-2">
-      <div class="card-content center-align">
-        <span class="hoje-title" id="responsavelHoje"></span>
-      </div>
-    </div> -->
- 
     <!-- Card do responsável de hoje -->
     <div class="card hoje-card z-depth-3 blue darken-1 white-text center-align">
       <div class="card-content">
         <i class="material-icons large">event_available</i>
-        <h5 id="today">Responsável de Hoje </h5>
+        <h5 id="today">Responsável de Hoje</h5>
         <span class="hoje-title" id="responsavelHoje"></span>
       </div>
     </div>
-    
- 
+
     <!-- Campo de pesquisa -->
     <div class="input-field">
       <i class="material-icons prefix">search</i>
       <input id="pesquisa" type="text" placeholder="Pesquisar por nome ou data...">
     </div>
- 
-    <!-- Lista de prÃ³ximos responsáveis -->
+
+    <!-- Lista de próximos responsáveis -->
     <div id="cardsEscala" class="row"></div>
   </div>
- 
-  <!-- <div class="fixed-action-btn fab">
-    <a class="btn-floating btn-large green modal-trigger" href="#modalAdd">
-      <i class="material-icons">cloud_download</i>
-    </a>
-  </div>
- 
-  <div id="modalAdd" class="modal">
+
+  <!-- Modal para mostrar escalas da pessoa -->
+  <div id="modalEscalasPessoa" class="modal">
     <div class="modal-content">
-      <h4>Adicionar Escala</h4>
-      <div class="input-field">
-        <input id="dataInput" type="date">
-        <label for="dataInput">Data</label>
-      </div>
-      <div class="input-field">
-        <input id="nomeInput" type="text">
-        <label for="nomeInput">Responsável</label>
-      </div>
+      <h4 id="modalNomePessoa">Escalas de:</h4>
+      <ul id="listaEscalasPessoa" class="collection"></ul>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-      <a href="#!" id="btnSalvar" class="waves-effect waves-green btn blue">Salvar</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
     </div>
-  </div> -->
- 
+  </div>
+
   <!-- Materialize JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
- 
-  <script>
 
-    
+  <script>
+    const relacao = {
+      1:" RAPHAEL", 2:" MATHEUS", 3:" BARBOSA REIS", 4:" LIBRELON", 5:" SOUZA",
+      6:" LORENA", 7:" OLIVEIRA ", 8:" GUILHERME ANDRADE ", 9:" CARDOSO ",
+      10:" MORINI ", 11:" JESSICA CASTRO ", 12:" RIBAS ", 13:" R.SILVEIRA ",
+      14:" GRUNEWALD ", 15:" LAUREANO ", 16:" LORENA DIAS ", 17:" GERHEIN ",
+      18:" SANTIAGO ", 19:" CRISTIAN ", 20:" BIANCHINI ", 21:" G.RODRIGUES ",
+      22:" DORNELAS ", 23:" MARIANA GOMES", 25:" LUCAS MATEUS", 26:" ENOK ",
+      27:" BRENNO LOPES", 28:" FREITAS ", 29:" JOÃO PEDRO", 30:" ARAUJO",
+      31:" ELLEM"
+    };
 
     
     let setembro =  [
@@ -145,7 +133,7 @@
       { data: "2025-09-16", numero: 30 },      
       { data: "2025-09-19", numero: 30 }
     ];
-
+    
      let outubro = [
       { data: "2025-10-08", numero: 12 },
        { data: "2025-10-08", numero: 10 },
@@ -181,119 +169,117 @@
        { data: "2025-10-30", numero: 12 },
        { data: "2025-10-31", numero: 25 },
        { data: "2025-10-31", numero: 28 },
-       
     ];
-    
-    let e = outubro 
-    e.sort((a, b) => a.numero - b.numero);
-    
-    // Mostrar tÃ­tulo com data de hoje
-document.getElementById("today").textContent =
-  "Responsável hoje " + formatarData(new Date().toISOString().split("T")[0]);
- 
-  
-  const relacao = {
-    1:" RAPHAEL",
-    2:" MATHEUS",
-    3:" BARBOSA REIS",
-    4:" LIBRELON",
-    5:" SOUZA",
-    6:" LORENA",
-    7:" OLIVEIRA ",
-    8:" GUILHERME ANDRADE ",
-    9:" CARDOSO ",
-    10:" MORINI ",
-    11:" JESSICA CASTRO ",
-    12:" RIBAS ",
-    13:" R.SILVEIRA ",
-    14:" GRUNEWALD ",
-    15:" LAUREANO ",
-    16:" LORENA DIAS ",
-    17:" GERHEIN ",
-    18:" SANTIAGO ",
-    19:" CRISTIAN ",
-    20:" BIANCHINI ",
-    21:" G.RODRIGUES ",
-    22:" DORNELAS ",
-    23:" MARIANA GOMES",
-    25:" LUCAS MATEUS",
-    26:" ENOK ",
-    27:" BRENNO LOPES",
-    28:" FREITAS ",
-    29:" JOÃO PEDRO",
-    30:" ARAUJO",
-    31:" ELLEM"
-  }
-    function getName(n){
-        return relacao[n] | "ASPON"
+
+    let escala = outubro.map(e => ({ data: e.data, nome: relacao[e.numero].trim() }));
+const escalaCompleta = [...setembro, ...outubro].map(e => ({
+    data: e.data,
+    nome: relacao[e.numero]?.trim() || "Desconhecido"
+  }));
+    // Mostrar título com data de hoje
+    document.getElementById("today").textContent =
+      "Responsável hoje " + formatarData(new Date().toISOString().split("T")[0]);
+
+    function formatarData(isoDate) {
+      if (!isoDate) return "";
+      const [ano, mes, dia] = isoDate.split("-");
+      return `${dia}/${mes}/${ano}`;
     }
- 
+
+    // Mostrar responsáveis de hoje
+    const hoje = new Date().toISOString().split("T")[0];
+    const respHoje = escala.filter(e => e.data === hoje);
+    document.getElementById("responsavelHoje").innerHTML =
+      respHoje.length > 0
+        ? respHoje.map(e => `<div>${e.nome}</div>`).join("")
+        : "Sem responsável hoje.";
+
     // Inicializar modais
     document.addEventListener("DOMContentLoaded", () => {
       M.Modal.init(document.querySelectorAll(".modal"));
+      renderCards();
     });
- 
-    function formatarData(isoDate) {
-        if (!isoDate) return "";
-        const [ano, mes, dia] = isoDate.split("-");
-        return `${dia}/${mes}/${ano}`;
-    }
- 
-    // Escala de exemplo
-    // Escala sÃ³ com nÃºmero + data
-   
- 
-    
-    let escala = e.map((l)=>{ return {data:l.data,nome:relacao[l.numero]}})
- 
-    const hoje = new Date().toISOString().split("T")[0];
-    // pega todos os responsáveis do dia
-    const respHoje = escala.filter(e => e.data === hoje);
-    document.getElementById("responsavelHoje").innerHTML =
-    respHoje.length > 0
-        ? respHoje.map(e => `<div>${e.nome}</div>`).join("")  // cada um em uma linha
-        : "Sem responsável hoje.";
- 
- 
+
+    // Renderizar cards
     const cardsContainer = document.getElementById("cardsEscala");
- 
-    function renderCards(filtro="") {
-      cardsContainer.innerHTML = "";
-      escala
-        .filter(e =>
-          e.nome.toLowerCase().includes(filtro.toLowerCase()) ||
-          e.data.includes(filtro)|| formatarData(e.data).includes(filtro)
-        )
-        .forEach(e => {
-          const col = document.createElement("div");
-          col.className = "col s12 m6";
-          col.innerHTML = `
-            <div class="card blue lighten-5 card-escala">
-              <div class="card-content">
-                <span class="card-title">${e.nome}</span>
-                <p><b>Data:</b> ${formatarData(e.data)}</p>
-              </div>
-            </div>`;
-          cardsContainer.appendChild(col);
-        });
-    }
- 
-    renderCards();
- 
-    document.getElementById("pesquisa").addEventListener("input", (ev) => {
+    function renderCards(filtro = "") {
+  cardsContainer.innerHTML = "";
+
+  // Obter nomes únicos da escala que correspondem ao filtro
+  const nomesUnicos = [...new Set(
+    escala
+      .filter(e =>
+        e.nome.toLowerCase().includes(filtro.toLowerCase()) ||
+        e.data.includes(filtro) ||
+        formatarData(e.data).includes(filtro)
+      )
+      .map(e => e.nome)
+  )];
+
+  // Criar array de objetos com nome e totalDias para ordenar
+  const nomesComTotal = nomesUnicos.map(nome => {
+    const totalDias = escalaCompleta.filter(p => p.nome === nome).length;
+    return { nome, totalDias };
+  });
+
+  // Ordenar crescente pelo totalDias
+  nomesComTotal.sort((a, b) => a.totalDias - b.totalDias);
+
+  // Renderizar cards ordenados
+  nomesComTotal.forEach(({ nome, totalDias }) => {
+    const col = document.createElement("div");
+    col.className = "col s12 m6";
+    col.innerHTML = `
+      <div class="card blue lighten-5 card-escala modal-trigger" data-nome="${nome}" href="#modalEscalasPessoa">
+        <div class="card-content">
+          <span class="card-title">${nome}</span>
+          <p><b>Data:</b> (${totalDias} dia${totalDias > 1 ? 's' : ''})</p>
+        </div>
+      </div>`;
+    cardsContainer.appendChild(col);
+  });
+
+  document.querySelectorAll(".card-escala").forEach(card => {
+    card.addEventListener("click", () => {
+      const nome = card.getAttribute("data-nome").trim();
+      mostrarEscalasDaPessoa(nome);
+    });
+  });
+}
+
+
+
+
+    // Filtro de pesquisa
+    document.getElementById("pesquisa").addEventListener("input", ev => {
       renderCards(ev.target.value);
     });
- 
-    // Salvar nova escala
-    document.getElementById("btnSalvar").addEventListener("click", () => {
-      const data = document.getElementById("dataInput").value;
-      const nome = document.getElementById("nomeInput").value;
-      if (data && nome) {
-        escala.push({ data, nome });
-        renderCards();
-        M.Modal.getInstance(document.getElementById("modalAdd")).close();
+
+    // Mostrar escalas da pessoa no modal
+    function mostrarEscalasDaPessoa(nome) {
+      const lista = document.getElementById("listaEscalasPessoa");
+      const titulo = document.getElementById("modalNomePessoa");
+
+      titulo.textContent = `Escalas de: ${nome}`;
+      lista.innerHTML = "";
+
+      const escalasPessoa = escalaCompleta.filter(e => e.nome.trim() === nome);
+      if (escalasPessoa.length === 0) {
+        lista.innerHTML = "<li class='collection-item'>Nenhuma escala encontrada.</li>";
+      } else {
+            escalasPessoa
+            .sort((a, b) => a.data.localeCompare(b.data))
+            .forEach(e => {
+                const item = document.createElement("li");
+                item.className = "collection-item";
+                item.textContent = formatarData(e.data);
+                lista.appendChild(item);
+            });
       }
-    });
+
+      const instance = M.Modal.getInstance(document.getElementById("modalEscalasPessoa"));
+      instance.open();
+    }
   </script>
 </body>
 </html>
