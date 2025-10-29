@@ -167,7 +167,10 @@
 
         }
 
-
+        function clearLink(){
+            document.getElementById('linksList').innerHTML='';
+        }
+        
         function addLink(text,href) {
             // Cria um novo elemento <li>
             let li = document.createElement('li');
@@ -210,7 +213,7 @@
         function changePage(page) {
             // Mudar título
             const title = document.getElementById('title');
-            document.getElementById('linksList').innerHTML='';
+            clearLink()
 
             // Mudar fundo e texto com base no link clicado
             switch (page) {
