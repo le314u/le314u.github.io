@@ -170,6 +170,10 @@
         function clearLink(){
             document.getElementById('linksList').innerHTML='';
         }
+
+        function changeTitle(newTitle){
+            title.textContent = String(newTitle);
+        }
         
         function addLink(text,href) {
             // Cria um novo elemento <li>
@@ -218,26 +222,25 @@
             // Mudar fundo e texto com base no link clicado
             switch (page) {
                 case 'page1':
+                    changeTitle('Games');
                     addLink('Telma','https://314-u.com/games/telma/')
                     addLink('Spy','https://314-u.com/games/spy/')
                     addLink('Perfil','https://314-u.com/games/perfil/')
-                    title.textContent = 'Games';
                     changeColor()
                     break;
                 case 'page2':
+                    changeTitle('Tools');
                     addLink('Encrypt','https://314-u.com/tools/encrypt/')
-                    title.textContent = 'Tools';
                     changeColor()
                     break;
                 case 'page3':
-                    addLink('cEDH','https://314-u.com/primer/cEDH/')
+                    changeTitle('Magic');
                     addLink('Orvar','https://314-u.com/primer/orvar/')
                     addLink('Urza','https://314-u.com/primer/urza/')
-                    title.textContent = 'Magic';
                     changeColor()
                     break;
                 default:
-                    title.textContent = 'Bem-vindo ao Hub Estiloso';
+                    changeTitle('Bem-vindo ao Hub Estiloso');
                     break;
             }
         }
