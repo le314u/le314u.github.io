@@ -190,10 +190,11 @@
     <h1 id="title">Bem-vindo ao Hub Estiloso</h1>
 
     <div class="hub-links">
+        <a href="/portifolio">Portifólio</a>
+        <a href="/cfsd">CFSd</a>
         <a href="#" onclick="changePage('page1')">Games</a>
         <a href="#" onclick="changePage('page2')">Tools</a>
         <a href="#" onclick="changePage('page3')">Magic</a>
-        <a href="#" onclick="changePage('page4')">CFSd</a>
     </div>
     
     <ul class="links-container" id="linksList"></ul>
@@ -213,20 +214,22 @@
 
             // Mudar fundo e texto com base no link clicado
             switch (page) {
+                case 'page0':
+                    addLink('Portifólio 'page0':
+                    title.textContent = 'Portifólio';
+                    changeColor()
+                    break;
                 case 'page1':
                     addLink('Telma','https://314-u.com/games/telma/')
                     addLink('Spy','https://314-u.com/games/spy/')
                     addLink('Perfil','https://314-u.com/games/perfil/')
                     title.textContent = 'Games';
                     changeColor()
-
                     break;
                 case 'page2':
                     addLink('Encrypt','https://314-u.com/tools/encrypt/')
                     title.textContent = 'Tools';
                     changeColor()
-
-
                     break;
                 case 'page3':
                     addLink('cEDH','https://314-u.com/primer/cEDH/')
@@ -234,12 +237,11 @@
                     addLink('Urza','https://314-u.com/primer/urza/')
                     title.textContent = 'Magic';
                     changeColor()
-                    
                     break;
                 case 'page4':
-                        addLink('CFSd','https://314-u.com/cfsd')
-                        title.textContent = 'CFSd';
-                        changeColor()
+                    addLink('CFSd','https://314-u.com/cfsd')
+                    title.textContent = 'CFSd';
+                    changeColor()
                     break;
                 default:
                     title.textContent = 'Bem-vindo ao Hub Estiloso';
