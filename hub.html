@@ -193,7 +193,7 @@
         <a href="#" onclick="changePage('page1')">Games</a>
         <a href="#" onclick="changePage('page2')">Tools</a>
         <a href="#" onclick="changePage('page3')">Magic</a>
-        <a href="#" onclick="changePage('page4')">Blog</a>
+        <a href="#" onclick="changePage('page4')">CFSd</a>
     </div>
     
     <ul class="links-container" id="linksList"></ul>
@@ -236,8 +236,9 @@
                     changeColor()
                     
                     break;
-                    case 'page4':
-                        title.textContent = 'Blog';
+                case 'page4':
+                        addLink('CFSd','https://314-u.com/cfsd')
+                        title.textContent = 'CFSd';
                         changeColor()
                     break;
                 default:
