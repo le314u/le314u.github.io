@@ -25,7 +25,7 @@
     background-color: var(--bg);
     padding:2rem; border-radius:12px;
     box-shadow:0 4px 20px rgba(0,0,0,0.1);
-    display:flex; flex-direction:column; gap:1rem; width:340px;
+    display:flex; flex-direction:column; gap:1rem; width:360px;
   }
 
   input { padding:.8rem; border-radius:6px; border:1px solid #ccc; background-color:var(--input-bg); color:var(--input-text); font-size:1rem;}
@@ -36,13 +36,14 @@
 
   .toggle-btn { background:none; border:1px solid var(--text); color:var(--text); margin-top:.5rem; }
 
+  .label { font-size:0.85rem; color: var(--text); }
+
   .octetos { display:flex; gap:0.2rem; flex-wrap:wrap; font-family:monospace; font-size:0.9rem; }
 
   .bit { width:18px; text-align:center; border-radius:4px; padding:2px; margin:1px; }
-  .network { background-color:#2ecc71; color:#fff; } /* verde para rede */
-  .host { background-color:#e74c3c; color:#fff; } /* vermelho para host */
+  .network { background-color:#2ecc71; color:#fff; } /* verde = rede */
+  .host { background-color:#e74c3c; color:#fff; } /* vermelho = host */
 
-  .label { font-size:0.85rem; margin-bottom:0.3rem; color: var(--text); }
   .error { color:#e74c3c; font-size:0.9rem; }
 </style>
 </head>
@@ -52,9 +53,12 @@
     <input type="text" id="ipInput" placeholder="Ex: 192.168.0.1/24">
     <button onclick="processIP()">Visualizar</button>
 
-    <div class="label">Bits do IP (Verde = Rede, Vermelho = Host)</div>
-    <div id="octetosIP" class="octetos"></div>
-    
+    <div class="label">IP:</div>
+    <div id="ipDecimal" class="octetos"></div>
+
+    <div class="label">IP em binário (Verde = Rede, Vermelho = Host):</div>
+    <div id="ipBinary" class="octetos"></div>
+
     <div class="error" id="error"></div>
     <button class="toggle-btn" onclick="toggleTheme()">🌙 Mudar Tema</button>
   </div>
@@ -67,10 +71,12 @@ function toggleTheme() {
 
 function processIP() {
   const input = document.getElementById('ipInput').value.trim();
-  const outputIP = document.getElementById('octetosIP');
+  const ipDecimal = document.getElementById('ipDecimal');
+  const ipBinary = document.getElementById('ipBinary');
   const error = document.getElementById('error');
 
-  outputIP.innerHTML = '';
+  ipDecimal.innerHTML = '';
+  ipBinary.innerHTML = '';
   error.textContent = '';
 
   const match = input.match(/^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\/(\d{1,2})$/);
@@ -80,21 +86,30 @@ function processIP() {
   const maskLen = Number(match[2]);
   if(ip.some(oct=>oct<0||oct>255) || maskLen<0||maskLen>32) { error.textContent='IP ou máscara inválidos'; return; }
 
+  // Mostrar IP decimal separado por pontos
+  ip.forEach((oct,i)=>{
+    const span = document.createElement('span');
+    span.textContent = oct;
+    ipDecimal.appendChild(span);
+    if(i<3) ipDecimal.appendChild(document.createTextNode('.'));
+  });
+
   // Converter IP para binário
   const binaryIP = ip.map(oct=>oct.toString(2).padStart(8,'0'));
 
-  // Mostrar IP com cores (verde = rede, vermelho = host)
+  // Mostrar IP binário com cores, separando octetos com pontos
   for(let i=0;i<4;i++){
     const oct = binaryIP[i];
     for(let j=0;j<8;j++){
       const span = document.createElement('span');
       span.className = 'bit ' + (i*8+j < maskLen ? 'network' : 'host');
       span.textContent = oct[j];
-      outputIP.appendChild(span);
+      ipBinary.appendChild(span);
     }
-    outputIP.appendChild(document.createElement('br'));
+    if(i<3) ipBinary.appendChild(document.createTextNode('.'));
   }
 }
 </script>
 </body>
 </html>
+
