@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Dungeon Procedural com Setup - Le314u</title>
+<style>
+body {
+    font-family: monospace;
+    background: #222;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+#mapa {
+    display: grid;
+    gap: 1px;
+    margin-top: 15px;
+}
+.parede { background: #444; width: 20px; height: 20px; }
+.chao { background: #aaa; width: 20px; height: 20px; }
+.jogador { background: #0f0; width: 20px; height: 20px; }
+.monstro { background: #f00; width: 20px; height: 20px; }
+.tesouro { background: #ff0; width: 20px; height: 20px; }
+
+/* Popup de setup */
+#setupPopup {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333;
+    padding: 20px;
+    border: 2px solid #fff;
+    display: none; /* Começa escondido */
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+#setupPopup label { display: block; margin-top: 5px; }
+#overlay {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 900;
+    display: none; /* Começa escondido */
+}
+button {
+    cursor: pointer;
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<button onclick="abrirSetup()">Configurar Dungeon</button>
+
+<div id="overlay"></div>
+<button onclick="gerarDungeon()">Gerar Dungeon</button>
+<div id="setupPopup">
+    <h2>Setup da Dungeon</h2>
+    <label>Tamanho do mapa:</label>
+    <input type="number" id="larguraInput" value="40" min="10" max="100"> x
+    <input type="number" id="alturaInput" value="20" min="10" max="50">
+
+    <label>Quantidade de salas:</label>
+    <input type="number" id="numSalasInput" value="5" min="1" max="20">
+
+    <label>Monstros por sala:</label>
+    <input type="number" id="monstrosInput" value="2" min="0" max="10">
+
+    <label>Tesouros por sala:</label>
+    <input type="number" id="tesourosInput" value="1" min="0" max="10">
+
+    <button onclick="gerarDungeon()">Gerar Dungeon</button>
+    <button onclick="fecharSetup()">Cancelar</button>
+</div>
+<br>
+<div id="info"></div>
+<div id="mapa"></div>
+
+<script>
+const MIN_SALA = 3;
+const MAX_SALA = 8;
+
+function abrirSetup(){
+    document.getElementById("setupPopup").style.display="flex";
+    document.getElementById("overlay").style.display="block";
+}
+
+function fecharSetup(){
+    document.getElementById("setupPopup").style.display="none";
+    document.getElementById("overlay").style.display="none";
+}
+
+function criarMapa(largura, altura) {
+    const mapa = [];
+    for(let y=0;y<altura;y++){
+        const linha=[];
+        for(let x=0;x<largura;x++) linha.push("#");
+        mapa.push(linha);
+    }
+    return mapa;
+}
+
+function criarSala(mapa,x,y,largura,altura){
+    const ALTURA=mapa.length;
+    const LARGURA=mapa[0].length;
+    for(let i=y;i<y+altura;i++){
+        for(let j=x;j<x+largura;j++){
+            if(i>=0&&i<ALTURA&&j>=0&&j<LARGURA) mapa[i][j]=".";
+        }
+    }
+}
+
+function criarCorredor(mapa,x1,y1,x2,y2){
+    for(let x=Math.min(x1,x2);x<=Math.max(x1,x2);x++) mapa[y1][x]=".";
+    for(let y=Math.min(y1,y2);y<=Math.max(y1,y2);y++) mapa[y][x2]=".";
+}
+
+function renderizarMapa(mapa){
+    const container=document.getElementById("mapa");
+    container.innerHTML="";
+    const ALTURA=mapa.length;
+    const LARGURA=mapa[0].length;
+    container.style.gridTemplateColumns=`repeat(${LARGURA},20px)`;
+    container.style.gridTemplateRows=`repeat(${ALTURA},20px)`;
+
+    for(let y=0;y<ALTURA;y++){
+        for(let x=0;x<LARGURA;x++){
+            const celula=document.createElement("div");
+            if(mapa[y][x]==="#") celula.classList.add("parede");
+            else if(mapa[y][x]===".") celula.classList.add("chao");
+            else if(mapa[y][x]==="@") celula.classList.add("jogador");
+            else if(mapa[y][x]==="M") celula.classList.add("monstro");
+            else if(mapa[y][x]==="T") celula.classList.add("tesouro");
+            container.appendChild(celula);
+        }
+    }
+}
+
+function mostrarInfo(largura,altura,numSalas,numCorredores){
+    const infoDiv=document.getElementById("info");
+    infoDiv.innerHTML=`
+        <strong>Tamanho do mapa:</strong> ${largura}x${altura} |
+        <strong>Salas:</strong> ${numSalas} |
+        <strong>Corredores:</strong> ${numCorredores}
+    `;
+}
+
+function gerarDungeon(){
+    const largura=parseInt(document.getElementById("larguraInput").value);
+    const altura=parseInt(document.getElementById("alturaInput").value);
+    const numSalas=parseInt(document.getElementById("numSalasInput").value);
+    const monstrosPorSala=parseInt(document.getElementById("monstrosInput").value);
+    const tesourosPorSala=parseInt(document.getElementById("tesourosInput").value);
+
+    const mapa=criarMapa(largura,altura);
+    const salas=[];
+
+    // Criar salas e adicionar monstros e tesouros
+    for(let i=0;i<numSalas;i++){
+        const w=Math.floor(Math.random()*(MAX_SALA-MIN_SALA+1))+MIN_SALA;
+        const h=Math.floor(Math.random()*(MAX_SALA-MIN_SALA+1))+MIN_SALA;
+        const x=Math.floor(Math.random()*(largura-w-1))+1;
+        const y=Math.floor(Math.random()*(altura-h-1))+1;
+        criarSala(mapa,x,y,w,h);
+
+        const centro={x:x+Math.floor(w/2),y:y+Math.floor(h/2)};
+        salas.push({x:centro.x,y:centro.y,w,h,monstros:[],tesouros:[]});
+
+        for(let m=0;m<monstrosPorSala;m++){
+            const mx=Math.floor(Math.random()*w)+x;
+            const my=Math.floor(Math.random()*h)+y;
+            if(mapa[my][mx]===".") { mapa[my][mx]="M"; salas[i].monstros.push({x:mx,y:my}); }
+        }
+        for(let t=0;t<tesourosPorSala;t++){
+            const tx=Math.floor(Math.random()*w)+x;
+            const ty=Math.floor(Math.random()*h)+y;
+            if(mapa[ty][tx]===".") { mapa[ty][tx]="T"; salas[i].tesouros.push({x:tx,y:ty}); }
+        }
+    }
+
+    // Conectar salas
+    const corredores=[];
+    for(let i=1;i<salas.length;i++){
+        const prev=salas[i-1];
+        const curr=salas[i];
+        criarCorredor(mapa,prev.x,prev.y,curr.x,curr.y);
+        corredores.push({from:prev,to:curr});
+    }
+
+    // Colocar jogador
+    const jogador=salas[0];
+    mapa[jogador.y][jogador.x]="@";
+
+    renderizarMapa(mapa);
+    mostrarInfo(largura,altura,salas.length,corredores.length);
+
+    fecharSetup();
+}
+
+// chama gerarDungeon quando a página terminar de carregar
+window.onload = function() {
+    gerarDungeon();
+};
+</script>
+</body>
+</html>

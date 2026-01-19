@@ -1,0 +1,18 @@
+✨ Funcionalidades
+
+🔀 Geração procedural completa
+Salas, corredores e layout geral criados automaticamente.
+
+🧭 Algoritmo configurável
+Defina tamanho do mapa, quantidade de salas, quantidade de monstros e tesouros.
+
+🗺️ Exportação
+Exporte o mapa como JSON, ASCII, matriz ou imagem (dependendo da implementação).
+
+⚙️ Seed opcional
+Permite gerar a mesma dungeon novamente usando a mesma palavra-chave.
+
+🎮 Pronto para uso em jogos
+Integração fácil com engines ou sistemas próprios.
+
+Criado via VibeCoding
