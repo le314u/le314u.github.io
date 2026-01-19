@@ -1,164 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meus Games e Nicks</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      background: linear-gradient(135deg, #000000, #0b0b2c);
-      color: #ffffff;
-      font-family: 'Press Start 2P', cursive;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-      overflow-x: hidden;
-      animation: fadeIn 2s ease-in;
-      position: relative;
-    }
-
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.03),
-        rgba(255, 255, 255, 0.03) 1px,
-        transparent 1px,
-        transparent 3px
-      );
-      pointer-events: none;
-      z-index: 0;
-      animation: scanline 1s infinite linear;
-    }
-
-    @keyframes scanline {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 3px; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      text-shadow: 0 0 10px #f00, 0 0 20px #ff0, 0 0 30px #f00;
-      animation: glowSF 2s infinite alternate;
-      z-index: 1;
-    }
-
-    @keyframes glowSF {
-      0% {
-        text-shadow: 0 0 5px #f00, 0 0 10px #ff0;
-        color: #fff;
-      }
-      100% {
-        text-shadow: 0 0 20px #f00, 0 0 30px #ff0;
-        color: #ffe600;
-      }
-    }
-
-    .card {
-      background: linear-gradient(145deg, #1b1b1b, #2b2b2b);
-      border: 2px solid #f00;
-      padding: 1rem;
-      margin: 1rem;
-      width: 300px;
-      text-align: center;
-      box-shadow: 0 0 15px #f00, 0 0 10px #ff0;
-      transition: transform 0.3s, box-shadow 0.3s;
-      animation: slideIn 1s ease-out;
-      position: relative;
-      z-index: 1;
-    }
-
-    .card:hover {
-      transform: scale(1.1) rotate(1deg);
-      box-shadow: 0 0 25px #ff0, 0 0 40px #f00;
-    }
-
-    @keyframes slideIn {
-      from { transform: translateX(-100vw); }
-      to { transform: translateX(0); }
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
-      border: 2px dashed rgba(255, 0, 0, 0.3);
-      animation: flicker 1.5s infinite alternate;
-      pointer-events: none;
-    }
-
-    @keyframes flicker {
-      0% { opacity: 0.2; }
-      50% { opacity: 0.6; }
-      100% { opacity: 0.2; }
-    }
-
-    .card h2 {
-      margin: 0 0 0.5rem;
-      color: #ffe600;
-      text-shadow: 0 0 5px #f00, 0 0 10px #ff0;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    a {
-      color: #ff4444;
-      text-decoration: none;
-      text-shadow: 0 0 5px #ffe600;
-    }
-    a:hover {
-      color: #ffffff;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le314u - Arcade</title>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <h1>🔥 Meus Games & Nicks 🥋</h1>
-
-  <div class="card">
-    <h2>Steam</h2>
-    <p>MinhaMae</p>
-    <a href="https://steamcommunity.com/id/meuguardaroupas">Ver perfil</a>
-  </div>
-
-  <div class="card">
-    <h2>Dota 2</h2>
-    <p>MinhaMae</p>
-  </div>
-
-  <div class="card">
-    <h2>Dragon Ball FighterZ</h2>
-    <p>MinhaMae</p>
-  </div>
-
-  <div class="card">
-    <h2>Mortal Kombat</h2>
-    <p>MinhaMae</p>
-  </div>
-
-  <div class="card">
-    <h2>Street Fighter</h2>
-    <p>MinhaMae</p>
-  </div>
+    <div class="main-container">
+      
+        <div class="carousel-section">
+            <div class="carousel-container">
+                <button class="nav-arrow up">
+                    <img src="assets/top.png" alt="Up">
+                </button>
+                <div class="carousel-track">
+                  <div class="card" data-index="0">
+                    <a href="https://steamcommunity.com/id/meuguardaroupas/" target="_blank" rel="noopener noreferrer">
+                      <img src="assets/imgs/steam.jpg" alt="Team Member 1">
+                    </a>
+                  </div>
+                  <div class="card" data-index="1">
+                    <a href="https://www.chess.com/member/ldomal2" target="_blank" rel="noopener noreferrer">
+                      <img src="assets/imgs/chess.png" alt="Team Member 1">
+                    </a>
+                  </div>
+                  <div class="card" data-index="2">
+                      <img src="assets/imgs/dbz.png" alt="Team Member 1">
+                  </div>
+                  <div class="card" data-index="3">
+                      <img src="assets/imgs/sf.jpg" alt="Team Member 1">
+                  </div>
+                  <div class="card" data-index="4">
+                      <img src="assets/imgs/kof2002.jpg" alt="Team Member 1">
+                  </div>
+                  <div class="card" data-index="5">
+                      <img src="assets/imgs/ggxrd2.jpg" alt="Team Member 1">
+                  </div>
+                  <div class="card" data-index="6">
+                      <img src="assets/imgs/mk.jpg" alt="Team Member 1">
+                  </div>
+                  <div class="card" data-index="7">
+                      <img src="assets/imgs/dota2.jpg" alt="Team Member 1">
+                  </div>  
+                  <!-- 
+                  <div class="card" data-index="7">
+                      <img src="" alt="Team Member 8">
+                  </div> 
+                  -->
+                </div>
+                <button class="nav-arrow down">
+                    <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
+                </button>
+            </div>
+        </div>
+        <div class="controls-section">
+            <div class="nav-controls">
+                <button class="nav-arrow up">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.3508 12.7499L11.2096 17.4615L10.1654 18.5383L3.42264 11.9999L10.1654 5.46148L11.2096 6.53833L6.3508 11.2499L21 11.2499L21 12.7499L6.3508 12.7499Z" fill="#A0A050"></p55"></path> </g></svg>                </button>
+                </button>
+                <button class="nav-arrow down">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M17.6492 11.2501L12.7904 6.53852L13.8346 5.46167L20.5774 12.0001L13.8346 18.5385L12.7904 17.4617L17.6492 12.7501H3V11.2501H17.6492Z" fill="#A0A050"></path> </g></svg>
+                </button>
+            </div>
+            <div class="member-info">
+                <h2 class="member-name"><span id="title"></span></h2>
+                <p class="member-role"><span id="content"></span><span class="cursor-effect"></span></p>
+            </div>
+            <div class="dots">
+                <div class="dot active" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
+                <div class="dot" data-index="4"></div>
+                <div class="dot" data-index="5"></div>
+                <div class="dot" data-index="6"></div>
+                <div class="dot" data-index="7"></div>
+            </div>
+        </div>
+    </div>
+<script src="assets/main.js"></script>
 </body>
 </html>
