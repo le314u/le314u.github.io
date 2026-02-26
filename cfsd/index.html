@@ -100,9 +100,8 @@
 </head>
 <body>
 
-  <h1>Senhoras Senhores <s class="rest">e combatentes</s>.</h1>
+  <h1>Senhoras Senhores <s class="rest">e combatentes</s></h1>
   <div id="info">Carregando...</div>
-  </h2>é justo que muito custe, aquilo que muito vale.</h2>
   <!-- Chevron progress -->
   <div class="progress-container">
     <svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet">
@@ -121,7 +120,7 @@
     </svg>
     <div class="progress-text" id="progress-text">0%</div>
   </div>
-
+  <h2 id="frase></h2>
   <div class="link-hub">
     <a href="#" id="tmp">
       📁 Acesso à area de transferencia.
@@ -191,6 +190,23 @@
     updateCourseClock();
     setInterval(updateCourseClock, 1500);
 
+
+    
+    //Frase Aleatoria 
+    function setFrase(){
+      const frases = [
+        "É justo que muito custe, aquilo que muito vale",
+        "Foi bom porque foi ruim, seria melhor se fosse pior"
+      ];
+        
+      // Seleciona o elemento
+      const elemento = document.getElementById("frase");
+      const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+      elemento.innerHTML = fraseAleatoria;
+    }
+
+    
+    //Link Ofuscado
     document.getElementById("tmp").addEventListener("click", function(event) {
       event.preventDefault(); // evita que o link recarregue a página
       (()=>{   
@@ -203,8 +219,12 @@
           window.open(url, "_blank");       
       })()
     });
+
+
+
     
-    
+    setFrase()
+
     
   </script>
 </body>
