@@ -181,12 +181,6 @@
         Já se passou <strong>${percentage}%</strong> do curso.
       `;
 
-
-      
-
-      infoEl.innerHTML = `Faltam <strong>${daysRemaining}</strong> dias para <strong>${String(endDate.getDate()).padStart(2,'0')}/${String(endDate.getMonth()+1).padStart(2,'0')}/${endDate.getFullYear()}</strong><br>
-                          Já se passou <strong>${percentage}%</strong> do curso.`;
-
       const offset = pathLength * (1 - percentage / 100);
       progressEl.setAttribute("stroke-dashoffset", offset);
       textEl.innerText = `${percentage}%`;
