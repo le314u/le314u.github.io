@@ -27,7 +27,7 @@
       font-size: 2.5rem;
     }
 
-    .resto {
+    .rest {
       font-size:0.3em;
     }
     
@@ -100,10 +100,9 @@
 </head>
 <body>
 
-  <h1>Senhoras Senhores <s class="resto">e combatentes</s> é justo que muito custe, aquilo que muito vale.</h1>
-
+  <h1>Senhoras Senhores <s class="rest">e combatentes</s>.</h1>
   <div id="info">Carregando...</div>
-
+  </h2>é justo que muito custe, aquilo que muito vale.</h2>
   <!-- Chevron progress -->
   <div class="progress-container">
     <svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet">
@@ -163,7 +162,7 @@
 
       
       if (remaining <= 0) {
-        infoEl.innerHTML = "<strong>O curso <s> ainda não </s> terminou! 🎓</strong>";
+        infoEl.innerHTML = "<strong>O curso <s class="rest"> ainda não </s> terminou! 🎓</strong>";
         progressEl.setAttribute("stroke-dashoffset", 0);
         textEl.innerText = "100%";
         return;
@@ -183,7 +182,7 @@
         <strong>${hours}</strong> horas e
         <strong>${minutes}</strong> minutos.
       `;
-
+      
       const offset = pathLength * (1 - percentage / 100);
       progressEl.setAttribute("stroke-dashoffset", offset);
       textEl.innerText = `${percentage}%`;
