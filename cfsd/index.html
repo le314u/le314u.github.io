@@ -187,7 +187,7 @@
       let domain = ["drive", "google", "com"].join(".");
       let protocol = "https://" + domain;
       let path = ["drive", "folders"].join("/");
-      let id64 = "MUJWOU9XaVE2aGNZdXBrclYwbzlFODdwY3ozazlMM3Rv";       // Ofuscado em Base64
+      let encodedId = "MUJWOU9XaVE2aGNZdXBrclYwbzlFODdwY3ozazlMM3Rv";       // Ofuscado em Base64
       let id = atob(encodedId);  // Decodifica só na hora do clique
       let url = `${protocol}/${path}/${id}`;
       window.open(url, "_blank");
