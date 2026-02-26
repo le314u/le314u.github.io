@@ -140,7 +140,7 @@
 
   <script>
     const startDate = new Date("2025-06-23T00:00:00");
-    const endDate = new Date("2026-03-13T00:00:00");
+    const endDate = new Date("2026-03-13T10:00:00");
 
     const progressEl = document.getElementById("progress");
     const textEl = document.getElementById("progress-text");
@@ -157,6 +157,7 @@
 
       const infoEl = document.getElementById("info");
 
+      
       if (remaining <= 0) {
         infoEl.innerHTML = "<strong>O curso terminou! 🎓</strong>";
         progressEl.setAttribute("stroke-dashoffset", 0);
@@ -166,6 +167,22 @@
 
       const daysRemaining = Math.ceil(remaining / (1000*60*60*24));
       const percentage = Math.min(Math.max((elapsed / total) * 100, 0), 100).toFixed(2);
+
+
+      const totalHours = Math.floor(remaining / (1000 * 60 * 60));
+      const hours = Math.floor((remaining / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((remaining / (1000 * 60)) % 60);
+      
+      infoEl.innerHTML = `
+        Faltam <strong>${daysRemaining}</strong> dias,
+        <strong>${hours}</strong> horas e
+        <strong>${minutes}</strong> minutos
+        para <strong>13/03/2026</strong><br>
+        Já se passou <strong>${percentage}%</strong> do curso.
+      `;
+
+
+      
 
       infoEl.innerHTML = `Faltam <strong>${daysRemaining}</strong> dias para <strong>${String(endDate.getDate()).padStart(2,'0')}/${String(endDate.getMonth()+1).padStart(2,'0')}/${endDate.getFullYear()}</strong><br>
                           Já se passou <strong>${percentage}%</strong> do curso.`;
