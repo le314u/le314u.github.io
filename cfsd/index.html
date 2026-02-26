@@ -120,7 +120,7 @@
     </svg>
     <div class="progress-text" id="progress-text">0%</div>
   </div>
-  <h2 id="frase></h2>
+  <h2 id="frase"></h2>
   <div class="link-hub">
     <a href="#" id="tmp">
       📁 Acesso à area de transferencia.
@@ -196,7 +196,9 @@
     function setFrase(){
       const frases = [
         "É justo que muito custe, aquilo que muito vale",
-        "Foi bom porque foi ruim, seria melhor se fosse pior"
+        "Foi bom porque foi ruim, seria melhor se fosse pior",
+        "Bom ou mal, depende do que vem depois",
+        "A dor é temporária, a glória é eterna",
       ];
         
       // Seleciona o elemento
@@ -204,6 +206,7 @@
       const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
       elemento.innerHTML = fraseAleatoria;
     }
+    setFrase()
 
     
     //Link Ofuscado
@@ -220,12 +223,6 @@
       })()
     });
 
-
-
-    
-    setFrase()
-
-    
   </script>
 </body>
 </html>
